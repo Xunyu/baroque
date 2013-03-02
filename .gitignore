@@ -1,10 +1,14 @@
 
 .DS_Store
 
-api-server/.classpath
+*.classpath
 
-api-server/.project
+*.project
 
 *.prefs
 
 *.class
+
+api-server/.settings
+
+api-server/target
