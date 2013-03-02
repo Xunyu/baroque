@@ -5,7 +5,7 @@ import javax.servlet.ServletContextListener;
 
 /**
  * @author wenjing.wang
- * 
+ *
  */
 public class AppConfigListener implements ServletContextListener {
 

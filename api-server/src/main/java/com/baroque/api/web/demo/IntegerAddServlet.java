@@ -24,7 +24,7 @@ public class IntegerAddServlet extends HttpServlet {
 		int b = Integer.parseInt(req.getParameter("b"));
 		PrintWriter writer = resp.getWriter();
 		writer.printf("<h1>a+b=%d</h1>", a + b);
-		writer.printf("<p>config(test)=%s</p>", ConfigManager.get("test"));
+		writer.printf("<p>config(test)=%s</p>", ConfigManager.getProperty("test"));
 		writer.flush();
 	}
 }

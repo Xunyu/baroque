@@ -61,7 +61,7 @@ public class ConfigManager {
 		}
 	}
 
-	public static String get(String key) {
+	public static String getProperty(String key) {
 		return get(key, null);
 	}
 

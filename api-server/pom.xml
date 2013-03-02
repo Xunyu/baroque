@@ -55,6 +55,9 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<filters>
+			<filter>src/filters/filter.${env}.properties</filter>
+		</filters>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
