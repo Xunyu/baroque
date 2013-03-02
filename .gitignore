@@ -1,0 +1,10 @@
+
+.DS_Store
+
+api-server/.classpath
+
+api-server/.project
+
+*.prefs
+
+*.class
