@@ -62,10 +62,10 @@ public class ConfigManager {
 	}
 
 	public static String getProperty(String key) {
-		return get(key, null);
+		return getProperty(key, null);
 	}
 
-	public static String get(String key, String defaultValue) {
+	public static String getProperty(String key, String defaultValue) {
 		if (configCache.containsKey(key)) {
 			return configCache.get(key);
 		} else {
