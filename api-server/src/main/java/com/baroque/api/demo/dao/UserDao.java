@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.mock.web.MockServletContext;
-
 import com.baroque.api.config.ConfigManager;
 import com.baroque.api.demo.entity.UserEntity;
 
@@ -87,21 +85,4 @@ public class UserDao {
 		}
 	}
 
-	public static void main(String[] args) {
-		MockServletContext servletContext = new MockServletContext();
-		servletContext.addInitParameter("appConfigLocation", "classpath:config/appConfig.properties");
-		ConfigManager.init(servletContext);
-		UserDao userDao = new UserDao();
-		String phoneNo = "000";
-		String nickName = "elric";
-		Integer userId = userDao.getUserIdByPhoneNo(phoneNo);
-		if (userId == null) {
-			UserEntity userEntity = new UserEntity();
-			userEntity.setPhoneNo(phoneNo);
-			userEntity.setNickName(nickName);
-			System.out.println(userDao.addUser(userEntity));
-		} else {
-			System.out.println("user exists, id=" + userId);
-		}
-	}
 }
