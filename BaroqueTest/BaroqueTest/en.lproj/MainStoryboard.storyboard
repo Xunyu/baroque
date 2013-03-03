@@ -63,7 +63,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fru-x5-Uvc">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="J3V-CU-Zha"/>
+                                    <constraint firstAttribute="width" constant="120" id="VnX-hC-PaZ"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="??">
@@ -81,22 +81,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HaC-Va-s8S" firstAttribute="top" secondItem="3" secondAttribute="top" constant="166" id="064-Pg-bmx"/>
                             <constraint firstItem="wPa-vc-ORf" firstAttribute="bottom" secondItem="SbB-09-Fj3" secondAttribute="bottom" type="default" id="6iF-ws-sD1"/>
-                            <constraint firstItem="Fru-x5-Uvc" firstAttribute="leading" secondItem="SbB-09-Fj3" secondAttribute="leading" type="default" id="CFP-d9-Z60"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="leading" secondItem="SbB-09-Fj3" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="CvK-BD-UVq"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="top" secondItem="SbB-09-Fj3" secondAttribute="top" type="default" id="D9Y-WR-pl3"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="top" secondItem="O9F-qH-mNv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IGC-Tr-rlC"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="leading" secondItem="O9F-qH-mNv" secondAttribute="leading" type="default" id="IHn-HV-j0r"/>
                             <constraint firstItem="SbB-09-Fj3" firstAttribute="leading" secondItem="bAG-Rb-zfg" secondAttribute="leading" type="default" id="JYI-fN-4iA"/>
-                            <constraint firstItem="HaC-Va-s8S" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="43" id="MX4-7L-knn"/>
+                            <constraint firstItem="HaC-Va-s8S" firstAttribute="baseline" secondItem="Fru-x5-Uvc" secondAttribute="baseline" type="default" id="KTi-Ys-TEl"/>
+                            <constraint firstItem="HaC-Va-s8S" firstAttribute="top" secondItem="3" secondAttribute="top" constant="222" id="RDa-jR-m1W"/>
                             <constraint firstItem="O9F-qH-mNv" firstAttribute="leading" secondItem="bAG-Rb-zfg" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YT1-3Q-xsv"/>
-                            <constraint firstItem="Fru-x5-Uvc" firstAttribute="trailing" secondItem="wPa-vc-ORf" secondAttribute="trailing" type="default" id="idp-Cr-iyA"/>
+                            <constraint firstAttribute="trailing" secondItem="wPa-vc-ORf" secondAttribute="trailing" constant="51" id="ban-4v-yy1"/>
+                            <constraint firstItem="Fru-x5-Uvc" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="baz-mQ-lZY"/>
+                            <constraint firstItem="SbB-09-Fj3" firstAttribute="leading" secondItem="HaC-Va-s8S" secondAttribute="leading" type="default" id="bi0-Po-wdb"/>
                             <constraint firstItem="O9F-qH-mNv" firstAttribute="trailing" secondItem="b4n-57-b8g" secondAttribute="trailing" type="default" id="nCm-Yo-zFl"/>
                             <constraint firstItem="O9F-qH-mNv" firstAttribute="top" secondItem="bAG-Rb-zfg" secondAttribute="top" type="default" id="rHd-dr-4cJ"/>
                             <constraint firstItem="bAG-Rb-zfg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="93" id="s6R-LB-GGF"/>
-                            <constraint firstItem="HaC-Va-s8S" firstAttribute="centerX" secondItem="SbB-09-Fj3" secondAttribute="centerX" type="default" id="tLG-jh-H0q"/>
-                            <constraint firstItem="Fru-x5-Uvc" firstAttribute="top" secondItem="HaC-Va-s8S" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vov-sj-kf4"/>
+                            <constraint firstItem="Fru-x5-Uvc" firstAttribute="leading" secondItem="HaC-Va-s8S" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="xhy-qF-2ZZ"/>
                         </constraints>
                         <connections>
                             <action selector="backgroundTap:" destination="2" eventType="touchDown" id="V7a-Zn-2Pf"/>
