@@ -93,7 +93,11 @@
     NSData *responseData = [request responseData];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths lastObject];
-    NSString *dataPath = [documentDirectory stringByAppendingPathComponent:@"downloadthing"];
+    NSString *str = [self.downloadAddress.text copy];
+    NSArray *array = [str componentsSeparatedByString:@"/"];
+    int index = [array count]- 1;
+    NSString *fileName = [array objectAtIndex:index];
+    NSString *dataPath = [documentDirectory stringByAppendingPathComponent:fileName];
     [responseData writeToFile:dataPath atomically:NO];
 }
 
