@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ASIHTTPRequest.h"
+#import "ASIHTTPRequestDelegate.h"
 @interface BWViewController : UIViewController
 @property (strong,nonatomic) IBOutlet UITextField *aNum;
 @property (strong,nonatomic) IBOutlet UITextField *bNum;
 @property (strong,nonatomic) IBOutlet UILabel *answer;
 - (IBAction)buttonPressed:(id)sender;
 - (IBAction) backgroundTap: (id)sender;
--(NSString *)testRequestWithNumberA:(int)a AndNumB:(int)b;
+//-(NSString *)testRequestWithNumberA:(int)a AndNumB:(int)b;
 -(NSString *)testRequestWithStringA:(NSString *)a AndStrB:(NSString *)b;
 
+@property (weak, nonatomic) IBOutlet UITextField *downloadAddress;
+- (IBAction)doDownload:(id)sender;
 @end

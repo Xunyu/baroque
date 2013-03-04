@@ -27,6 +27,7 @@
 {
     [aNum resignFirstResponder];
     [bNum resignFirstResponder];
+    [self.downloadAddress resignFirstResponder];
 }
 
 //-(IBAction)buttonPressed:(id)sender
@@ -73,6 +74,33 @@
     NSString *returnString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"%@", returnString);
     return returnString;
+}
+
+- (IBAction)doDownload:(id)sender {
+
+    NSURL *url = [NSURL URLWithString:self.downloadAddress.text];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    
+}
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    // Use when fetching text data
+    NSString *responseString = [request responseString];
+    NSLog(@"%@",responseString);
+    // Use when fetching binary data
+    NSData *responseData = [request responseData];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths lastObject];
+    NSString *dataPath = [documentDirectory stringByAppendingPathComponent:@"downloadthing"];
+    [responseData writeToFile:dataPath atomically:NO];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"%@",error);
 }
 
 @end
