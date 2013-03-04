@@ -13,3 +13,5 @@ api-server/.settings
 
 api-server/target
 *.xcuserstate
+
+*.xcuserstate
