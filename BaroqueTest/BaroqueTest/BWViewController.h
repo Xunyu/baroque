@@ -10,6 +10,7 @@
 #import "ASIHTTPRequest.h"
 #import "ASIHTTPRequestDelegate.h"
 @interface BWViewController : UIViewController
+<NSURLConnectionDelegate>
 @property (strong,nonatomic) IBOutlet UITextField *aNum;
 @property (strong,nonatomic) IBOutlet UITextField *bNum;
 @property (strong,nonatomic) IBOutlet UILabel *answer;
@@ -20,4 +21,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *downloadAddress;
 - (IBAction)doDownload:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextView *weatherTextView;
+- (IBAction)getWeather:(id)sender;
+
 @end

@@ -79,9 +79,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入要下载的地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TsS-Pm-NaG">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="fy5-Kh-S9v"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -98,28 +95,55 @@
                                     <action selector="doDownload:" destination="2" eventType="touchUpInside" id="ofT-uT-PnY"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daq-Yj-GY0">
+                                <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="GA1-aK-ElA"/>
+                                    <constraint firstAttribute="width" constant="283" id="iAf-w5-Z8o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBW-ng-fXw">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Get Weather">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getWeather:" destination="2" eventType="touchUpInside" id="4BJ-es-A98"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wPa-vc-ORf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="108" id="6P3-Kq-IId"/>
+                            <constraint firstItem="KBW-ng-fXw" firstAttribute="centerX" secondItem="Fru-x5-Uvc" secondAttribute="centerX" type="default" id="1bk-39-26w"/>
+                            <constraint firstAttribute="trailing" secondItem="wPa-vc-ORf" secondAttribute="trailing" constant="50" id="6Iy-H5-TLg"/>
+                            <constraint firstItem="wPa-vc-ORf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="35" id="8Dq-3y-M1F"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="leading" secondItem="SbB-09-Fj3" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="CvK-BD-UVq"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="top" secondItem="SbB-09-Fj3" secondAttribute="top" type="default" id="D9Y-WR-pl3"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="top" secondItem="O9F-qH-mNv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IGC-Tr-rlC"/>
                             <constraint firstItem="b4n-57-b8g" firstAttribute="leading" secondItem="O9F-qH-mNv" secondAttribute="leading" type="default" id="IHn-HV-j0r"/>
+                            <constraint firstItem="bAG-Rb-zfg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="IMI-NY-88W"/>
                             <constraint firstItem="SbB-09-Fj3" firstAttribute="leading" secondItem="bAG-Rb-zfg" secondAttribute="leading" type="default" id="JYI-fN-4iA"/>
                             <constraint firstItem="HaC-Va-s8S" firstAttribute="baseline" secondItem="Fru-x5-Uvc" secondAttribute="baseline" type="default" id="KTi-Ys-TEl"/>
-                            <constraint firstAttribute="bottom" secondItem="TsS-Pm-NaG" secondAttribute="bottom" constant="218" id="QVN-Y9-aBa"/>
-                            <constraint firstItem="HaC-Va-s8S" firstAttribute="top" secondItem="3" secondAttribute="top" constant="222" id="RDa-jR-m1W"/>
+                            <constraint firstItem="TsS-Pm-NaG" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NS0-76-95J"/>
                             <constraint firstItem="O9F-qH-mNv" firstAttribute="leading" secondItem="bAG-Rb-zfg" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YT1-3Q-xsv"/>
-                            <constraint firstAttribute="trailing" secondItem="wPa-vc-ORf" secondAttribute="trailing" constant="51" id="ban-4v-yy1"/>
+                            <constraint firstItem="bAG-Rb-zfg" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="50" id="ZvS-OI-bmt"/>
+                            <constraint firstItem="HaC-Va-s8S" firstAttribute="top" secondItem="3" secondAttribute="top" constant="149" id="afK-gM-NXX"/>
                             <constraint firstItem="SbB-09-Fj3" firstAttribute="leading" secondItem="HaC-Va-s8S" secondAttribute="leading" type="default" id="bi0-Po-wdb"/>
-                            <constraint firstItem="Fru-x5-Uvc" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="cqy-e2-DYB"/>
+                            <constraint firstAttribute="trailing" secondItem="daq-Yj-GY0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cov-FK-Rgi"/>
+                            <constraint firstItem="KBW-ng-fXw" firstAttribute="top" secondItem="daq-Yj-GY0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="d2o-ND-i4t"/>
                             <constraint firstItem="YDa-eC-kxt" firstAttribute="centerX" secondItem="TsS-Pm-NaG" secondAttribute="centerX" type="default" id="fIL-FM-6eq"/>
+                            <constraint firstItem="YDa-eC-kxt" firstAttribute="top" secondItem="3" secondAttribute="top" constant="247" id="laD-XE-FC5"/>
+                            <constraint firstItem="O9F-qH-mNv" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="mTf-ks-v7m"/>
                             <constraint firstItem="O9F-qH-mNv" firstAttribute="trailing" secondItem="b4n-57-b8g" secondAttribute="trailing" type="default" id="nCm-Yo-zFl"/>
-                            <constraint firstItem="O9F-qH-mNv" firstAttribute="top" secondItem="bAG-Rb-zfg" secondAttribute="top" type="default" id="rHd-dr-4cJ"/>
-                            <constraint firstItem="bAG-Rb-zfg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="93" id="s6R-LB-GGF"/>
-                            <constraint firstItem="TsS-Pm-NaG" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="15" id="tkU-tg-qSC"/>
-                            <constraint firstAttribute="bottom" secondItem="YDa-eC-kxt" secondAttribute="bottom" constant="154" id="wx0-eu-Cp6"/>
+                            <constraint firstAttribute="trailing" secondItem="TsS-Pm-NaG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ne1-WW-oOt"/>
+                            <constraint firstItem="daq-Yj-GY0" firstAttribute="top" secondItem="YDa-eC-kxt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sfN-GO-hDV"/>
+                            <constraint firstItem="TsS-Pm-NaG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="196" id="w0j-RY-6VO"/>
                             <constraint firstItem="Fru-x5-Uvc" firstAttribute="leading" secondItem="HaC-Va-s8S" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="xhy-qF-2ZZ"/>
                         </constraints>
                         <connections>
@@ -131,6 +155,7 @@
                         <outlet property="answer" destination="Fru-x5-Uvc" id="0QP-Pl-cLg"/>
                         <outlet property="bNum" destination="b4n-57-b8g" id="ONr-G1-qje"/>
                         <outlet property="downloadAddress" destination="TsS-Pm-NaG" id="dFG-Kp-mQZ"/>
+                        <outlet property="weatherTextView" destination="daq-Yj-GY0" id="C5r-ld-FGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -144,11 +169,13 @@
                 <relationship kind="action" name="backgroundTap:"/>
                 <relationship kind="action" name="buttonPressed:"/>
                 <relationship kind="action" name="doDownload:"/>
+                <relationship kind="action" name="getWeather:"/>
                 <relationship kind="action" name="textfieldDoneEditing:"/>
                 <relationship kind="outlet" name="aNum" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="answer" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="bNum" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="downloadAddress" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="weatherTextView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

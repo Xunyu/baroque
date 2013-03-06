@@ -9,7 +9,9 @@
 #import "BWViewController.h"
 
 @interface BWViewController ()
-
+{
+    ASIHTTPRequest *downloadRequest,*weatherRequest;
+}
 @end
 
 @implementation BWViewController
@@ -77,24 +79,36 @@
 }
 
 - (IBAction)doDownload:(id)sender {
-
-    NSURL *url = [NSURL URLWithString:self.downloadAddress.text];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setDelegate:self];
-    [request startAsynchronous];
+    downloadRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.downloadAddress.text]];
+    [downloadRequest setDelegate:self];
+    [downloadRequest startAsynchronous];
     
 }
+- (IBAction)getWeather:(id)sender {
+    weatherRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://m.weather.com.cn/data/101250101.html"]];
+    [weatherRequest setDelegate:self];
+    [weatherRequest startAsynchronous];
+}
+
+#pragma mark - ASIHTTPRequest Delegate
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    // Use when fetching text data
     NSString *responseString = [request responseString];
     NSLog(@"%@",responseString);
-    // Use when fetching binary data
     NSData *responseData = [request responseData];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [paths lastObject];
-    NSString *dataPath = [documentDirectory stringByAppendingPathComponent:@"downloadthing"];
-    [responseData writeToFile:dataPath atomically:NO];
+    if (request == downloadRequest){
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentDirectory = [paths lastObject];
+        NSString *dataPath = [documentDirectory stringByAppendingPathComponent:@"downloadthing"];
+        [responseData writeToFile:dataPath atomically:NO];
+    }
+    else if (request == weatherRequest){
+        NSData *response = [request responseData];
+        NSError *error;
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        NSDictionary *weatherInfo = [weatherDic objectForKey:@"weatherinfo"];
+        self.weatherTextView.text = [NSString stringWithFormat:@"今天是 %@  %@  %@  的天气状况是：%@  %@ ",[weatherInfo objectForKey:@"date_y"],[weatherInfo objectForKey:@"week"],[weatherInfo objectForKey:@"city"], [weatherInfo objectForKey:@"weather1"], [weatherInfo objectForKey:@"temp1"]];
+    }
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
@@ -102,5 +116,7 @@
     NSError *error = [request error];
     NSLog(@"%@",error);
 }
+
+
 
 @end
