@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 #import "GMGridView.h"
 #import "GMGridViewLayoutStrategies.h"
-#import "BQDetailPageViewController.h"
+
 @interface BQViewController : UIViewController
-    <UITableViewDelegate, UITableViewDataSource,GMGridViewDataSource, GMGridViewActionDelegate>
+    <UITableViewDelegate, UITableViewDataSource,GMGridViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (weak, nonatomic) IBOutlet GMGridView *dishGridView;
 

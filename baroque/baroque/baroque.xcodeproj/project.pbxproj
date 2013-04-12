@@ -25,15 +25,10 @@
 		4EC13670171544DB00867870 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1366A171544DB00867870 /* UIGestureRecognizer+GMGridViewAdditions.m */; };
 		4EC13671171544DB00867870 /* UIView+GMGridViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1366C171544DB00867870 /* UIView+GMGridViewAdditions.m */; };
 		4EC136AD1716669800867870 /* BQOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136AC1716669800867870 /* BQOrderViewController.m */; };
+		4EC136B01716710F00867870 /* BQCookWayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136AF1716710F00867870 /* BQCookWayViewController.m */; };
+		4EC136B31716713000867870 /* BQTasteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136B21716713000867870 /* BQTasteViewController.m */; };
 		4EC136B61716871000867870 /* BQOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136B51716870F00867870 /* BQOrderTableViewCell.m */; };
-		4EC136F01717A56200867870 /* BQOrderCookWayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136EE1717A56100867870 /* BQOrderCookWayViewController.m */; };
-		4EC136F11717A56200867870 /* BQOrderCookWayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC136EF1717A56100867870 /* BQOrderCookWayViewController.xib */; };
-		4EC136F51717B0BE00867870 /* BQOrderTasteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136F31717B0BD00867870 /* BQOrderTasteViewController.m */; };
-		4EC136F61717B0BE00867870 /* BQOrderTasteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC136F41717B0BE00867870 /* BQOrderTasteViewController.xib */; };
-		4EC136FF1717B6D400867870 /* BQDetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136FD1717B6D400867870 /* BQDetailPageViewController.m */; };
-		4EC137001717B6D400867870 /* BQDetailPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC136FE1717B6D400867870 /* BQDetailPageViewController.xib */; };
-		4EC1370C1717C37500867870 /* BQDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1370A1717C37400867870 /* BQDetailViewController.m */; };
-		4EC1370D1717C37500867870 /* BQDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC1370B1717C37400867870 /* BQDetailViewController.xib */; };
+		4EC136C117169CFE00867870 /* BQDishCookWaySelectTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC136C017169CFD00867870 /* BQDishCookWaySelectTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,20 +63,14 @@
 		4EC1366C171544DB00867870 /* UIView+GMGridViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GMGridViewAdditions.m"; sourceTree = "<group>"; };
 		4EC136AB1716669800867870 /* BQOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQOrderViewController.h; sourceTree = "<group>"; };
 		4EC136AC1716669800867870 /* BQOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQOrderViewController.m; sourceTree = "<group>"; };
+		4EC136AE1716710F00867870 /* BQCookWayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQCookWayViewController.h; sourceTree = "<group>"; };
+		4EC136AF1716710F00867870 /* BQCookWayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQCookWayViewController.m; sourceTree = "<group>"; };
+		4EC136B11716713000867870 /* BQTasteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQTasteViewController.h; sourceTree = "<group>"; };
+		4EC136B21716713000867870 /* BQTasteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQTasteViewController.m; sourceTree = "<group>"; };
 		4EC136B41716870F00867870 /* BQOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQOrderTableViewCell.h; sourceTree = "<group>"; };
 		4EC136B51716870F00867870 /* BQOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQOrderTableViewCell.m; sourceTree = "<group>"; };
-		4EC136ED1717A56100867870 /* BQOrderCookWayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQOrderCookWayViewController.h; sourceTree = "<group>"; };
-		4EC136EE1717A56100867870 /* BQOrderCookWayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQOrderCookWayViewController.m; sourceTree = "<group>"; };
-		4EC136EF1717A56100867870 /* BQOrderCookWayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BQOrderCookWayViewController.xib; sourceTree = "<group>"; };
-		4EC136F21717B0BD00867870 /* BQOrderTasteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQOrderTasteViewController.h; sourceTree = "<group>"; };
-		4EC136F31717B0BD00867870 /* BQOrderTasteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQOrderTasteViewController.m; sourceTree = "<group>"; };
-		4EC136F41717B0BE00867870 /* BQOrderTasteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BQOrderTasteViewController.xib; sourceTree = "<group>"; };
-		4EC136FC1717B6D400867870 /* BQDetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQDetailPageViewController.h; sourceTree = "<group>"; };
-		4EC136FD1717B6D400867870 /* BQDetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQDetailPageViewController.m; sourceTree = "<group>"; };
-		4EC136FE1717B6D400867870 /* BQDetailPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BQDetailPageViewController.xib; sourceTree = "<group>"; };
-		4EC137091717C37400867870 /* BQDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQDetailViewController.h; sourceTree = "<group>"; };
-		4EC1370A1717C37400867870 /* BQDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQDetailViewController.m; sourceTree = "<group>"; };
-		4EC1370B1717C37400867870 /* BQDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BQDetailViewController.xib; sourceTree = "<group>"; };
+		4EC136BF17169CFD00867870 /* BQDishCookWaySelectTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQDishCookWaySelectTableView.h; sourceTree = "<group>"; };
+		4EC136C017169CFD00867870 /* BQDishCookWaySelectTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQDishCookWaySelectTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,20 +126,14 @@
 				4EC136AB1716669800867870 /* BQOrderViewController.h */,
 				4EC136AC1716669800867870 /* BQOrderViewController.m */,
 				4E5D29151712590600C2AA88 /* Supporting Files */,
+				4EC136AE1716710F00867870 /* BQCookWayViewController.h */,
+				4EC136AF1716710F00867870 /* BQCookWayViewController.m */,
+				4EC136B11716713000867870 /* BQTasteViewController.h */,
+				4EC136B21716713000867870 /* BQTasteViewController.m */,
 				4EC136B41716870F00867870 /* BQOrderTableViewCell.h */,
 				4EC136B51716870F00867870 /* BQOrderTableViewCell.m */,
-				4EC136ED1717A56100867870 /* BQOrderCookWayViewController.h */,
-				4EC136EE1717A56100867870 /* BQOrderCookWayViewController.m */,
-				4EC136EF1717A56100867870 /* BQOrderCookWayViewController.xib */,
-				4EC136F21717B0BD00867870 /* BQOrderTasteViewController.h */,
-				4EC136F31717B0BD00867870 /* BQOrderTasteViewController.m */,
-				4EC136F41717B0BE00867870 /* BQOrderTasteViewController.xib */,
-				4EC136FC1717B6D400867870 /* BQDetailPageViewController.h */,
-				4EC136FD1717B6D400867870 /* BQDetailPageViewController.m */,
-				4EC136FE1717B6D400867870 /* BQDetailPageViewController.xib */,
-				4EC137091717C37400867870 /* BQDetailViewController.h */,
-				4EC1370A1717C37400867870 /* BQDetailViewController.m */,
-				4EC1370B1717C37400867870 /* BQDetailViewController.xib */,
+				4EC136BF17169CFD00867870 /* BQDishCookWaySelectTableView.h */,
+				4EC136C017169CFD00867870 /* BQDishCookWaySelectTableView.m */,
 			);
 			path = baroque;
 			sourceTree = "<group>";
@@ -248,10 +231,6 @@
 				4E5D29231712590600C2AA88 /* Default@2x.png in Resources */,
 				4E5D29251712590600C2AA88 /* Default-568h@2x.png in Resources */,
 				4E5D29281712590600C2AA88 /* MainStoryboard.storyboard in Resources */,
-				4EC136F11717A56200867870 /* BQOrderCookWayViewController.xib in Resources */,
-				4EC136F61717B0BE00867870 /* BQOrderTasteViewController.xib in Resources */,
-				4EC137001717B6D400867870 /* BQDetailPageViewController.xib in Resources */,
-				4EC1370D1717C37500867870 /* BQDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,11 +250,10 @@
 				4EC13670171544DB00867870 /* UIGestureRecognizer+GMGridViewAdditions.m in Sources */,
 				4EC13671171544DB00867870 /* UIView+GMGridViewAdditions.m in Sources */,
 				4EC136AD1716669800867870 /* BQOrderViewController.m in Sources */,
+				4EC136B01716710F00867870 /* BQCookWayViewController.m in Sources */,
+				4EC136B31716713000867870 /* BQTasteViewController.m in Sources */,
 				4EC136B61716871000867870 /* BQOrderTableViewCell.m in Sources */,
-				4EC136F01717A56200867870 /* BQOrderCookWayViewController.m in Sources */,
-				4EC136F51717B0BE00867870 /* BQOrderTasteViewController.m in Sources */,
-				4EC136FF1717B6D400867870 /* BQDetailPageViewController.m in Sources */,
-				4EC1370C1717C37500867870 /* BQDetailViewController.m in Sources */,
+				4EC136C117169CFE00867870 /* BQDishCookWaySelectTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

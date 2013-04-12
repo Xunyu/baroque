@@ -23,7 +23,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     categoryArray = [[NSArray alloc]initWithObjects:@"热门菜",@"热门菜",@"热门菜",@"热门菜", nil];
     self.dishGridView.backgroundColor = [UIColor clearColor];
-    self.dishGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontalPagedLTR];
+    self.dishGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontal];
     self.dishGridView.minEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
     self.dishGridView.clipsToBounds = YES;
 
@@ -35,11 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    [self setDishGridView:nil];
-    [self setCategoryTableView:nil];
-    [super viewDidUnload];
-}
+
 #pragma mark - UITableView Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -81,12 +77,8 @@
         cell = [[GMGridViewCell alloc] init];
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-        view.backgroundColor = [UIColor lightGrayColor];
-        view.layer.cornerRadius = 8;
-        view.layer.shadowColor = [UIColor blackColor].CGColor;
-        view.layer.shadowOffset = CGSizeMake(5, 5);
-        view.layer.shadowPath = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;
-        view.layer.shadowRadius = 8;
+        view.backgroundColor = [UIColor redColor];
+
         
         cell.contentView = view;
     }
@@ -95,7 +87,7 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.bounds];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    label.text = [NSString stringWithFormat:@"%@ %d",@"我是菜",index];
+    label.text = @"我是一个菜";
     label.textAlignment = UITextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor blackColor];
@@ -105,11 +97,9 @@
     
     return cell;
 }
-#pragma mark - GMGridView Delegate
-- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position{
-//    BQDetailPageViewController *detailPage = [[BQDetailPageViewController alloc]init];
-//    [detailPage setCurrentDishID:position];
-//    [self presentModalViewController:detailPage animated:YES];
+- (void)viewDidUnload {
+    [self setDishGridView:nil];
+    [self setCategoryTableView:nil];
+    [super viewDidUnload];
 }
-
 @end

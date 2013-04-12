@@ -1,0 +1,17 @@
+
+.DS_Store
+
+*.classpath
+
+*.project
+
+*.prefs
+
+*.class
+
+api-server/.settings
+
+api-server/target
+*.xcuserstate
+
+*.xcuserstate
