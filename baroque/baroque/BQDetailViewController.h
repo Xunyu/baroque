@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BQOrderCookWayViewController.h"
+#import "BQOrderTasteViewController.h"
 
 @interface BQDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *dishImageView;

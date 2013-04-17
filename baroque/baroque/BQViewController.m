@@ -107,9 +107,10 @@
 }
 #pragma mark - GMGridView Delegate
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position{
-//    BQDetailPageViewController *detailPage = [[BQDetailPageViewController alloc]init];
-//    [detailPage setCurrentDishID:position];
-//    [self presentModalViewController:detailPage animated:YES];
+    BQDetailPageViewController *detailPage = [[BQDetailPageViewController alloc]init];
+    [detailPage setCurrentDishID:position];
+    [detailPage setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:detailPage animated:YES];
 }
 
 @end

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BQDetailViewController.h"
 @interface BQDetailPageViewController : UIPageViewController
-    <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
-@property (strong, nonatomic) IBOutlet UIPageViewController *pageViewController;
+    <UIPageViewControllerDataSource>
 @property (assign, nonatomic) int currentDishID;
 @end

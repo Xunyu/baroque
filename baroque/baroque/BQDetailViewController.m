@@ -11,14 +11,18 @@
 @interface BQDetailViewController ()
 {
     NSUInteger _pageIndex;
+    UIPopoverController *popover;
 }
 @end
 
 @implementation BQDetailViewController
-
+@synthesize dishName = _dishName;
 + (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex
 {
-    return [[self alloc] initWithPageIndex:pageIndex];
+    if (pageIndex<25){
+        return [[self alloc] initWithPageIndex:pageIndex];
+    }
+    return nil;
 }
 - (NSInteger)pageIndex
 {
@@ -32,6 +36,11 @@
         _pageIndex = pageIndex;
     }
     return self;
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.dishName.text = [NSString stringWithFormat:@"我是菜 %d",self.pageIndex];
 }
 - (void)viewDidLoad
 {
@@ -56,9 +65,17 @@
     [super viewDidUnload];
 }
 - (IBAction)dishTasteEditButtonTouched:(id)sender {
+    BQOrderTasteViewController *vc = [[BQOrderTasteViewController alloc]initWithStyle:UITableViewStylePlain];
+    popover = [[UIPopoverController alloc]initWithContentViewController:vc];
+    popover.popoverContentSize = CGSizeMake(200, 300);
+    [popover presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
 }
 
 - (IBAction)dishCookWayEditButtonTouched:(id)sender {
+    BQOrderCookWayViewController *vc = [[BQOrderCookWayViewController alloc]initWithStyle:UITableViewStylePlain];
+    popover = [[UIPopoverController alloc]initWithContentViewController:vc];
+    popover.popoverContentSize = CGSizeMake(200, 300);
+    [popover presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
 }
 
 - (IBAction)backButtonTouched:(id)sender {
