@@ -10,6 +10,7 @@
 
 @interface BQOrderViewController ()
 {
+    BQPostOrderViewController *postOrderViewController;
 }
 @end
 
@@ -56,5 +57,21 @@
 }
 - (IBAction)backButtonTapped:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)confirmOrderTapped:(id)sender {
+    postOrderViewController = [[BQPostOrderViewController alloc]init];
+    postOrderViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    postOrderViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:postOrderViewController animated:YES];
+    postOrderViewController.view.superview.autoresizingMask =
+    UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleBottomMargin;
+    postOrderViewController.view.superview.frame = CGRectMake(
+                                          [UIScreen mainScreen].applicationFrame.size.height/2-150,
+                                          [UIScreen mainScreen].applicationFrame.size.width/2-150,
+                                          300.0f,
+                                          300.0f
+                                          );
 }
 @end

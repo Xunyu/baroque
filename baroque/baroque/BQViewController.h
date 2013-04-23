@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "IASKAppSettingsViewController.h"
+#import "IASKSpecifier.h"
+#import "IASKSettingsReader.h"
 #import "GMGridView.h"
 #import "GMGridViewLayoutStrategies.h"
 #import "BQDetailPageViewController.h"
 @interface BQViewController : UIViewController
-    <UITableViewDelegate, UITableViewDataSource,GMGridViewDataSource, GMGridViewActionDelegate>
+    <UITableViewDelegate, UITableViewDataSource,GMGridViewDataSource, GMGridViewActionDelegate,IASKSettingsDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (weak, nonatomic) IBOutlet GMGridView *dishGridView;
+@property (strong, nonatomic) IASKAppSettingsViewController *appSettingsViewController;
+- (IBAction)settingButtonTapped:(id)sender;
 
 @end

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BQOrderTableViewCell.h"
+#import "BQPostOrderViewController.h"
 @interface BQOrderViewController : UIViewController
     <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *dishTableView;
 - (IBAction)backButtonTapped:(id)sender;
+- (IBAction)confirmOrderTapped:(id)sender;
 
 @end

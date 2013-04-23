@@ -17,6 +17,10 @@
 @implementation BQViewController
 @synthesize categoryTableView = _categoryTableView;
 @synthesize dishGridView = _dishGridView;
+@synthesize appSettingsViewController;
+
+
+#pragma mark - ViewControllres LiftCycles
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -112,5 +116,43 @@
     [detailPage setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:detailPage animated:YES];
 }
+#pragma mark - ViewControllers Actions
+- (IBAction)settingButtonTapped:(id)sender {
+    self.appSettingsViewController.showCreditsFooter = FALSE;
+    self.appSettingsViewController.showDoneButton = YES;
+    self.appSettingsViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    self.appSettingsViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:self.appSettingsViewController animated:YES];
+    self.appSettingsViewController.view.superview.autoresizingMask =
+    UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleBottomMargin;
+    self.appSettingsViewController.view.superview.frame = CGRectMake(
+                                                              [UIScreen mainScreen].applicationFrame.size.height/2-150,
+                                                              [UIScreen mainScreen].applicationFrame.size.width/2-150,
+                                                              300.0f,
+                                                              300.0f
+                                                              );
+}
+#pragma makr - InAppSettingKit Delegate
+- (IASKAppSettingsViewController*)appSettingsViewController
+{
+    if (!self.appSettingsViewController){
+        self.appSettingsViewController = [[IASKAppSettingsViewController alloc]init];
+        self.appSettingsViewController.delegate = self;
+        
+    }
+    return self.appSettingsViewController;
+    
+}
+- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender
+{
+    [self.appSettingsViewController dismissModalViewControllerAnimated:YES];
+}
 
+- (void)settingsViewController:(IASKAppSettingsViewController *)sender buttonTappedForSpecifier:(IASKSpecifier *)specifier
+{
+    if ([specifier.key isEqualToString:@"SyncMenu"]){
+        
+    }
+}
 @end
