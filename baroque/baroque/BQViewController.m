@@ -96,16 +96,37 @@
     }
     
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.bounds];
-    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    label.text = [NSString stringWithFormat:@"%@ %d",@"我是菜",index];
-    label.textAlignment = UITextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor blackColor];
-    label.highlightedTextColor = [UIColor whiteColor];
-    label.font = [UIFont boldSystemFontOfSize:20];
-    [cell.contentView addSubview:label];
+    UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 230, 200)];
+    UIImageView *itemImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 230, 150)];
+    itemImageView.backgroundColor = [UIColor blackColor];
+    [itemView addSubview:itemImageView];
+    UILabel *itemName = [[UILabel alloc]initWithFrame:CGRectMake(12, 163, 85, 21)];
+    itemName.text = [NSString stringWithFormat:@"%@ %d",@"我是菜",index];
+    itemName.backgroundColor = [UIColor clearColor];
+    [itemView addSubview:itemName];
+    UILabel *itemCount = [[UILabel alloc]initWithFrame:CGRectMake(145, 163, 34, 21)];
+    itemCount.text = @"1";
+    itemCount.textAlignment = UITextAlignmentCenter;
+    itemCount.backgroundColor = [UIColor clearColor];
+    [itemView addSubview:itemCount];
+    UIButton *itemMinusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    itemMinusButton.frame = CGRectMake(105, 158, 32, 32);
+    itemMinusButton.titleLabel.text = @"-";
+    [itemView addSubview:itemMinusButton];
+    UIButton *itemPlusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    itemPlusButton.frame = CGRectMake(187, 158, 32, 32);
+    itemPlusButton.titleLabel.text = @"+";
+    [itemView addSubview:itemPlusButton];
+    [cell.contentView addSubview:itemView];
+//    UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.bounds];
+//    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    label.text = [NSString stringWithFormat:@"%@ %d",@"我是菜",index];
+//    label.textAlignment = UITextAlignmentCenter;
+//    label.backgroundColor = [UIColor clearColor];
+//    label.textColor = [UIColor blackColor];
+//    label.highlightedTextColor = [UIColor whiteColor];
+//    label.font = [UIFont boldSystemFontOfSize:20];
+//    [cell.contentView addSubview:label];
     
     return cell;
 }
@@ -120,28 +141,31 @@
 - (IBAction)settingButtonTapped:(id)sender {
     self.appSettingsViewController.showCreditsFooter = FALSE;
     self.appSettingsViewController.showDoneButton = YES;
-    self.appSettingsViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-    self.appSettingsViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentModalViewController:self.appSettingsViewController animated:YES];
-    self.appSettingsViewController.view.superview.autoresizingMask =
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self.appSettingsViewController];
+    [nav setModalPresentationStyle:UIModalPresentationFormSheet];
+    [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    nav.navigationBar.barStyle = UIBarStyleBlack;
+    [self presentModalViewController:nav animated:YES];
+    nav.view.superview.autoresizingMask =
     UIViewAutoresizingFlexibleTopMargin |
     UIViewAutoresizingFlexibleBottomMargin;
-    self.appSettingsViewController.view.superview.frame = CGRectMake(
-                                                              [UIScreen mainScreen].applicationFrame.size.height/2-150,
-                                                              [UIScreen mainScreen].applicationFrame.size.width/2-150,
-                                                              300.0f,
-                                                              300.0f
-                                                              );
+    nav.view.superview.frame = CGRectMake(
+                                          [UIScreen mainScreen].applicationFrame.size.height/2-150,
+                                          [UIScreen mainScreen].applicationFrame.size.width/2-200,
+                                          300.0f,
+                                          400.0f
+                                          );
 }
 #pragma makr - InAppSettingKit Delegate
 - (IASKAppSettingsViewController*)appSettingsViewController
 {
-    if (!self.appSettingsViewController){
-        self.appSettingsViewController = [[IASKAppSettingsViewController alloc]init];
-        self.appSettingsViewController.delegate = self;
-        
+    if (!appSettingsViewController){
+        appSettingsViewController = [[IASKAppSettingsViewController alloc]init];
+        appSettingsViewController.delegate = self;
+        appSettingsViewController.file = @"Root";
+        [appSettingsViewController setTitle:NSLocalizedString(@"settings", nil)];
     }
-    return self.appSettingsViewController;
+    return appSettingsViewController;
     
 }
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender

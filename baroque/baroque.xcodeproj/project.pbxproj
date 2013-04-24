@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E25A1AA171FD167005EFAF2 /* BQPostOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */; };
+		4E5640D117276F7E00186FA9 /* InAppSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4E5640D017276F7E00186FA9 /* InAppSettings.bundle */; };
+		4E5640D61727738000186FA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E5640D81727738000186FA9 /* Localizable.strings */; };
 		4E5D290F1712590600C2AA88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5D290E1712590600C2AA88 /* UIKit.framework */; };
 		4E5D29111712590600C2AA88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5D29101712590600C2AA88 /* Foundation.framework */; };
 		4E5D29131712590600C2AA88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5D29121712590600C2AA88 /* CoreGraphics.framework */; };
@@ -51,12 +53,16 @@
 		4EF2EB6617267CF8008F0026 /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5617267CF8008F0026 /* IASKSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4EF2EB6717267CF8008F0026 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5817267CF8008F0026 /* IASKSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4EF2EB6817267CF8008F0026 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5A17267CF8008F0026 /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4EF2EB6A17268047008F0026 /* inAppSetting.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EF2EB6917268047008F0026 /* inAppSetting.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4E25A1A8171FD167005EFAF2 /* BQPostOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQPostOrderViewController.h; sourceTree = "<group>"; };
 		4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQPostOrderViewController.m; sourceTree = "<group>"; };
+		4E5640D017276F7E00186FA9 /* InAppSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InAppSettings.bundle; sourceTree = "<group>"; };
+		4E5640D2172771BC00186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		4E5640D3172771BC00186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4E5640D71727738000186FA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E5640D91727738400186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4E5D290B1712590600C2AA88 /* baroque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baroque.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5D290E1712590600C2AA88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E5D29101712590600C2AA88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,7 +139,6 @@
 		4EF2EB5817267CF8008F0026 /* IASKSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSwitch.m; sourceTree = "<group>"; };
 		4EF2EB5917267CF8008F0026 /* IASKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTextField.h; sourceTree = "<group>"; };
 		4EF2EB5A17267CF8008F0026 /* IASKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTextField.m; sourceTree = "<group>"; };
-		4EF2EB6917268047008F0026 /* inAppSetting.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = inAppSetting.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,30 +191,29 @@
 		4E5D29141712590600C2AA88 /* baroque */ = {
 			isa = PBXGroup;
 			children = (
-				4E5D29261712590600C2AA88 /* MainStoryboard.storyboard */,
-				4E5D29291712590600C2AA88 /* BQViewController.h */,
-				4E5D292A1712590600C2AA88 /* BQViewController.m */,
-				4EC136AB1716669800867870 /* BQOrderViewController.h */,
-				4EC136AC1716669800867870 /* BQOrderViewController.m */,
-				4EC136B41716870F00867870 /* BQOrderTableViewCell.h */,
-				4EC136B51716870F00867870 /* BQOrderTableViewCell.m */,
-				4EC136ED1717A56100867870 /* BQOrderCookWayViewController.h */,
-				4EC136EE1717A56100867870 /* BQOrderCookWayViewController.m */,
-				4EC136EF1717A56100867870 /* BQOrderCookWayViewController.xib */,
-				4EC136F21717B0BD00867870 /* BQOrderTasteViewController.h */,
-				4EC136F31717B0BD00867870 /* BQOrderTasteViewController.m */,
-				4EC136F41717B0BE00867870 /* BQOrderTasteViewController.xib */,
 				4EC136FC1717B6D400867870 /* BQDetailPageViewController.h */,
 				4EC136FD1717B6D400867870 /* BQDetailPageViewController.m */,
 				4EC136FE1717B6D400867870 /* BQDetailPageViewController.xib */,
 				4EC137091717C37400867870 /* BQDetailViewController.h */,
 				4EC1370A1717C37400867870 /* BQDetailViewController.m */,
 				4EC1370B1717C37400867870 /* BQDetailViewController.xib */,
+				4EC136ED1717A56100867870 /* BQOrderCookWayViewController.h */,
+				4EC136EE1717A56100867870 /* BQOrderCookWayViewController.m */,
+				4EC136EF1717A56100867870 /* BQOrderCookWayViewController.xib */,
+				4EC136B41716870F00867870 /* BQOrderTableViewCell.h */,
+				4EC136B51716870F00867870 /* BQOrderTableViewCell.m */,
+				4EC136F21717B0BD00867870 /* BQOrderTasteViewController.h */,
+				4EC136F31717B0BD00867870 /* BQOrderTasteViewController.m */,
+				4EC136F41717B0BE00867870 /* BQOrderTasteViewController.xib */,
+				4EC136AB1716669800867870 /* BQOrderViewController.h */,
+				4EC136AC1716669800867870 /* BQOrderViewController.m */,
 				4E25A1A8171FD167005EFAF2 /* BQPostOrderViewController.h */,
 				4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */,
 				4EF2EB021726655F008F0026 /* BQPostOrderViewController.xib */,
+				4E5D29291712590600C2AA88 /* BQViewController.h */,
+				4E5D292A1712590600C2AA88 /* BQViewController.m */,
+				4E5D29261712590600C2AA88 /* MainStoryboard.storyboard */,
 				4E5D29151712590600C2AA88 /* Supporting Files */,
-				4EF2EB6917268047008F0026 /* inAppSetting.bundle */,
 			);
 			path = baroque;
 			sourceTree = "<group>";
@@ -217,6 +221,8 @@
 		4E5D29151712590600C2AA88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E5640D81727738000186FA9 /* Localizable.strings */,
+				4E5640D017276F7E00186FA9 /* InAppSettings.bundle */,
 				4E5D291D1712590600C2AA88 /* BQAppDelegate.h */,
 				4E5D291E1712590600C2AA88 /* BQAppDelegate.m */,
 				4E5D29161712590600C2AA88 /* baroque-Info.plist */,
@@ -346,6 +352,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 4E5D29021712590600C2AA88;
 			productRefGroup = 4E5D290C1712590600C2AA88 /* Products */;
@@ -372,7 +379,8 @@
 				4EC137001717B6D400867870 /* BQDetailPageViewController.xib in Resources */,
 				4EC1370D1717C37500867870 /* BQDetailViewController.xib in Resources */,
 				4EF2EB031726655F008F0026 /* BQPostOrderViewController.xib in Resources */,
-				4EF2EB6A17268047008F0026 /* inAppSetting.bundle in Resources */,
+				4E5640D117276F7E00186FA9 /* InAppSettings.bundle in Resources */,
+				4E5640D61727738000186FA9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,10 +426,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		4E5640D81727738000186FA9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E5640D71727738000186FA9 /* en */,
+				4E5640D91727738400186FA9 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4E5D29171712590600C2AA88 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4E5D29181712590600C2AA88 /* en */,
+				4E5640D3172771BC00186FA9 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -430,6 +448,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E5D29271712590600C2AA88 /* en */,
+				4E5640D2172771BC00186FA9 /* zh-Hans */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
