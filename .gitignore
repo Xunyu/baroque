@@ -5,6 +5,10 @@
 
 *.project
 
+*.iml
+
+**/.idea
+
 *.prefs
 
 *.class
