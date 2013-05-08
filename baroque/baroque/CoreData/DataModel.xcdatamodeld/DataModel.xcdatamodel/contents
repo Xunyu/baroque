@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Bar_Menu" representedClassName="Bar_Menu" syncable="YES">
+        <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="categoryID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cost" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="foodDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foodID" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="foodName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foodType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="kichenNum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="picUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="taste" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tastyType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="foodIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_OrderDetail" inverseName="menuIDrelationship" inverseEntity="Bar_OrderDetail" syncable="YES"/>
+    </entity>
+    <entity name="Bar_Order" representedClassName="Bar_Order" syncable="YES">
+        <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="discount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="finalAmaont" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="loginID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="orderID" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="people" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="preAmount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="reductionAmount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tableID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="loginIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_User" inverseName="userIDrelationship" inverseEntity="Bar_User" syncable="YES"/>
+        <relationship name="orderIDrelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bar_OrderDetail" inverseName="orderIDrelationship" inverseEntity="Bar_OrderDetail" syncable="YES"/>
+        <relationship name="tableIDrelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_Table" inverseName="tableIDrelationship" inverseEntity="Bar_Table" syncable="YES"/>
+    </entity>
+    <entity name="Bar_OrderDetail" representedClassName="Bar_OrderDetail" syncable="YES">
+        <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="backReason" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="menuID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="orderDetailID" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="orderID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="statue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updateDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="menuIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_Menu" inverseName="foodIDrelationship" inverseEntity="Bar_Menu" syncable="YES"/>
+        <relationship name="orderIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_Order" inverseName="orderIDrelationship" inverseEntity="Bar_Order" syncable="YES"/>
+    </entity>
+    <entity name="Bar_Room" representedClassName="Bar_Room" syncable="YES">
+        <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roomID" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="roomName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="roomIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_Table" inverseName="roomIDrelationship" inverseEntity="Bar_Table" syncable="YES"/>
+    </entity>
+    <entity name="Bar_Table" representedClassName="Bar_Table" syncable="YES">
+        <attribute name="isAvaliable" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numbers" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="roomID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tableID" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="tableName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="roomIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_Room" inverseName="roomIDrelationship" inverseEntity="Bar_Room" syncable="YES"/>
+        <relationship name="tableIDrelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_Order" inverseName="tableIDrelationship" inverseEntity="Bar_Order" syncable="YES"/>
+    </entity>
+    <entity name="Bar_User" representedClassName="Bar_User" syncable="YES">
+        <attribute name="lastLoginDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="power" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="userid" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userIDrelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bar_Order" inverseName="loginIDrelationship" inverseEntity="Bar_Order" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bar_Menu" positionX="342" positionY="-787" width="128" height="238"/>
+        <element name="Bar_Order" positionX="-63" positionY="-585" width="108" height="223"/>
+        <element name="Bar_OrderDetail" positionX="135" positionY="-738" width="128" height="193"/>
+        <element name="Bar_User" positionX="-243" positionY="-531" width="128" height="148"/>
+        <element name="Bar_Room" positionX="376" positionY="-495" width="128" height="103"/>
+        <element name="Bar_Table" positionX="151" positionY="-499" width="128" height="148"/>
+    </elements>
+</model>
