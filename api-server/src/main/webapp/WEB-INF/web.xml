@@ -11,6 +11,16 @@
 	<listener>
 		<listener-class>com.baroque.api.config.AppConfigListener</listener-class>
 	</listener>
+
+    <filter>
+        <filter-name>api-dispatch-filter</filter-name>
+        <filter-class>com.baroque.api.core.ApiDispatchFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>api-dispatch-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 	
 	<servlet>
 		<servlet-name>add-servlet</servlet-name>
