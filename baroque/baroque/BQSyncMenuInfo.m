@@ -7,8 +7,9 @@
 //
 
 #import "BQSyncMenuInfo.h"
-
 @implementation BQSyncMenuInfo
+@synthesize managedObjectContext = _managedObjectContext;
+
 + (BQSyncMenuInfo *)sharedInstance
 {
     static dispatch_once_t pred = 0;
@@ -34,7 +35,24 @@
 {
     NSError *error;
     NSData *responseData = [request responseData];
-    NSDictionary *menuDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSDictionary *receiveDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
+    NSString *receiveCode = [receiveDictionary objectForKey:@"code"];
+    if ([receiveCode isEqualToString:@"200"]){
+        NSArray *menuArray = [receiveDictionary objectForKey:@"menu"];
+        for (int i = 0 ; i < [menuArray count]; i++) {
+            NSDictionary *item = [menuArray objectAtIndex:i];
+            self.managedObjectContext = [BQCoreDataUtil sharedInstance].managedObjectContext;
+            Bar_Menu *menu = [NSEntityDescription insertNewObjectForEntityForName:@"Bar_Menu" inManagedObjectContext:self.managedObjectContext];
+            menu.foodID = [item objectForKey:@"foodId"];
+            menu.foodName = [item objectForKey:@"foodName"];
+            menu.price = [item objectForKey:@"price"];
+            menu.foodType = [item objectForKey:@"foodType"];
+            menu.tastyType = [item objectForKey:@"tastyType"];
+            menu.picUrl = [item objectForKey:@"picUrl"];
+            NSError *error = nil;
+            [self.managedObjectContext save:&error];
+        }
+    }
     
 }
 

@@ -2,7 +2,7 @@
 //  Bar_OrderDetail.m
 //  baroque
 //
-//  Created by Sn Dev on 13-5-6.
+//  Created by Sn Dev on 13-5-9.
 //  Copyright (c) 2013年 Baroque. All rights reserved.
 //
 
@@ -13,15 +13,15 @@
 
 @implementation Bar_OrderDetail
 
+@dynamic addDate;
+@dynamic backReason;
+@dynamic count;
+@dynamic menuID;
 @dynamic orderDetailID;
 @dynamic orderID;
-@dynamic menuID;
-@dynamic count;
-@dynamic addDate;
-@dynamic updateDate;
 @dynamic statue;
-@dynamic backReason;
-@dynamic orderIDrelationship;
+@dynamic updateDate;
 @dynamic menuIDrelationship;
+@dynamic orderIDrelationship;
 
 @end

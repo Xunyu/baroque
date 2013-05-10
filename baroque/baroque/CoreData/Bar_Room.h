@@ -2,7 +2,7 @@
 //  Bar_Room.h
 //  baroque
 //
-//  Created by Sn Dev on 13-5-6.
+//  Created by Sn Dev on 13-5-9.
 //  Copyright (c) 2013年 Baroque. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @interface Bar_Room : NSManagedObject
 
+@property (nonatomic, retain) NSString * level;
 @property (nonatomic, retain) NSNumber * roomID;
 @property (nonatomic, retain) NSString * roomName;
-@property (nonatomic, retain) NSString * level;
 @property (nonatomic, retain) Bar_Table *roomIDrelationship;
 
 @end
