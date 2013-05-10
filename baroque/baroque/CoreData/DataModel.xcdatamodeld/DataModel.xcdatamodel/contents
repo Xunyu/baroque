@@ -7,12 +7,12 @@
         <attribute name="foodDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="foodID" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="foodName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="foodType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="foodType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="kichenNum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="picUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
-        <attribute name="taste" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="tastyType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="taste" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tastyType" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="foodIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_OrderDetail" inverseName="menuIDrelationship" inverseEntity="Bar_OrderDetail" syncable="YES"/>
     </entity>
     <entity name="Bar_Order" representedClassName="Bar_Order" syncable="YES">
@@ -66,11 +66,11 @@
         <relationship name="userIDrelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bar_Order" inverseName="loginIDrelationship" inverseEntity="Bar_Order" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bar_Menu" positionX="342" positionY="-787" width="128" height="238"/>
+        <element name="Bar_Menu" positionX="342" positionY="-787" width="128" height="240"/>
         <element name="Bar_Order" positionX="-63" positionY="-585" width="108" height="223"/>
         <element name="Bar_OrderDetail" positionX="135" positionY="-738" width="128" height="193"/>
-        <element name="Bar_User" positionX="-243" positionY="-531" width="128" height="148"/>
         <element name="Bar_Room" positionX="376" positionY="-495" width="128" height="103"/>
         <element name="Bar_Table" positionX="151" positionY="-499" width="128" height="148"/>
+        <element name="Bar_User" positionX="-243" positionY="-531" width="128" height="148"/>
     </elements>
 </model>

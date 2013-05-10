@@ -2,7 +2,7 @@
 //  Bar_Order.h
 //  baroque
 //
-//  Created by Sn Dev on 13-5-6.
+//  Created by Sn Dev on 13-5-9.
 //  Copyright (c) 2013年 Baroque. All rights reserved.
 //
 
@@ -13,18 +13,18 @@
 
 @interface Bar_Order : NSManagedObject
 
+@property (nonatomic, retain) NSDate * addDate;
+@property (nonatomic, retain) NSNumber * discount;
+@property (nonatomic, retain) NSNumber * finalAmaont;
+@property (nonatomic, retain) NSNumber * loginID;
 @property (nonatomic, retain) NSNumber * orderID;
-@property (nonatomic, retain) NSNumber * tableID;
 @property (nonatomic, retain) NSNumber * people;
 @property (nonatomic, retain) NSDecimalNumber * preAmount;
-@property (nonatomic, retain) NSNumber * discount;
 @property (nonatomic, retain) NSDecimalNumber * reductionAmount;
-@property (nonatomic, retain) NSNumber * finalAmaont;
-@property (nonatomic, retain) NSDate * addDate;
-@property (nonatomic, retain) NSNumber * loginID;
-@property (nonatomic, retain) Bar_Table *tableIDrelationship;
+@property (nonatomic, retain) NSNumber * tableID;
 @property (nonatomic, retain) Bar_User *loginIDrelationship;
 @property (nonatomic, retain) NSSet *orderIDrelationship;
+@property (nonatomic, retain) Bar_Table *tableIDrelationship;
 @end
 
 @interface Bar_Order (CoreDataGeneratedAccessors)

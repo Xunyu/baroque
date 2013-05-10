@@ -2,7 +2,7 @@
 //  Bar_User.m
 //  baroque
 //
-//  Created by Sn Dev on 13-5-6.
+//  Created by Sn Dev on 13-5-9.
 //  Copyright (c) 2013年 Baroque. All rights reserved.
 //
 
@@ -12,12 +12,12 @@
 
 @implementation Bar_User
 
-@dynamic username;
-@dynamic userid;
+@dynamic lastLoginDate;
 @dynamic password;
 @dynamic phone;
-@dynamic lastLoginDate;
 @dynamic power;
+@dynamic userid;
+@dynamic username;
 @dynamic userIDrelationship;
 
 @end

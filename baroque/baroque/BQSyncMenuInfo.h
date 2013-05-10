@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
+#import "BQCoreDataUtil.h"
+
+#import "Bar_Menu.h"
 @interface BQSyncMenuInfo : NSObject
     <ASIHTTPRequestDelegate>
-
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 + (BQSyncMenuInfo *)sharedInstance;
 - (void)beginSync;

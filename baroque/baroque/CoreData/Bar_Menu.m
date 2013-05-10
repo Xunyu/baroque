@@ -2,7 +2,7 @@
 //  Bar_Menu.m
 //  baroque
 //
-//  Created by Sn Dev on 13-5-6.
+//  Created by Sn Dev on 13-5-9.
 //  Copyright (c) 2013年 Baroque. All rights reserved.
 //
 
@@ -12,18 +12,18 @@
 
 @implementation Bar_Menu
 
+@dynamic addDate;
+@dynamic categoryID;
+@dynamic cost;
+@dynamic foodDescription;
 @dynamic foodID;
 @dynamic foodName;
-@dynamic foodDescription;
 @dynamic foodType;
-@dynamic price;
-@dynamic cost;
-@dynamic categoryID;
-@dynamic tastyType;
-@dynamic picUrl;
-@dynamic addDate;
 @dynamic kichenNum;
+@dynamic picUrl;
+@dynamic price;
 @dynamic taste;
+@dynamic tastyType;
 @dynamic foodIDrelationship;
 
 @end

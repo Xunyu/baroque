@@ -46,13 +46,14 @@
 		4EA4737A173A466500FBA37D /* PerformanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47353173A466500FBA37D /* PerformanceTests.m */; };
 		4EA4737B173A466500FBA37D /* ProxyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47355173A466500FBA37D /* ProxyTests.m */; };
 		4EA4737C173A466500FBA37D /* StressTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47357173A466500FBA37D /* StressTests.m */; };
-		4EA4738C173A46D900FBA37D /* Bar_Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4737F173A46D900FBA37D /* Bar_Menu.m */; };
-		4EA4738D173A46D900FBA37D /* Bar_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47381173A46D900FBA37D /* Bar_Order.m */; };
-		4EA4738E173A46D900FBA37D /* Bar_OrderDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47383173A46D900FBA37D /* Bar_OrderDetail.m */; };
-		4EA4738F173A46D900FBA37D /* Bar_Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47385173A46D900FBA37D /* Bar_Room.m */; };
-		4EA47390173A46D900FBA37D /* Bar_Table.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47387173A46D900FBA37D /* Bar_Table.m */; };
-		4EA47391173A46D900FBA37D /* Bar_User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47389173A46D900FBA37D /* Bar_User.m */; };
 		4EA47392173A46D900FBA37D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4738A173A46D900FBA37D /* DataModel.xcdatamodeld */; };
+		4EA47395173B8D8800FBA37D /* Bar_Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47394173B8D8800FBA37D /* Bar_Room.m */; };
+		4EA47398173B8D8800FBA37D /* Bar_Table.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA47397173B8D8800FBA37D /* Bar_Table.m */; };
+		4EA4739B173B8D8800FBA37D /* Bar_User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4739A173B8D8800FBA37D /* Bar_User.m */; };
+		4EA4739E173B8D8900FBA37D /* Bar_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4739D173B8D8900FBA37D /* Bar_Order.m */; };
+		4EA473A1173B8D8900FBA37D /* Bar_Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA473A0173B8D8900FBA37D /* Bar_Menu.m */; };
+		4EA473A4173B8D8900FBA37D /* Bar_OrderDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA473A3173B8D8900FBA37D /* Bar_OrderDetail.m */; };
+		4EA473A7173C840F00FBA37D /* BQCoreDataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA473A6173C840F00FBA37D /* BQCoreDataUtil.m */; };
 		4EC1365F1715449F00867870 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1365E1715449F00867870 /* QuartzCore.framework */; };
 		4EC1366D171544DB00867870 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC13663171544DB00867870 /* GMGridView.m */; };
 		4EC1366E171544DB00867870 /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC13666171544DB00867870 /* GMGridViewCell.m */; };
@@ -163,19 +164,21 @@
 		4EA47355173A466500FBA37D /* ProxyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyTests.m; sourceTree = "<group>"; };
 		4EA47356173A466500FBA37D /* StressTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StressTests.h; sourceTree = "<group>"; };
 		4EA47357173A466500FBA37D /* StressTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StressTests.m; sourceTree = "<group>"; };
-		4EA4737E173A46D900FBA37D /* Bar_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Menu.h; sourceTree = "<group>"; };
-		4EA4737F173A46D900FBA37D /* Bar_Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Menu.m; sourceTree = "<group>"; };
-		4EA47380173A46D900FBA37D /* Bar_Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Order.h; sourceTree = "<group>"; };
-		4EA47381173A46D900FBA37D /* Bar_Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Order.m; sourceTree = "<group>"; };
-		4EA47382173A46D900FBA37D /* Bar_OrderDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_OrderDetail.h; sourceTree = "<group>"; };
-		4EA47383173A46D900FBA37D /* Bar_OrderDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_OrderDetail.m; sourceTree = "<group>"; };
-		4EA47384173A46D900FBA37D /* Bar_Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Room.h; sourceTree = "<group>"; };
-		4EA47385173A46D900FBA37D /* Bar_Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Room.m; sourceTree = "<group>"; };
-		4EA47386173A46D900FBA37D /* Bar_Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Table.h; sourceTree = "<group>"; };
-		4EA47387173A46D900FBA37D /* Bar_Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Table.m; sourceTree = "<group>"; };
-		4EA47388173A46D900FBA37D /* Bar_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_User.h; sourceTree = "<group>"; };
-		4EA47389173A46D900FBA37D /* Bar_User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_User.m; sourceTree = "<group>"; };
 		4EA4738B173A46D900FBA37D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		4EA47393173B8D8800FBA37D /* Bar_Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Room.h; sourceTree = "<group>"; };
+		4EA47394173B8D8800FBA37D /* Bar_Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Room.m; sourceTree = "<group>"; };
+		4EA47396173B8D8800FBA37D /* Bar_Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Table.h; sourceTree = "<group>"; };
+		4EA47397173B8D8800FBA37D /* Bar_Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Table.m; sourceTree = "<group>"; };
+		4EA47399173B8D8800FBA37D /* Bar_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_User.h; sourceTree = "<group>"; };
+		4EA4739A173B8D8800FBA37D /* Bar_User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_User.m; sourceTree = "<group>"; };
+		4EA4739C173B8D8900FBA37D /* Bar_Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Order.h; sourceTree = "<group>"; };
+		4EA4739D173B8D8900FBA37D /* Bar_Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Order.m; sourceTree = "<group>"; };
+		4EA4739F173B8D8900FBA37D /* Bar_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_Menu.h; sourceTree = "<group>"; };
+		4EA473A0173B8D8900FBA37D /* Bar_Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_Menu.m; sourceTree = "<group>"; };
+		4EA473A2173B8D8900FBA37D /* Bar_OrderDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar_OrderDetail.h; sourceTree = "<group>"; };
+		4EA473A3173B8D8900FBA37D /* Bar_OrderDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar_OrderDetail.m; sourceTree = "<group>"; };
+		4EA473A5173C840F00FBA37D /* BQCoreDataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQCoreDataUtil.h; sourceTree = "<group>"; };
+		4EA473A6173C840F00FBA37D /* BQCoreDataUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQCoreDataUtil.m; sourceTree = "<group>"; };
 		4EC1365E1715449F00867870 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4EC13661171544DB00867870 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
 		4EC13662171544DB00867870 /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridView.h; sourceTree = "<group>"; };
@@ -343,6 +346,8 @@
 			children = (
 				4EA4726A173A3B8D00FBA37D /* BQSyncMenuInfo.h */,
 				4EA4726B173A3B8D00FBA37D /* BQSyncMenuInfo.m */,
+				4EA473A5173C840F00FBA37D /* BQCoreDataUtil.h */,
+				4EA473A6173C840F00FBA37D /* BQCoreDataUtil.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -415,19 +420,19 @@
 		4EA4737D173A46D900FBA37D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				4EA4737E173A46D900FBA37D /* Bar_Menu.h */,
-				4EA4737F173A46D900FBA37D /* Bar_Menu.m */,
-				4EA47380173A46D900FBA37D /* Bar_Order.h */,
-				4EA47381173A46D900FBA37D /* Bar_Order.m */,
-				4EA47382173A46D900FBA37D /* Bar_OrderDetail.h */,
-				4EA47383173A46D900FBA37D /* Bar_OrderDetail.m */,
-				4EA47384173A46D900FBA37D /* Bar_Room.h */,
-				4EA47385173A46D900FBA37D /* Bar_Room.m */,
-				4EA47386173A46D900FBA37D /* Bar_Table.h */,
-				4EA47387173A46D900FBA37D /* Bar_Table.m */,
-				4EA47388173A46D900FBA37D /* Bar_User.h */,
-				4EA47389173A46D900FBA37D /* Bar_User.m */,
 				4EA4738A173A46D900FBA37D /* DataModel.xcdatamodeld */,
+				4EA47393173B8D8800FBA37D /* Bar_Room.h */,
+				4EA47394173B8D8800FBA37D /* Bar_Room.m */,
+				4EA47396173B8D8800FBA37D /* Bar_Table.h */,
+				4EA47397173B8D8800FBA37D /* Bar_Table.m */,
+				4EA47399173B8D8800FBA37D /* Bar_User.h */,
+				4EA4739A173B8D8800FBA37D /* Bar_User.m */,
+				4EA4739C173B8D8900FBA37D /* Bar_Order.h */,
+				4EA4739D173B8D8900FBA37D /* Bar_Order.m */,
+				4EA4739F173B8D8900FBA37D /* Bar_Menu.h */,
+				4EA473A0173B8D8900FBA37D /* Bar_Menu.m */,
+				4EA473A2173B8D8900FBA37D /* Bar_OrderDetail.h */,
+				4EA473A3173B8D8900FBA37D /* Bar_OrderDetail.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -640,13 +645,14 @@
 				4EA4737A173A466500FBA37D /* PerformanceTests.m in Sources */,
 				4EA4737B173A466500FBA37D /* ProxyTests.m in Sources */,
 				4EA4737C173A466500FBA37D /* StressTests.m in Sources */,
-				4EA4738C173A46D900FBA37D /* Bar_Menu.m in Sources */,
-				4EA4738D173A46D900FBA37D /* Bar_Order.m in Sources */,
-				4EA4738E173A46D900FBA37D /* Bar_OrderDetail.m in Sources */,
-				4EA4738F173A46D900FBA37D /* Bar_Room.m in Sources */,
-				4EA47390173A46D900FBA37D /* Bar_Table.m in Sources */,
-				4EA47391173A46D900FBA37D /* Bar_User.m in Sources */,
 				4EA47392173A46D900FBA37D /* DataModel.xcdatamodeld in Sources */,
+				4EA47395173B8D8800FBA37D /* Bar_Room.m in Sources */,
+				4EA47398173B8D8800FBA37D /* Bar_Table.m in Sources */,
+				4EA4739B173B8D8800FBA37D /* Bar_User.m in Sources */,
+				4EA4739E173B8D8900FBA37D /* Bar_Order.m in Sources */,
+				4EA473A1173B8D8900FBA37D /* Bar_Menu.m in Sources */,
+				4EA473A4173B8D8900FBA37D /* Bar_OrderDetail.m in Sources */,
+				4EA473A7173C840F00FBA37D /* BQCoreDataUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
