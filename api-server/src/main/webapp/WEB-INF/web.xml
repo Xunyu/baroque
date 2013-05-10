@@ -31,6 +31,16 @@
 		<servlet-name>regi-servlet</servlet-name>
 		<url-pattern>/regi</url-pattern>
 	</servlet-mapping>
+
+    <servlet>
+        <servlet-name>menu-servlet</servlet-name>
+        <servlet-class>com.baroque.api.web.MenuListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>menu-servlet</servlet-name>
+        <url-pattern>/menu/list</url-pattern>
+    </servlet-mapping>
 	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
