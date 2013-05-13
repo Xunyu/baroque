@@ -1,22 +1,18 @@
 package com.baroque.api.web;
 
 import com.baroque.api.entity.DishEntity;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created with IntelliJ IDEA.
- * User: elric
- * Date: 13-5-10
- * Time: 下午2:14
- * To change this template use File | Settings | File Templates.
+ * @author elric.wang
  */
 public class MenuListServlet extends BaseServlet {
     @Override
@@ -24,16 +20,25 @@ public class MenuListServlet extends BaseServlet {
         Map<String, Object> result = new HashMap<String, Object>();
         DishEntity dishEntity = new DishEntity();
         dishEntity.setFoodId(1);
-        dishEntity.setFoodName("水煮鱼");
+        dishEntity.setFoodName("酸菜鱼");
         dishEntity.setPrice(25f);
         dishEntity.setFoodType("菜");
         dishEntity.setTastyType("辣");
-        dishEntity.setPicUrl("http://s1.baroque.com/1235.jpg");
+        dishEntity.setPicUrl("http://baroque-img.stor.sinaapp.com/1_small.jpg");
+        JSONArray body = new JSONArray();
+        body.put(new JSONObject(dishEntity));
+        dishEntity = new DishEntity();
+        dishEntity.setFoodId(2);
+        dishEntity.setFoodName("红烧肉");
+        dishEntity.setPrice(25f);
+        dishEntity.setFoodType("菜");
+        dishEntity.setTastyType("不辣");
+        dishEntity.setPicUrl("http://baroque-img.stor.sinaapp.com/2_small.jpg");
+        body.put(new JSONObject(dishEntity));
         result.put("code", 200);
-        ArrayList<DishEntity> dishs = new ArrayList<DishEntity>();
-        dishs.add(dishEntity);
-        result.put("body", dishs);
+        result.put("body", body);
         JSONObject o = new JSONObject(result);
+        resp.setCharacterEncoding("utf-8");
         resp.getWriter().println(o.toString());
     }
 }

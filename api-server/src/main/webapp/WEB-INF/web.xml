@@ -14,7 +14,7 @@
 
     <filter>
         <filter-name>api-dispatch-filter</filter-name>
-        <filter-class>com.baroque.api.core.ApiDispatchFilter</filter-class>
+        <filter-class>com.baroque.api.web.ApiDispatchFilter</filter-class>
     </filter>
 
     <filter-mapping>

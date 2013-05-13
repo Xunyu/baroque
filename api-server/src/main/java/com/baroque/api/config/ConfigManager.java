@@ -17,7 +17,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ResourceUtils;
 
 /**
- * @author wenjing.wang
+ * @author elric.wang
  *
  */
 public class ConfigManager {
@@ -25,6 +25,8 @@ public class ConfigManager {
 	private static final String APP_CONFIG_LOCATION = "appConfigLocation";
 
 	private static final Map<String, String> configCache = new HashMap<String, String>();
+
+    private static Env env;
 
 	public static void init(ServletContext servletContext) {
 		String location = servletContext.getInitParameter(APP_CONFIG_LOCATION);
@@ -40,7 +42,7 @@ public class ConfigManager {
 		}
 	}
 
-	private static void loadConfig(File file) throws FileNotFoundException, IOException {
+	private static void loadConfig(File file) throws IOException {
 		Properties properties = new Properties();
 		FileInputStream fis = null;
 		try {
@@ -52,6 +54,10 @@ public class ConfigManager {
 			}
 			for (Object key : keys) {
 				String keyStr = (String) key;
+                if (keyStr.equals("env")) {
+                    env = Env.parseString(properties.getProperty(keyStr));
+                    continue;
+                }
 				configCache.put(keyStr, properties.getProperty(keyStr));
 			}
 		} catch (Exception e) {
@@ -61,6 +67,9 @@ public class ConfigManager {
 		}
 	}
 
+    public static Env getEnv () {
+        return env;
+    }
 	public static String getProperty(String key) {
 		return getProperty(key, null);
 	}

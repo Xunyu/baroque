@@ -1,6 +1,7 @@
 package com.baroque.api.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class DishEntity implements Serializable {
 
