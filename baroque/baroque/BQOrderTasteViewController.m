@@ -13,7 +13,7 @@
 @end
 
 @implementation BQOrderTasteViewController
-
+@synthesize tasteInfo = _tasteInfo;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -51,7 +51,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return [self.tasteInfo count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,8 +61,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = @"辣";
-    // Configure the cell...
+    cell.textLabel.text = [self.tasteInfo objectAtIndex:[indexPath row]];
     
     return cell;
 }

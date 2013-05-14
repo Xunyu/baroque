@@ -21,8 +21,9 @@
 }
 - (void)beginSync
 {
-    NSURL *url = [NSURL URLWithString:@"XXXX"];
+    NSURL *url = [NSURL URLWithString:@"http://baroque.sinaapp.com/menu/list"];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setRequestMethod:@"GET"];
     [request setDelegate:self];
     [request startAsynchronous];
 }
@@ -35,10 +36,11 @@
 {
     NSError *error;
     NSData *responseData = [request responseData];
+    NSLog(@"%@",responseData);
     NSDictionary *receiveDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&error];
-    NSString *receiveCode = [receiveDictionary objectForKey:@"code"];
-    if ([receiveCode isEqualToString:@"200"]){
-        NSArray *menuArray = [receiveDictionary objectForKey:@"menu"];
+    NSNumber *receiveCode = [receiveDictionary objectForKey:@"code"];
+    if ([receiveCode isEqualToNumber:[NSNumber numberWithLong:200]]){
+        NSArray *menuArray = [receiveDictionary objectForKey:@"body"];
         for (int i = 0 ; i < [menuArray count]; i++) {
             NSDictionary *item = [menuArray objectAtIndex:i];
             self.managedObjectContext = [BQCoreDataUtil sharedInstance].managedObjectContext;
@@ -52,6 +54,7 @@
             NSError *error = nil;
             [self.managedObjectContext save:&error];
         }
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"syncMenuInfoFinished" object:nil];
     }
     
 }

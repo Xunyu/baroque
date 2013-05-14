@@ -14,11 +14,17 @@
 #import "GMGridView.h"
 #import "GMGridViewLayoutStrategies.h"
 #import "BQDetailPageViewController.h"
+#import "BQSyncMenuInfo.h"
+#import "BQCoreDataUtil.h"
+#import "Bar_Menu.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface BQViewController : UIViewController
     <UITableViewDelegate, UITableViewDataSource,GMGridViewDataSource, GMGridViewActionDelegate,IASKSettingsDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (weak, nonatomic) IBOutlet GMGridView *dishGridView;
 @property (strong, nonatomic) IASKAppSettingsViewController *appSettingsViewController;
+@property (strong, nonatomic) NSArray *menuInfo;
+@property (strong, nonatomic) NSArray *menuFoodType;
 - (IBAction)settingButtonTapped:(id)sender;
 
 @end
