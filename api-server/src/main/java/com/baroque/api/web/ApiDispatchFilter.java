@@ -1,5 +1,6 @@
 package com.baroque.api.web;
 
+import com.baroque.api.web.api.CommitOrderApi;
 import com.baroque.api.web.api.MenuListApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,6 +25,7 @@ public class ApiDispatchFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         executorMap.put("/menu/list", MenuListApi.class);
+        executorMap.put("/order/commit", CommitOrderApi.class);
     }
 
     @Override
@@ -53,14 +55,20 @@ public class ApiDispatchFilter implements Filter {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("code", executor.getCode());
         Object body = executor.getBody();
-        if (body instanceof Collection) {
-            Collection<JSONObject> jsonColl = new ArrayList<JSONObject>();
-            for (Object o : (Collection) body) {
-                jsonColl.add(new JSONObject(o));
+        if (body != null) {
+            if (body instanceof Collection) {
+                Collection<JSONObject> jsonColl = new ArrayList<JSONObject>();
+                for (Object o : (Collection) body) {
+                    jsonColl.add(new JSONObject(o));
+                }
+                result.put("body", new JSONArray(jsonColl));
+            } else {
+                result.put("body", new JSONObject(body));
             }
-            result.put("body", new JSONArray(jsonColl));
-        } else {
-            result.put("body", new JSONObject(body));
+        }
+        String msg = executor.getMsg();
+        if (msg != null) {
+            result.put("msg", msg);
         }
         PrintWriter writer = htResponse.getWriter();
         writer.println(new JSONObject(result).toString());

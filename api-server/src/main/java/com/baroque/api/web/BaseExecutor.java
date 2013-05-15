@@ -9,6 +9,8 @@ public abstract class BaseExecutor implements ApiExecutor {
 
     protected Object body;
 
+    protected String msg;
+
     @Override
     public int getCode() {
         return code;
@@ -17,5 +19,10 @@ public abstract class BaseExecutor implements ApiExecutor {
     @Override
     public Object getBody() {
         return body;
+    }
+
+    @Override
+    public String getMsg() {
+        return msg;
     }
 }

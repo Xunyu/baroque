@@ -9,4 +9,6 @@ public interface ApiExecutor {
     public int getCode();
 
     public Object getBody();
+
+    public String getMsg();
 }
