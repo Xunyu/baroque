@@ -14,12 +14,28 @@
 		<servlet.version>2.4</servlet.version>
 		<spring.version>2.5.6</spring.version>
 		<ibatis.version>2.3.4.726</ibatis.version>
-		<struts.version>2.1.8</struts.version>
+		<struts.version>2.3.4</struts.version>
 		<project.encoding>UTF-8</project.encoding>
 	</properties>
 
     <dependencies>
-		<dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>${struts.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-json-plugin</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring</artifactId>
 			<version>2.5.6</version>

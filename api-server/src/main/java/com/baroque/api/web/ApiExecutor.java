@@ -5,4 +5,8 @@ package com.baroque.api.web;
  */
 public interface ApiExecutor {
     public void execute();
+
+    public int getCode();
+
+    public Object getBody();
 }
