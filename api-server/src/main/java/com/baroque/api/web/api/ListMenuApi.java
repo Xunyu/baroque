@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author elric.wang
  */
-public class MenuListApi extends BaseExecutor {
+public class ListMenuApi extends BaseExecutor {
 
     @Override
     public void execute() {

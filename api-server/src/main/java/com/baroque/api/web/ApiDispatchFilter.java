@@ -1,7 +1,9 @@
 package com.baroque.api.web;
 
 import com.baroque.api.web.api.CommitOrderApi;
-import com.baroque.api.web.api.MenuListApi;
+import com.baroque.api.web.api.ListMenuApi;
+import com.baroque.api.web.api.ListOrdersApi;
+import com.baroque.api.web.api.ViewOrderApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -24,8 +26,10 @@ public class ApiDispatchFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        executorMap.put("/menu/list", MenuListApi.class);
+        executorMap.put("/menu/list", ListMenuApi.class);
         executorMap.put("/order/commit", CommitOrderApi.class);
+        executorMap.put("/order/list", ListOrdersApi.class);
+        executorMap.put("/order/view", ViewOrderApi.class);
     }
 
     @Override
