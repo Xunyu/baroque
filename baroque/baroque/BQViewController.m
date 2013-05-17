@@ -111,7 +111,7 @@
 }
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    return CGSizeMake(230, 200);
+    return CGSizeMake(260 , 205);
 }
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
 {
@@ -125,6 +125,7 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
         view.backgroundColor = [UIColor lightGrayColor];
+        [view.layer setMasksToBounds:YES];
         view.layer.cornerRadius = 8;
         view.layer.shadowColor = [UIColor blackColor].CGColor;
         view.layer.shadowOffset = CGSizeMake(5, 5);
@@ -134,27 +135,40 @@
         cell.contentView = view;
     }
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 230, 200)];
-    UIImageView *itemImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 230, 150)];
+    UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 260, 205)];
+    UIImageView *itemImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 260, 205)];
     NSString *imageURL = [[self.menuInfo objectAtIndex:index] picUrl];
     [itemImageView setImageWithURL:[NSURL URLWithString:imageURL]];
+    [itemImageView.layer setMasksToBounds:YES];
+    [itemImageView.layer setCornerRadius:8];
     [itemView addSubview:itemImageView];
-    UILabel *itemName = [[UILabel alloc]initWithFrame:CGRectMake(12, 163, 85, 21)];
+    UIImageView *itemLabelBackImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 120, 260, 85)];
+    [itemLabelBackImageView setBackgroundColor:[UIColor blackColor]];
+    [itemLabelBackImageView setAlpha:0.4];
+    [itemView addSubview:itemLabelBackImageView];
+    UILabel *itemName = [[UILabel alloc]initWithFrame:CGRectMake(20, 130, 210, 21)];
     itemName.text = [NSString stringWithFormat:@"%@",[[self.menuInfo objectAtIndex:index] foodName]];
+    itemName.textColor = [UIColor whiteColor];
     itemName.backgroundColor = [UIColor clearColor];
     [itemView addSubview:itemName];
-    UILabel *itemCount = [[UILabel alloc]initWithFrame:CGRectMake(145, 163, 34, 21)];
-    itemCount.text = @"1";
+    UILabel *itemPrice = [[UILabel alloc]initWithFrame:CGRectMake(20, 165, 80, 21)];
+    itemPrice.text = [NSString stringWithFormat:@"%@￥/份",[[self.menuInfo objectAtIndex:index] price]];
+    itemPrice.textColor = [UIColor whiteColor];
+    itemPrice.backgroundColor = [UIColor clearColor];
+    [itemView addSubview:itemPrice];
+    UILabel *itemCount = [[UILabel alloc]initWithFrame:CGRectMake(160, 165, 30, 21)];
+    itemCount.text = @"0";
     itemCount.textAlignment = UITextAlignmentCenter;
+    itemCount.textColor = [UIColor whiteColor];
     itemCount.backgroundColor = [UIColor clearColor];
     [itemView addSubview:itemCount];
     UIButton *itemMinusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    itemMinusButton.frame = CGRectMake(105, 158, 32, 32);
-    itemMinusButton.titleLabel.text = @"-";
+    itemMinusButton.frame = CGRectMake(110, 155, 44, 44);
+    [itemMinusButton setTitle:@"-" forState:UIControlStateNormal];
     [itemView addSubview:itemMinusButton];
     UIButton *itemPlusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    itemPlusButton.frame = CGRectMake(187, 158, 32, 32);
-    itemPlusButton.titleLabel.text = @"+";
+    itemPlusButton.frame = CGRectMake(195, 155, 44, 44);
+    [itemPlusButton setTitle:@"+" forState:UIControlStateNormal];
     [itemView addSubview:itemPlusButton];
     [cell.contentView addSubview:itemView];
 //    UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.bounds];
