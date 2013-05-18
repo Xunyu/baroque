@@ -8,9 +8,18 @@
 		<param-value>classpath:config/appConfig.properties</param-value>
 	</context-param>
 	
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:config/spring/appcontext-*.xml</param-value>
+    </context-param>
+
 	<listener>
 		<listener-class>com.baroque.api.config.AppConfigListener</listener-class>
 	</listener>
+    
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -69,26 +78,6 @@
         <!--<dispatcher>REQUEST</dispatcher>-->
         <!--<dispatcher>FORWARD</dispatcher>-->
     <!--</filter-mapping>-->
-
-    <servlet>
-		<servlet-name>add-servlet</servlet-name>
-		<servlet-class>com.baroque.api.demo.web.IntegerAddServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>add-servlet</servlet-name>
-		<url-pattern>/add</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>regi-servlet</servlet-name>
-		<servlet-class>com.baroque.api.demo.web.RegisterServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>regi-servlet</servlet-name>
-		<url-pattern>/regi</url-pattern>
-	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
