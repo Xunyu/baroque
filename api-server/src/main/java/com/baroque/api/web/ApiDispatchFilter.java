@@ -1,5 +1,6 @@
 package com.baroque.api.web;
 
+import com.baroque.api.config.ConfigManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.BeansException;
@@ -81,6 +82,10 @@ public class ApiDispatchFilter implements Filter, ApplicationContextAware {
             result.put("msg", msg);
         }
         PrintWriter writer = htResponse.getWriter();
+        // in dev environment, add matedata
+        if (ConfigManager.getEnv() == ConfigManager.Env.DEV) {
+            writer.println("<!DOCTYPE html>\n<meta charset=\"UTF-8\"/>");
+        }
         writer.println(new JSONObject(result).toString());
     }
 
