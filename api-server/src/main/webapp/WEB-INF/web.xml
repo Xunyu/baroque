@@ -36,7 +36,15 @@
 
     <filter>
         <filter-name>api-dispatch-filter</filter-name>
-        <filter-class>com.baroque.api.web.ApiDispatchFilter</filter-class>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetBeanName</param-name>
+            <param-value>apiDispatchFilter</param-value>
+        </init-param>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
     </filter>
     
     <!--<filter>-->

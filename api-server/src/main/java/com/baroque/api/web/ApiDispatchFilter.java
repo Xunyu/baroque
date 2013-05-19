@@ -1,11 +1,10 @@
 package com.baroque.api.web;
 
-import com.baroque.api.web.api.CommitOrderApi;
-import com.baroque.api.web.api.ListMenuApi;
-import com.baroque.api.web.api.ListOrdersApi;
-import com.baroque.api.web.api.ViewOrderApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -20,16 +19,23 @@ import java.util.Map;
 /**
  * @author elric.wang
  */
-public class ApiDispatchFilter implements Filter {
+public class ApiDispatchFilter implements Filter, ApplicationContextAware {
 
-    private Map<String, Class> executorMap = new HashMap<String, Class>();
+    private Map<String, String> executorMap = new HashMap<String, String>();
+
+    private ApplicationContext applicationContext;
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+
+    public void setExecutorMap(Map<String, String> executorMap) {
+        this.executorMap = executorMap;
+    }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        executorMap.put("/menu/list", ListMenuApi.class);
-        executorMap.put("/order/commit", CommitOrderApi.class);
-        executorMap.put("/order/list", ListOrdersApi.class);
-        executorMap.put("/order/view", ViewOrderApi.class);
     }
 
     @Override
@@ -39,9 +45,9 @@ public class ApiDispatchFilter implements Filter {
         String uri = htRequest.getRequestURI();
         ApiExecutor executor = null;
         try {
-            Class executorClass = executorMap.get(uri);
-            if (executorClass != null) {
-                executor = (ApiExecutor) executorClass.newInstance();
+            String  executorName = executorMap.get(uri);
+            if (executorName != null) {
+                executor = (ApiExecutor) applicationContext.getBean(executorName);
             }
         } catch (Exception e) {
         }

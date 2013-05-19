@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="apiDispatchFilter" class="com.baroque.api.web.ApiDispatchFilter">
+        <property name="executorMap">
+            <map>
+                <entry key="/menu/list" value="listMenuApi" />
+                <entry key="/order/commit" value="commitOrderApi" />
+                <entry key="/order/list" value="listOrderApi" />
+                <entry key="/order/view" value="viewOrderApi" />
+            </map>
+        </property>
+    </bean>
+
+    <bean name="listMenuApi" class="com.baroque.api.web.api.ListMenuApi" scope="prototype">
+        <property name="dishDao" ref="dishDao"/>
+    </bean>
+    <bean name="commitOrderApi" class="com.baroque.api.web.api.CommitOrderApi" scope="prototype"></bean>
+    <bean name="listOrderApi" class="com.baroque.api.web.api.ListOrdersApi" scope="prototype"></bean>
+    <bean name="viewOrderApi" class="com.baroque.api.web.api.ViewOrderApi" scope="prototype"></bean>
+</beans>
