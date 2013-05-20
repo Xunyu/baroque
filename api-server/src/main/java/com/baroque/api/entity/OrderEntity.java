@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class OrderEntity implements Serializable {
 
-    // TODO: add serialize id
+    private static final long serialVersionUID = 2355581124437071402L;
 
     private int orderId;
 

@@ -5,7 +5,8 @@ package com.baroque.api.enums;
  */
 public enum FoodType {
     菜(1),
-    主食(2);
+    主食(2),
+    酒水(3);
 
     public final int value;
 

@@ -5,4 +5,8 @@
     <bean name="dishDao" class="com.baroque.api.dao.DishDao">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+
+    <bean name="orderDao" class="com.baroque.api.dao.OrderDao">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 </beans>

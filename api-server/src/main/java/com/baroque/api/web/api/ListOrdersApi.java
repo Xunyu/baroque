@@ -1,5 +1,6 @@
 package com.baroque.api.web.api;
 
+import com.baroque.api.dao.OrderDao;
 import com.baroque.api.entity.OrderEntity;
 import com.baroque.api.web.BaseExecutor;
 
@@ -11,21 +12,15 @@ import java.util.List;
  */
 public class ListOrdersApi extends BaseExecutor {
 
+    private OrderDao orderDao;
+
+    public void setOrderDao(OrderDao orderDao) {
+        this.orderDao = orderDao;
+    }
+
     @Override
     public void execute() {
-        List<OrderEntity> orders = new ArrayList<OrderEntity>();
-        OrderEntity order = new OrderEntity();
-        order.setOrderId(1);
-        order.setDeskId(4);
-        order.setCustomerCount(5);
-        orders.add(order);
-
-        order = new OrderEntity();
-        order.setOrderId(2);
-        order.setDeskId(3);
-        order.setCustomerCount(2);
-        orders.add(order);
-
+        List<OrderEntity> orders = orderDao.findAllOrders();
         code = 200;
         body = orders;
     }

@@ -2,10 +2,14 @@ package com.baroque.api.entity;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * @author elric.wang
  */
-public class OrderItemEntity {
+public class OrderItemEntity implements Serializable {
+
+    private static final long serialVersionUID = 6123059807525425933L;
 
     private int foodId;
 

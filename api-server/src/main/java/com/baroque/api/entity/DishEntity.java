@@ -5,6 +5,8 @@ import java.util.List;
 
 public class DishEntity implements Serializable {
 
+    private static final long serialVersionUID = 7273199460349640789L;
+
     private int foodId;
 
     private String foodName;
