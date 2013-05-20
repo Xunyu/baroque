@@ -19,7 +19,7 @@ public class ListOrdersApi extends BaseExecutor {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws Exception {
         List<OrderEntity> orders = orderDao.findAllOrders();
         code = 200;
         body = orders;

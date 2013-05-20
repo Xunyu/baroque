@@ -18,11 +18,15 @@
         <property name="dishDao" ref="dishDao"/>
     </bean>
 
-    <bean name="commitOrderApi" class="com.baroque.api.web.api.CommitOrderApi" scope="prototype"></bean>
+    <bean name="commitOrderApi" class="com.baroque.api.web.api.CommitOrderApi" scope="prototype">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
 
     <bean name="listOrderApi" class="com.baroque.api.web.api.ListOrdersApi" scope="prototype">
         <property name="orderDao" ref="orderDao"/>
     </bean>
 
-    <bean name="viewOrderApi" class="com.baroque.api.web.api.ViewOrderApi" scope="prototype"></bean>
+    <bean name="viewOrderApi" class="com.baroque.api.web.api.ViewOrderApi" scope="prototype">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
 </beans>

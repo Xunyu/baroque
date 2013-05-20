@@ -62,7 +62,12 @@ public class ApiDispatchFilter implements Filter, ApplicationContextAware {
             executorAlias.setHttpServletRequest(htRequest);
             executorAlias.setHttpServletResponse(htResponse);
         }
-        executor.execute();
+        try {
+            executor.execute();
+        } catch (Exception e) {
+            // TODO:response 500
+            throw new ServletException(e.getMessage(), e);
+        }
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("code", executor.getCode());
         Object body = executor.getBody();
@@ -81,11 +86,8 @@ public class ApiDispatchFilter implements Filter, ApplicationContextAware {
         if (msg != null) {
             result.put("msg", msg);
         }
+        htResponse.setContentType("text/plain;charset=UTF-8");
         PrintWriter writer = htResponse.getWriter();
-        // in dev environment, add matedata
-        if (ConfigManager.getEnv() == ConfigManager.Env.DEV) {
-            writer.println("<!DOCTYPE html>\n<meta charset=\"UTF-8\"/>");
-        }
         writer.println(new JSONObject(result).toString());
     }
 

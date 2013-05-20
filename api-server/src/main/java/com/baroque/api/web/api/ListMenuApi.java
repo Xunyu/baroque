@@ -21,7 +21,7 @@ public class ListMenuApi extends BaseExecutor {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws Exception {
         List<DishEntity> dishes = dishDao.findAllDishes();
         code = 200;
         body = dishes;

@@ -1,6 +1,7 @@
 package com.baroque.api.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,9 +13,11 @@ public class OrderEntity implements Serializable {
 
     private int orderId;
 
-    private int deskId;
+    private int tableId;
 
     private int customerCount;
+
+    private Date addTime;
 
     private List<OrderItemEntity> orderItems;
 
@@ -26,12 +29,12 @@ public class OrderEntity implements Serializable {
         this.orderId = orderId;
     }
 
-    public int getDeskId() {
-        return deskId;
+    public int getTableId() {
+        return tableId;
     }
 
-    public void setDeskId(int deskId) {
-        this.deskId = deskId;
+    public void setTableId(int tableId) {
+        this.tableId = tableId;
     }
 
     public int getCustomerCount() {
@@ -40,6 +43,14 @@ public class OrderEntity implements Serializable {
 
     public void setCustomerCount(int customerCount) {
         this.customerCount = customerCount;
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
     }
 
     public List<OrderItemEntity> getOrderItems() {
