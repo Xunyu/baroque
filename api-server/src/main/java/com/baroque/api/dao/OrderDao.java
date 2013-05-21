@@ -25,7 +25,7 @@ public class OrderDao {
     }
 
     public List<OrderEntity> findAllOrders() {
-        String sql = "select OrderID, TableID, CustomerCount from Bar_Order";
+        String sql = "select * from Bar_Order";
         return jdbcTemplate.query(sql, new OrderRowMapper());
     }
 
