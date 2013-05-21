@@ -1162,7 +1162,19 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
         }
     }
 }
-
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ( gestureRecognizer == _tapGesture || gestureRecognizer == _longPressGesture ) {
+        if ( [touch.view isDescendantOfView:self] ) {
+            // Test if the touched view is a subview of a control
+            for ( UIView *view = touch.view ; view != self ; view = view.superview )
+                if ( [view isKindOfClass:[UIControl class]] )
+                    return NO;
+        }
+    }
+    
+    return YES;
+}
 //////////////////////////////////////////////////////////////
 #pragma mark private methods
 //////////////////////////////////////////////////////////////

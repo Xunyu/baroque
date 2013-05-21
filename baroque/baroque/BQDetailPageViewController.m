@@ -15,12 +15,12 @@
 @end
 
 @implementation BQDetailPageViewController
-@synthesize currentDishID = _currentDishID;
+@synthesize currentDishID = _currentDishID,menuInfoCount = _menuInfoCount;
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    BQDetailViewController *pageCurrent = [BQDetailViewController detailViewControllerForPageIndex:self.currentDishID];
+    BQDetailViewController *pageCurrent = [BQDetailViewController detailViewControllerForPageIndex:self.currentDishID withPageCount:self.menuInfoCount];
     if (pageCurrent != nil){
         self.dataSource = self;
         [self setViewControllers:@[pageCurrent] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
@@ -41,12 +41,12 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(BQDetailViewController *)viewController
 {
     NSUInteger index = viewController.pageIndex;
-    return [BQDetailViewController detailViewControllerForPageIndex:(index - 1)];
+    return [BQDetailViewController detailViewControllerForPageIndex:(index - 1) withPageCount:self.menuInfoCount];
 }
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(BQDetailViewController *)viewController
 {
     NSUInteger index = viewController.pageIndex;
-    return [BQDetailViewController detailViewControllerForPageIndex:(index + 1)];
+    return [BQDetailViewController detailViewControllerForPageIndex:(index + 1) withPageCount:self.menuInfoCount];
 }
 - (void)viewDidUnload {
     [super viewDidUnload];

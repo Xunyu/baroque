@@ -38,8 +38,7 @@
     if (_managedObjectModel != nil){
         return _managedObjectModel;
     }
-    NSURL *modalURL= [[NSBundle mainBundle]URLForResource:@"menu" withExtension:@"data"];
-    _managedObjectModel = [[NSManagedObjectModel alloc]initWithContentsOfURL:modalURL];
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     return _managedObjectModel;
 }
 - (NSPersistentStoreCoordinator*)persistentStoreCoordinator
@@ -49,7 +48,7 @@
     }
     NSError *error = nil;
     NSURL *storeURL = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]URLByAppendingPathComponent:@"menu.sqlite"];
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:_managedObjectModel];
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:self.managedObjectModel];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]){
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
