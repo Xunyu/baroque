@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BQOrderTasteViewController : UITableViewController
-
+@property (nonatomic, strong) NSArray *tasteInfo;
 @end

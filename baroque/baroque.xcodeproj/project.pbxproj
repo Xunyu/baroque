@@ -44,6 +44,8 @@
 		4EA473AF173CA3CD00FBA37D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473AE173CA3CD00FBA37D /* MobileCoreServices.framework */; };
 		4EA473B3173CA40300FBA37D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473B2173CA40300FBA37D /* SystemConfiguration.framework */; };
 		4EA473B5173CA42500FBA37D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473B4173CA42500FBA37D /* libz.dylib */; };
+		4EA473E517422A3400FBA37D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473E417422A3400FBA37D /* ImageIO.framework */; };
+		4EA473E71742315200FBA37D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473E61742315200FBA37D /* SDWebImage.framework */; };
 		4EC1365F1715449F00867870 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1365E1715449F00867870 /* QuartzCore.framework */; };
 		4EC1366D171544DB00867870 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC13663171544DB00867870 /* GMGridView.m */; };
 		4EC1366E171544DB00867870 /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC13666171544DB00867870 /* GMGridViewCell.m */; };
@@ -83,7 +85,6 @@
 		4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQPostOrderViewController.m; sourceTree = "<group>"; };
 		4E3593BD17375CBC00A86424 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E5640D017276F7E00186FA9 /* InAppSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InAppSettings.bundle; sourceTree = "<group>"; };
-		4E5640D2172771BC00186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 		4E5640D3172771BC00186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4E5640D71727738000186FA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E5640D91727738400186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		4E5D29271712590600C2AA88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4E5D29291712590600C2AA88 /* BQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BQViewController.h; sourceTree = "<group>"; };
 		4E5D292A1712590600C2AA88 /* BQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BQViewController.m; sourceTree = "<group>"; };
+		4E9F1CCA17460D37003DBEA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 		4EA4726A173A3B8D00FBA37D /* BQSyncMenuInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQSyncMenuInfo.h; sourceTree = "<group>"; };
 		4EA4726B173A3B8D00FBA37D /* BQSyncMenuInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQSyncMenuInfo.m; sourceTree = "<group>"; };
 		4EA47306173A466500FBA37D /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -146,6 +148,8 @@
 		4EA473AE173CA3CD00FBA37D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4EA473B2173CA40300FBA37D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4EA473B4173CA42500FBA37D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4EA473E417422A3400FBA37D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		4EA473E61742315200FBA37D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		4EC1365E1715449F00867870 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4EC13661171544DB00867870 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
 		4EC13662171544DB00867870 /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridView.h; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA473E517422A3400FBA37D /* ImageIO.framework in Frameworks */,
 				4EA473B5173CA42500FBA37D /* libz.dylib in Frameworks */,
 				4EA473B3173CA40300FBA37D /* SystemConfiguration.framework in Frameworks */,
 				4EA473AF173CA3CD00FBA37D /* MobileCoreServices.framework in Frameworks */,
@@ -223,6 +228,7 @@
 				4E5D290F1712590600C2AA88 /* UIKit.framework in Frameworks */,
 				4E5D29111712590600C2AA88 /* Foundation.framework in Frameworks */,
 				4E5D29131712590600C2AA88 /* CoreGraphics.framework in Frameworks */,
+				4EA473E71742315200FBA37D /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,15 +255,17 @@
 		4E5D290D1712590600C2AA88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EA473E61742315200FBA37D /* SDWebImage.framework */,
 				4EA473B4173CA42500FBA37D /* libz.dylib */,
+				4EF2EB3A17267CF8008F0026 /* InAppSettingsKit */,
+				4EA47305173A466500FBA37D /* ASIHttpRequest */,
+				4EC13660171544DB00867870 /* GMGridView */,
+				4EA473E417422A3400FBA37D /* ImageIO.framework */,
 				4EA473B2173CA40300FBA37D /* SystemConfiguration.framework */,
 				4EA473AE173CA3CD00FBA37D /* MobileCoreServices.framework */,
 				4EA473AC173CA3BB00FBA37D /* CFNetwork.framework */,
-				4EA47305173A466500FBA37D /* ASIHttpRequest */,
 				4E3593BD17375CBC00A86424 /* CoreData.framework */,
-				4EF2EB3A17267CF8008F0026 /* InAppSettingsKit */,
 				4EF2EB3817267C8D008F0026 /* MessageUI.framework */,
-				4EC13660171544DB00867870 /* GMGridView */,
 				4EC1365E1715449F00867870 /* QuartzCore.framework */,
 				4E5D290E1712590600C2AA88 /* UIKit.framework */,
 				4E5D29101712590600C2AA88 /* Foundation.framework */,
@@ -615,7 +623,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E5D29271712590600C2AA88 /* en */,
-				4E5640D2172771BC00186FA9 /* zh-Hans */,
+				4E9F1CCA17460D37003DBEA9 /* zh-Hans */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -684,10 +692,20 @@
 		4E5D292F1712590600C2AA88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baroque/baroque-Prefix.pch";
 				INFOPLIST_FILE = "baroque/baroque-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -696,10 +714,20 @@
 		4E5D29301712590600C2AA88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baroque/baroque-Prefix.pch";
 				INFOPLIST_FILE = "baroque/baroque-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
