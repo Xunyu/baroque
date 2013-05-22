@@ -29,12 +29,6 @@ public class DaoTest {
     private OrderDao orderDao;
 
     @Test
-    public void dishDaoShouldReturn1WhenSelectOne() {
-        int one = dishDao.selectOne();
-        assertEquals(1, one);
-    }
-
-    @Test
     public void dishDaoShouldReturnAllDishesWhenQueryAll() {
         List<DishEntity> dishEntities = dishDao.findAllDishes();
         assertNotNull(dishEntities);

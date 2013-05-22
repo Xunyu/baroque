@@ -22,10 +22,6 @@ public class DishDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public int selectOne() {
-        return  jdbcTemplate.queryForInt("select 1");
-    }
-
     public List<DishEntity> findAllDishes() {
         final String sql = "select FoodID, FoodName, PicUrl, Price, FoodType, TastyType from Bar_Menu";
         return jdbcTemplate.query(sql, new DishRowMapper());
