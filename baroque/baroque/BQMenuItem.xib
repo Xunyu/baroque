@@ -127,11 +127,11 @@
 						<reference key="NSNextResponder" ref="141230862"/>
 						<int key="NSvFlags">1316</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{205, 154}, {44, 44}}</string>
+						<string key="NSFrame">{{205, 154}, {44, 33}}</string>
 						<reference key="NSSuperview" ref="141230862"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<float key="IBUIAlpha">0.69999998807907104</float>
+						<float key="IBUIAlpha">0.5</float>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -160,12 +160,12 @@
 						<reference key="NSNextResponder" ref="141230862"/>
 						<int key="NSvFlags">1316</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{120, 154}, {44, 44}}</string>
+						<string key="NSFrame">{{120, 154}, {44, 33}}</string>
 						<reference key="NSSuperview" ref="141230862"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="335047881"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<float key="IBUIAlpha">0.69999998807907104</float>
+						<float key="IBUIAlpha">0.5</float>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>

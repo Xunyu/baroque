@@ -81,6 +81,9 @@
 		4EF2EB6617267CF8008F0026 /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5617267CF8008F0026 /* IASKSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4EF2EB6717267CF8008F0026 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5817267CF8008F0026 /* IASKSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4EF2EB6817267CF8008F0026 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5A17267CF8008F0026 /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EC8CDA0C174E507C0023F27E /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CDA0B174E507C0023F27E /* button.png */; };
+		EC8CDA0F174E526D0023F27E /* b1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CDA0D174E526D0023F27E /* b1.png */; };
+		EC8CDA10174E526D0023F27E /* b2.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CDA0E174E526D0023F27E /* b2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +221,9 @@
 		4EF2EB5817267CF8008F0026 /* IASKSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSwitch.m; sourceTree = "<group>"; };
 		4EF2EB5917267CF8008F0026 /* IASKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTextField.h; sourceTree = "<group>"; };
 		4EF2EB5A17267CF8008F0026 /* IASKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTextField.m; sourceTree = "<group>"; };
+		EC8CDA0B174E507C0023F27E /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		EC8CDA0D174E526D0023F27E /* b1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b1.png; sourceTree = "<group>"; };
+		EC8CDA0E174E526D0023F27E /* b2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +316,9 @@
 				4E5D29201712590600C2AA88 /* Default.png */,
 				4E5D29221712590600C2AA88 /* Default@2x.png */,
 				4E5D29241712590600C2AA88 /* Default-568h@2x.png */,
+				EC8CDA0B174E507C0023F27E /* button.png */,
+				EC8CDA0D174E526D0023F27E /* b1.png */,
+				EC8CDA0E174E526D0023F27E /* b2.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -568,6 +577,9 @@
 				4E5640D117276F7E00186FA9 /* InAppSettings.bundle in Resources */,
 				4E5640D61727738000186FA9 /* Localizable.strings in Resources */,
 				4EBE7DB6174DB825000E609B /* BQMenuItem.xib in Resources */,
+				EC8CDA0C174E507C0023F27E /* button.png in Resources */,
+				EC8CDA0F174E526D0023F27E /* b1.png in Resources */,
+				EC8CDA10174E526D0023F27E /* b2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
