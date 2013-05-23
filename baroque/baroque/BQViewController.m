@@ -19,6 +19,8 @@
 @synthesize appSettingsViewController;
 @synthesize menuInfo = _menuInfo,menuFoodType = _menuFoodType;
 
+
+//从NSCore获取菜单
 - (NSArray*)menuInfo
 {
     NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
@@ -28,25 +30,29 @@
     NSArray *menu = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
     return menu;
 }
+//从已有菜单中提取foodType字段add到menuFoodType，之后作为索引
+
 - (NSArray*)menuFoodType
 {
     NSMutableArray *type = [[NSMutableArray alloc]init];
     if (self.menuInfo != nil){
         for (Bar_Menu *menuItem in self.menuInfo) {
-            if (![menuItem.foodType isEqualToString:@""]&& menuItem.foodType != nil) {
+//            if (![menuItem.foodType isEqualToString:@""]&& menuItem.foodType != nil) {
+            if ([menuItem.foodType length] && ![type containsObject:menuItem.foodType]) {
                 [type addObject:menuItem.foodType];
             }
         }
     }
-    NSMutableArray *unRepeatType = [[NSMutableArray alloc]init];
-    if (type !=nil){
-        for (unsigned int i = 0; i < [type count]; i++) {
-            if (![unRepeatType containsObject:[type objectAtIndex:i]]){
-                [unRepeatType addObject:[type objectAtIndex:i]];
-            }
-        }
-    }
-    return unRepeatType;
+//    NSMutableArray *unRepeatType = [[NSMutableArray alloc]init];
+//    if (type !=nil){
+//        for (unsigned int i = 0; i < [type count]; i++) {
+//            if (![unRepeatType containsObject:[type objectAtIndex:i]]){
+//                [unRepeatType addObject:[type objectAtIndex:i]];
+//            }
+//        }
+//    }
+//    return unRepeatType;
+    return type;
 }
 - (void)syncMenuInfoFinished
 {
@@ -68,7 +74,6 @@
     self.dishGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontalPagedLTR];
     self.dishGridView.minEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
     self.dishGridView.clipsToBounds = YES;
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,14 +97,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"dishCategoryCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];    
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     cell.textLabel.text = [self.menuFoodType objectAtIndex:[indexPath row]];
     cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:40.0f ];
+    cell.textLabel.textAlignment = UITextAlignmentCenter;
     return cell;
 }
 
