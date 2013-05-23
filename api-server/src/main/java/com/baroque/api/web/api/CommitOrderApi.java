@@ -16,7 +16,7 @@ public class CommitOrderApi extends BaseExecutor {
 
     @Override
     public void execute() throws Exception {
-        int tableId = Integer.parseInt(request.getParameter("desk"));
+        int tableId = Integer.parseInt(request.getParameter("tableId"));
         int customerCount = Integer.parseInt(request.getParameter("customerCount"));
         String[] dishIds = request.getParameterValues("foodId");
         String[] dishCount = request.getParameterValues("count");
