@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
 #import "BQOrderCookWayViewController.h"
 #import "BQOrderTasteViewController.h"
 #import "BQCoreDataUtil.h"
 #import "Bar_Menu.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "BQItemCountAction.h"
+
 @interface BQDetailViewController : UIViewController
 @property (nonatomic, strong) NSArray *menuInfo;
 @property (weak, nonatomic) IBOutlet UIImageView *dishImageView;
@@ -21,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dishMount;
 @property (weak, nonatomic) IBOutlet UILabel *dishCookWay;
 @property (weak, nonatomic) IBOutlet UILabel *dishTaste;
+@property (weak, nonatomic) IBOutlet UIButton *dishCookWayButton;
+@property (weak, nonatomic) IBOutlet UIButton *dishTasteButton;
 
 - (IBAction)dishTasteEditButtonTouched:(id)sender;
 - (IBAction)dishCookWayEditButtonTouched:(id)sender;

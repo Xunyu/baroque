@@ -58,8 +58,7 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(syncMenuInfoFinished) name:@"syncMenuInfoFinished" object:nil];
-    
-
+    [self.dishGridView reloadData];
 }
 - (void)viewDidLoad
 {
@@ -135,51 +134,14 @@
         cell.contentView = view;
     }
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 260, 205)];
-    UIImageView *itemImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 260, 205)];
+    BQMenuItem *itemView = [[BQMenuItem alloc]init];
+    [itemView setFoodID:[[self.menuInfo objectAtIndex:index]foodID]];
+    [[itemView itemCount]setText:[BQItemCountAction getItemCountWithFoodID:[[self.menuInfo objectAtIndex:index]foodID]]];
+    [[itemView itemPrice]setText:[NSString stringWithFormat:@"%@￥/份",[[self.menuInfo objectAtIndex:index] price]]];
     NSString *imageURL = [[self.menuInfo objectAtIndex:index] picUrl];
-    [itemImageView setImageWithURL:[NSURL URLWithString:imageURL]];
-    [itemImageView.layer setMasksToBounds:YES];
-    [itemImageView.layer setCornerRadius:8];
-    [itemView addSubview:itemImageView];
-    UIImageView *itemLabelBackImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 120, 260, 85)];
-    [itemLabelBackImageView setBackgroundColor:[UIColor blackColor]];
-    [itemLabelBackImageView setAlpha:0.4];
-    [itemView addSubview:itemLabelBackImageView];
-    UILabel *itemName = [[UILabel alloc]initWithFrame:CGRectMake(20, 130, 210, 21)];
-    itemName.text = [NSString stringWithFormat:@"%@",[[self.menuInfo objectAtIndex:index] foodName]];
-    itemName.textColor = [UIColor whiteColor];
-    itemName.backgroundColor = [UIColor clearColor];
-    [itemView addSubview:itemName];
-    UILabel *itemPrice = [[UILabel alloc]initWithFrame:CGRectMake(20, 165, 80, 21)];
-    itemPrice.text = [NSString stringWithFormat:@"%@￥/份",[[self.menuInfo objectAtIndex:index] price]];
-    itemPrice.textColor = [UIColor whiteColor];
-    itemPrice.backgroundColor = [UIColor clearColor];
-    [itemView addSubview:itemPrice];
-    UILabel *itemCount = [[UILabel alloc]initWithFrame:CGRectMake(160, 165, 30, 21)];
-    itemCount.text = @"0";
-    itemCount.textAlignment = UITextAlignmentCenter;
-    itemCount.textColor = [UIColor whiteColor];
-    itemCount.backgroundColor = [UIColor clearColor];
-    [itemView addSubview:itemCount];
-    UIButton *itemMinusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    itemMinusButton.frame = CGRectMake(110, 155, 44, 44);
-    [itemMinusButton setTitle:@"-" forState:UIControlStateNormal];
-    [itemView addSubview:itemMinusButton];
-    UIButton *itemPlusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    itemPlusButton.frame = CGRectMake(195, 155, 44, 44);
-    [itemPlusButton setTitle:@"+" forState:UIControlStateNormal];
-    [itemView addSubview:itemPlusButton];
+    [[itemView itemImageView]setImageWithURL:[NSURL URLWithString:imageURL]];
+    [[itemView itemName]setText:[[self.menuInfo objectAtIndex:index]foodName]];
     [cell.contentView addSubview:itemView];
-//    UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.bounds];
-//    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    label.text = [NSString stringWithFormat:@"%@ %d",@"我是菜",index];
-//    label.textAlignment = UITextAlignmentCenter;
-//    label.backgroundColor = [UIColor clearColor];
-//    label.textColor = [UIColor blackColor];
-//    label.highlightedTextColor = [UIColor whiteColor];
-//    label.font = [UIFont boldSystemFontOfSize:20];
-//    [cell.contentView addSubview:label];
     
     return cell;
 }
@@ -233,4 +195,11 @@
         [[BQSyncMenuInfo sharedInstance]beginSync];
     }
 }
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"orderSegue"]){
+//        BQOrderViewController *vc = segue.destinationViewController;
+//        [vc setMenuInfo:self.menuInfo];
+//    }
+//}
 @end
