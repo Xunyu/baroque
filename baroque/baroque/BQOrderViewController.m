@@ -24,18 +24,27 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_OrderDetail" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
         [fetch setEntity:entity];
         NSError *error = nil;
-        _orderDetailArray = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
+        _orderDetailArray = [[[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error]mutableCopy];
     }
     return _orderDetailArray;
 }
 
 #pragma mark - UITableView DataSource
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.orderDetailArray count];
 }
-
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        [self.orderDetailArray removeObjectAtIndex:[indexPath row]];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"orderDiskInfomationCell";
@@ -53,8 +62,10 @@
         Bar_Menu *item = [result lastObject];
         cell.dishName.text = [item foodName];
         cell.dishUnitPrice.text = [[item price]stringValue];
-        NSLog(@"%@",[item picUrl]);
-        [cell.dishImage setImageWithURL:[NSURL URLWithString:[item picUrl]]];
+        [cell.dishImageView setImageWithURL:[NSURL URLWithString:[item picUrl]]];
+        [cell.dishImageView.layer setCornerRadius:6.0f];
+        [cell.dishImageView.layer setMasksToBounds:YES];
+        cell.tag = [[item foodID]intValue];
     }
     cell.dishMount.text = [[((Bar_OrderDetail*)[self.orderDetailArray objectAtIndex:[indexPath row]])count]stringValue];
     return cell;
@@ -79,4 +90,5 @@
                                           300.0f
                                           );
 }
+
 @end

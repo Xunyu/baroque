@@ -7,7 +7,8 @@
 //
 
 #import "BQOrderTableViewCell.h"
-
+#import "BQItemCountAction.h"
+#import "BQOrderViewController.h"
 @implementation BQOrderTableViewCell
 {
     UIPopoverController *popover;
@@ -43,5 +44,20 @@
     popover = [[UIPopoverController alloc]initWithContentViewController:vc];
     popover.popoverContentSize = CGSizeMake(200, 300);
     [popover presentPopoverFromRect:[sender frame] inView:self.contentView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+}
+
+- (IBAction)dishCountPlusButtonPressed:(id)sender {
+    self.dishMount.text = [BQItemCountAction itemCountPlusWithFoodID:[NSNumber numberWithInt:self.tag]];
+}
+
+- (IBAction)dishCountMinusButtonPressed:(id)sender {
+    self.dishMount.text = [BQItemCountAction itemCountMinusWithFoodID:[NSNumber numberWithInt:self.tag]];
+    if ([self.dishMount.text isEqualToString:@"0"]){
+        if ([self.superview isKindOfClass:[UITableView class]]){
+            UITableView *table = (UITableView*)self.superview;
+            NSIndexPath *index = [table indexPathForCell:self];
+            [[table dataSource]tableView:table commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:index];
+        }
+    }
 }
 @end

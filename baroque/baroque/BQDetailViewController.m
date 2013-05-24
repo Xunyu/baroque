@@ -17,22 +17,19 @@
 @end
 
 @implementation BQDetailViewController
-@synthesize dishName = _dishName,menuInfo = _menuInfo;
+@synthesize dishName = _dishName,menuInfo = _menuInfo,categoryName = _categoryName;
 - (NSArray*)menuInfo
 {
     if (_menuInfo == nil){
-        NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_Menu" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
-        [fetch setEntity:entity];
-        NSError *error = nil;
-        _menuInfo = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"foodType = %@",self.categoryName];
+        _menuInfo = [BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu" andWithPredicate:predicate];
     }
     return _menuInfo;
 }
-+ (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex withPageCount:(NSUInteger)pageCount
++ (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex withPageCount:(NSUInteger)pageCount withCategoryName:(NSString *)categoryName
 {
     if (pageIndex<pageCount){
-        return [[self alloc] initWithPageIndex:pageIndex];
+        return [[self alloc] initWithPageIndex:pageIndex withCategoryName:categoryName];
     }
     return nil;
 }
@@ -40,12 +37,13 @@
 {
     return _pageIndex;
 }
-- (id)initWithPageIndex:(NSInteger)pageIndex
+- (id)initWithPageIndex:(NSInteger)pageIndex withCategoryName:(NSString*)categoryName
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self)
     {
         _pageIndex = pageIndex;
+        _categoryName = categoryName;
     }
     return self;
 }

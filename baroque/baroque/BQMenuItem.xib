@@ -83,6 +83,11 @@
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
+						<object class="NSColor" key="IBUIShadowColor" id="1029469347">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
+						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">2</int>
@@ -127,9 +132,10 @@
 						<reference key="NSNextResponder" ref="141230862"/>
 						<int key="NSvFlags">1316</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{205, 154}, {44, 33}}</string>
+						<string key="NSFrame">{{210, 157}, {36, 36}}</string>
 						<reference key="NSSuperview" ref="141230862"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.5</float>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -142,10 +148,7 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleShadowColor" id="1029469347">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MC41AA</bytes>
-						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="1029469347"/>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="778353149">
 							<int key="type">2</int>
 							<double key="pointSize">15</double>
@@ -160,7 +163,7 @@
 						<reference key="NSNextResponder" ref="141230862"/>
 						<int key="NSvFlags">1316</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{120, 154}, {44, 33}}</string>
+						<string key="NSFrame">{{125, 157}, {36, 36}}</string>
 						<reference key="NSSuperview" ref="141230862"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="335047881"/>
@@ -193,18 +196,23 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<string key="IBUIText">100</string>
+						<string key="IBUIText">99</string>
 						<reference key="IBUITextColor" ref="675927584"/>
 						<nil key="IBUIHighlightedColor"/>
+						<object class="NSColor" key="IBUIShadowColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+						</object>
+						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">2</int>
-							<double key="pointSize">17</double>
+							<double key="pointSize">25</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">17</double>
+							<double key="NSSize">25</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -305,9 +313,9 @@
 							<reference ref="843714237"/>
 							<reference ref="848891006"/>
 							<reference ref="930912628"/>
+							<reference ref="335047881"/>
 							<reference ref="858154679"/>
 							<reference ref="303195194"/>
-							<reference ref="335047881"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

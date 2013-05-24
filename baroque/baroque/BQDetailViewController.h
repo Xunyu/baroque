@@ -17,6 +17,7 @@
 
 @interface BQDetailViewController : UIViewController
 @property (nonatomic, strong) NSArray *menuInfo;
+@property (nonatomic, strong) NSString *categoryName;
 @property (weak, nonatomic) IBOutlet UIImageView *dishImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dishName;
 @property (weak, nonatomic) IBOutlet UILabel *dishUnitPrice;
@@ -34,6 +35,6 @@
 - (IBAction)dishMountMinus:(id)sender;
 
 
-+ (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex withPageCount:(NSUInteger)pageCount;
++ (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex withPageCount:(NSUInteger)pageCount withCategoryName:(NSString*)categoryName;
 - (NSInteger)pageIndex;
 @end

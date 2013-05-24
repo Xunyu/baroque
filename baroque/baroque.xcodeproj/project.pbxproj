@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E253296174F539400B2DE7A /* BQCommitOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E253295174F539300B2DE7A /* BQCommitOrder.m */; };
 		4E25A1AA171FD167005EFAF2 /* BQPostOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */; };
 		4E3593BE17375CBC00A86424 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3593BD17375CBC00A86424 /* CoreData.framework */; };
 		4E5640D117276F7E00186FA9 /* InAppSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4E5640D017276F7E00186FA9 /* InAppSettings.bundle */; };
@@ -87,6 +88,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E253294174F539300B2DE7A /* BQCommitOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQCommitOrder.h; sourceTree = "<group>"; };
+		4E253295174F539300B2DE7A /* BQCommitOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQCommitOrder.m; sourceTree = "<group>"; };
 		4E25A1A8171FD167005EFAF2 /* BQPostOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQPostOrderViewController.h; sourceTree = "<group>"; };
 		4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQPostOrderViewController.m; sourceTree = "<group>"; };
 		4E3593BD17375CBC00A86424 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -107,7 +110,6 @@
 		4E5D29201712590600C2AA88 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4E5D29221712590600C2AA88 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4E5D29241712590600C2AA88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		4E5D29271712590600C2AA88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4E5D29291712590600C2AA88 /* BQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BQViewController.h; sourceTree = "<group>"; };
 		4E5D292A1712590600C2AA88 /* BQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BQViewController.m; sourceTree = "<group>"; };
 		4E9F1CCA17460D37003DBEA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
@@ -326,6 +328,8 @@
 		4EA4728C173A3F2E00FBA37D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4E253294174F539300B2DE7A /* BQCommitOrder.h */,
+				4E253295174F539300B2DE7A /* BQCommitOrder.m */,
 				4EA4726A173A3B8D00FBA37D /* BQSyncMenuInfo.h */,
 				4EA4726B173A3B8D00FBA37D /* BQSyncMenuInfo.m */,
 				4EA473A5173C840F00FBA37D /* BQCoreDataUtil.h */,
@@ -639,6 +643,7 @@
 				4EA473AB173CA37200FBA37D /* Reachability.m in Sources */,
 				4EBE7DB4174DB7E2000E609B /* BQMenuItem.m in Sources */,
 				4EBE7DB9174DFEE9000E609B /* BQItemCountAction.m in Sources */,
+				4E253296174F539400B2DE7A /* BQCommitOrder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +671,6 @@
 		4E5D29261712590600C2AA88 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E5D29271712590600C2AA88 /* en */,
 				4E9F1CCA17460D37003DBEA9 /* zh-Hans */,
 			);
 			name = MainStoryboard.storyboard;

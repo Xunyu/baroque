@@ -55,5 +55,19 @@
     }
     return _persistentStoreCoordinator;
 }
++ (NSArray*)fetchDataWithEntity:(NSString *)entity
+{
+    return [self fetchDataWithEntity:entity andWithPredicate:nil];
+}
 
++ (NSArray*)fetchDataWithEntity:(NSString*)entity andWithPredicate:(NSPredicate*)predicate
+{
+    NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
+    [fetch setEntity:[NSEntityDescription entityForName:entity inManagedObjectContext:[self sharedInstance].managedObjectContext]];
+    if (predicate != nil){
+        [fetch setPredicate:predicate];
+    }
+    NSError *error = nil;
+    return [[self sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
+}
 @end

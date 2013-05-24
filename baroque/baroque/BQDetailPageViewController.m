@@ -9,18 +9,18 @@
 #import "BQDetailPageViewController.h"
 
 @interface BQDetailPageViewController ()
-{
-    NSArray *detailViewControllers;
-}
+
 @end
 
 @implementation BQDetailPageViewController
-@synthesize currentDishID = _currentDishID,menuInfoCount = _menuInfoCount;
+@synthesize currentDishID = _currentDishID,menuInfoCount = _menuInfoCount,categoryName = _categoryName;
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    BQDetailViewController *pageCurrent = [BQDetailViewController detailViewControllerForPageIndex:self.currentDishID withPageCount:self.menuInfoCount];
+    BQDetailViewController *pageCurrent = [BQDetailViewController detailViewControllerForPageIndex:self.currentDishID
+                                                                                     withPageCount:self.menuInfoCount
+                                                                                  withCategoryName:self.categoryName];
     if (pageCurrent != nil){
         self.dataSource = self;
         [self setViewControllers:@[pageCurrent] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
@@ -41,12 +41,12 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(BQDetailViewController *)viewController
 {
     NSUInteger index = viewController.pageIndex;
-    return [BQDetailViewController detailViewControllerForPageIndex:(index - 1) withPageCount:self.menuInfoCount];
+    return [BQDetailViewController detailViewControllerForPageIndex:(index - 1) withPageCount:self.menuInfoCount withCategoryName:self.categoryName];
 }
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(BQDetailViewController *)viewController
 {
     NSUInteger index = viewController.pageIndex;
-    return [BQDetailViewController detailViewControllerForPageIndex:(index + 1) withPageCount:self.menuInfoCount];
+    return [BQDetailViewController detailViewControllerForPageIndex:(index + 1) withPageCount:self.menuInfoCount withCategoryName:self.categoryName];
 }
 - (void)viewDidUnload {
     [super viewDidUnload];

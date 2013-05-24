@@ -31,6 +31,7 @@
 @property (strong, nonatomic) IASKAppSettingsViewController *appSettingsViewController;
 @property (strong, nonatomic) NSArray *menuInfo;
 @property (strong, nonatomic) NSArray *menuFoodType;
+@property (strong, nonatomic) NSArray *categoryMenuInfo;
 - (IBAction)settingButtonTapped:(id)sender;
 
 @end
