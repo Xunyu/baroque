@@ -26,4 +26,16 @@
 - (IBAction)backButtonTapped:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
 }
+
+- (IBAction)confirmPostButtonTapped:(id)sender {
+    [[BQCommitOrder sharedInstance]beginCommitOrderWithPeopleCount:[self.peopleCount.text intValue] withTableID:[self.tableID.text intValue]];
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (void)viewDidUnload {
+    [self setUserNumber:nil];
+    [self setUserPassword:nil];
+    [self setPeopleCount:nil];
+    [self setTableID:nil];
+    [super viewDidUnload];
+}
 @end

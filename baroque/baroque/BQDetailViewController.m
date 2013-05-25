@@ -17,20 +17,19 @@
 @end
 
 @implementation BQDetailViewController
-@synthesize dishName = _dishName,menuInfo = _menuInfo;
+@synthesize dishName = _dishName,menuInfo = _menuInfo,categoryName = _categoryName;
 - (NSArray*)menuInfo
 {
-    NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_Menu" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
-    [fetch setEntity:entity];
-    NSError *error = nil;
-    NSArray *menu = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
-    return menu;
+    if (_menuInfo == nil){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"foodType = %@",self.categoryName];
+        _menuInfo = [BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu" andWithPredicate:predicate];
+    }
+    return _menuInfo;
 }
-+ (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex withPageCount:(NSUInteger)pageCount
++ (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex withPageCount:(NSUInteger)pageCount withCategoryName:(NSString *)categoryName
 {
     if (pageIndex<pageCount){
-        return [[self alloc] initWithPageIndex:pageIndex];
+        return [[self alloc] initWithPageIndex:pageIndex withCategoryName:categoryName];
     }
     return nil;
 }
@@ -38,24 +37,32 @@
 {
     return _pageIndex;
 }
-- (id)initWithPageIndex:(NSInteger)pageIndex
+- (id)initWithPageIndex:(NSInteger)pageIndex withCategoryName:(NSString*)categoryName
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self)
     {
         _pageIndex = pageIndex;
+        _categoryName = categoryName;
     }
     return self;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    tasteInfo = [[NSArray alloc]initWithObjects:[[self.menuInfo objectAtIndex:_pageIndex]tastyType], nil];
-    
+    if ([[[self.menuInfo objectAtIndex:_pageIndex]tastyType]isEqualToString:@""]){
+        self.dishTaste.hidden = YES;
+        self.dishTasteButton.hidden = YES;
+    }
+    else{
+        tasteInfo = [[NSArray alloc]initWithObjects:[[self.menuInfo objectAtIndex:_pageIndex]tastyType], nil];
+        self.dishTaste.text = [tasteInfo objectAtIndex:0];
+    }
+    self.dishCookWay.hidden = YES;
+    self.dishCookWayButton.hidden = YES;
     self.dishName.text = [NSString stringWithFormat:@"%@",[[self.menuInfo objectAtIndex:_pageIndex]foodName]];
-    self.dishTaste.text = [tasteInfo objectAtIndex:0];
     self.dishUnitPrice.text = [NSString stringWithFormat:@"单价 %@￥",[[self.menuInfo objectAtIndex:_pageIndex]price]];
-    self.dishMount.text = [NSString stringWithFormat:@"%d",0];
+    self.dishMount.text = [BQItemCountAction getItemCountWithFoodID:[[self.menuInfo objectAtIndex:_pageIndex]foodID]];
     NSString *picUrl = [[self.menuInfo objectAtIndex:_pageIndex] picUrl];
     picUrl = [picUrl stringByReplacingOccurrencesOfString:@"_small" withString:@""];
     [self.dishImageView setImageWithURL:[NSURL URLWithString:picUrl]];
@@ -80,6 +87,8 @@
     [self setDishMount:nil];
     [self setDishCookWay:nil];
     [self setDishTaste:nil];
+    [self setDishCookWayButton:nil];
+    [self setDishTasteButton:nil];
     [super viewDidUnload];
 }
 - (IBAction)dishTasteEditButtonTouched:(id)sender {
@@ -102,14 +111,11 @@
 }
 
 - (IBAction)dishMountPlus:(id)sender {
-    int mount = [self.dishMount.text intValue]+1;
-    self.dishMount.text = [NSString stringWithFormat:@"%d",mount];
+    self.dishMount.text = [BQItemCountAction itemCountPlusWithFoodID:[[self.menuInfo objectAtIndex:_pageIndex]foodID]];
 }
 
 - (IBAction)dishMountMinus:(id)sender {
-    int mount = [self.dishMount.text intValue]-1;
-    if (mount > -1){
-        self.dishMount.text = [NSString stringWithFormat:@"%d",mount];
-    }
+    self.dishMount.text = [BQItemCountAction itemCountMinusWithFoodID:[[self.menuInfo objectAtIndex:_pageIndex]foodID]];
+
 }
 @end

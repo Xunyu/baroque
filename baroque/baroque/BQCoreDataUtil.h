@@ -14,4 +14,6 @@
 @property (nonatomic,strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (BQCoreDataUtil*)sharedInstance;
++ (NSArray*)fetchDataWithEntity:(NSString*)entity andWithPredicate:(NSPredicate*)predicate;
++ (NSArray*)fetchDataWithEntity:(NSString *)entity;
 @end

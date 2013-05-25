@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E253296174F539400B2DE7A /* BQCommitOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E253295174F539300B2DE7A /* BQCommitOrder.m */; };
 		4E25A1AA171FD167005EFAF2 /* BQPostOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */; };
 		4E3593BE17375CBC00A86424 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3593BD17375CBC00A86424 /* CoreData.framework */; };
 		4E5640D117276F7E00186FA9 /* InAppSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4E5640D017276F7E00186FA9 /* InAppSettings.bundle */; };
@@ -46,6 +47,9 @@
 		4EA473B5173CA42500FBA37D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473B4173CA42500FBA37D /* libz.dylib */; };
 		4EA473E517422A3400FBA37D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473E417422A3400FBA37D /* ImageIO.framework */; };
 		4EA473E71742315200FBA37D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473E61742315200FBA37D /* SDWebImage.framework */; };
+		4EBE7DB4174DB7E2000E609B /* BQMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBE7DB3174DB7E2000E609B /* BQMenuItem.m */; };
+		4EBE7DB6174DB825000E609B /* BQMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBE7DB5174DB825000E609B /* BQMenuItem.xib */; };
+		4EBE7DB9174DFEE9000E609B /* BQItemCountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBE7DB8174DFEE8000E609B /* BQItemCountAction.m */; };
 		4EC1365F1715449F00867870 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC1365E1715449F00867870 /* QuartzCore.framework */; };
 		4EC1366D171544DB00867870 /* GMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC13663171544DB00867870 /* GMGridView.m */; };
 		4EC1366E171544DB00867870 /* GMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC13666171544DB00867870 /* GMGridViewCell.m */; };
@@ -78,9 +82,14 @@
 		4EF2EB6617267CF8008F0026 /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5617267CF8008F0026 /* IASKSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4EF2EB6717267CF8008F0026 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5817267CF8008F0026 /* IASKSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4EF2EB6817267CF8008F0026 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2EB5A17267CF8008F0026 /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EC8CDA0C174E507C0023F27E /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CDA0B174E507C0023F27E /* button.png */; };
+		EC8CDA0F174E526D0023F27E /* b1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CDA0D174E526D0023F27E /* b1.png */; };
+		EC8CDA10174E526D0023F27E /* b2.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CDA0E174E526D0023F27E /* b2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E253294174F539300B2DE7A /* BQCommitOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQCommitOrder.h; sourceTree = "<group>"; };
+		4E253295174F539300B2DE7A /* BQCommitOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQCommitOrder.m; sourceTree = "<group>"; };
 		4E25A1A8171FD167005EFAF2 /* BQPostOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQPostOrderViewController.h; sourceTree = "<group>"; };
 		4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQPostOrderViewController.m; sourceTree = "<group>"; };
 		4E3593BD17375CBC00A86424 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -101,7 +110,6 @@
 		4E5D29201712590600C2AA88 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4E5D29221712590600C2AA88 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4E5D29241712590600C2AA88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		4E5D29271712590600C2AA88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4E5D29291712590600C2AA88 /* BQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BQViewController.h; sourceTree = "<group>"; };
 		4E5D292A1712590600C2AA88 /* BQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BQViewController.m; sourceTree = "<group>"; };
 		4E9F1CCA17460D37003DBEA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
@@ -150,6 +158,11 @@
 		4EA473B4173CA42500FBA37D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4EA473E417422A3400FBA37D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4EA473E61742315200FBA37D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		4EBE7DB2174DB7E2000E609B /* BQMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQMenuItem.h; sourceTree = "<group>"; };
+		4EBE7DB3174DB7E2000E609B /* BQMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQMenuItem.m; sourceTree = "<group>"; };
+		4EBE7DB5174DB825000E609B /* BQMenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BQMenuItem.xib; sourceTree = "<group>"; };
+		4EBE7DB7174DFEE8000E609B /* BQItemCountAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQItemCountAction.h; sourceTree = "<group>"; };
+		4EBE7DB8174DFEE8000E609B /* BQItemCountAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQItemCountAction.m; sourceTree = "<group>"; };
 		4EC1365E1715449F00867870 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4EC13661171544DB00867870 /* GMGridView-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMGridView-Constants.h"; sourceTree = "<group>"; };
 		4EC13662171544DB00867870 /* GMGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridView.h; sourceTree = "<group>"; };
@@ -210,6 +223,9 @@
 		4EF2EB5817267CF8008F0026 /* IASKSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSwitch.m; sourceTree = "<group>"; };
 		4EF2EB5917267CF8008F0026 /* IASKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTextField.h; sourceTree = "<group>"; };
 		4EF2EB5A17267CF8008F0026 /* IASKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTextField.m; sourceTree = "<group>"; };
+		EC8CDA0B174E507C0023F27E /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		EC8CDA0D174E526D0023F27E /* b1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b1.png; sourceTree = "<group>"; };
+		EC8CDA0E174E526D0023F27E /* b2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,31 +293,12 @@
 		4E5D29141712590600C2AA88 /* baroque */ = {
 			isa = PBXGroup;
 			children = (
+				4EBE7DBB174DFF0F000E609B /* ItemViews */,
+				4EBE7DBA174DFEED000E609B /* ViewContrllers */,
 				4EA4737D173A46D900FBA37D /* CoreData */,
-				4EA4728C173A3F2E00FBA37D /* Utils */,
-				4EC136FC1717B6D400867870 /* BQDetailPageViewController.h */,
-				4EC136FD1717B6D400867870 /* BQDetailPageViewController.m */,
-				4EC136FE1717B6D400867870 /* BQDetailPageViewController.xib */,
-				4EC137091717C37400867870 /* BQDetailViewController.h */,
-				4EC1370A1717C37400867870 /* BQDetailViewController.m */,
-				4EC1370B1717C37400867870 /* BQDetailViewController.xib */,
-				4EC136ED1717A56100867870 /* BQOrderCookWayViewController.h */,
-				4EC136EE1717A56100867870 /* BQOrderCookWayViewController.m */,
-				4EC136EF1717A56100867870 /* BQOrderCookWayViewController.xib */,
-				4EC136B41716870F00867870 /* BQOrderTableViewCell.h */,
-				4EC136B51716870F00867870 /* BQOrderTableViewCell.m */,
-				4EC136F21717B0BD00867870 /* BQOrderTasteViewController.h */,
-				4EC136F31717B0BD00867870 /* BQOrderTasteViewController.m */,
-				4EC136F41717B0BE00867870 /* BQOrderTasteViewController.xib */,
-				4EC136AB1716669800867870 /* BQOrderViewController.h */,
-				4EC136AC1716669800867870 /* BQOrderViewController.m */,
-				4E25A1A8171FD167005EFAF2 /* BQPostOrderViewController.h */,
-				4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */,
-				4EF2EB021726655F008F0026 /* BQPostOrderViewController.xib */,
-				4E5D29291712590600C2AA88 /* BQViewController.h */,
-				4E5D292A1712590600C2AA88 /* BQViewController.m */,
 				4E5D29261712590600C2AA88 /* MainStoryboard.storyboard */,
 				4E5D29151712590600C2AA88 /* Supporting Files */,
+				4EA4728C173A3F2E00FBA37D /* Utils */,
 			);
 			path = baroque;
 			sourceTree = "<group>";
@@ -321,6 +318,9 @@
 				4E5D29201712590600C2AA88 /* Default.png */,
 				4E5D29221712590600C2AA88 /* Default@2x.png */,
 				4E5D29241712590600C2AA88 /* Default-568h@2x.png */,
+				EC8CDA0B174E507C0023F27E /* button.png */,
+				EC8CDA0D174E526D0023F27E /* b1.png */,
+				EC8CDA0E174E526D0023F27E /* b2.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -328,6 +328,8 @@
 		4EA4728C173A3F2E00FBA37D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4E253294174F539300B2DE7A /* BQCommitOrder.h */,
+				4E253295174F539300B2DE7A /* BQCommitOrder.m */,
 				4EA4726A173A3B8D00FBA37D /* BQSyncMenuInfo.h */,
 				4EA4726B173A3B8D00FBA37D /* BQSyncMenuInfo.m */,
 				4EA473A5173C840F00FBA37D /* BQCoreDataUtil.h */,
@@ -391,6 +393,46 @@
 				4EA473AA173CA37200FBA37D /* Reachability.m */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		4EBE7DBA174DFEED000E609B /* ViewContrllers */ = {
+			isa = PBXGroup;
+			children = (
+				4EC136ED1717A56100867870 /* BQOrderCookWayViewController.h */,
+				4EC136EE1717A56100867870 /* BQOrderCookWayViewController.m */,
+				4EC136EF1717A56100867870 /* BQOrderCookWayViewController.xib */,
+				4EC136B41716870F00867870 /* BQOrderTableViewCell.h */,
+				4EC136B51716870F00867870 /* BQOrderTableViewCell.m */,
+				4EC136F21717B0BD00867870 /* BQOrderTasteViewController.h */,
+				4EC136F31717B0BD00867870 /* BQOrderTasteViewController.m */,
+				4EC136F41717B0BE00867870 /* BQOrderTasteViewController.xib */,
+				4EC136AB1716669800867870 /* BQOrderViewController.h */,
+				4EC136AC1716669800867870 /* BQOrderViewController.m */,
+				4E25A1A8171FD167005EFAF2 /* BQPostOrderViewController.h */,
+				4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */,
+				4EF2EB021726655F008F0026 /* BQPostOrderViewController.xib */,
+				4E5D29291712590600C2AA88 /* BQViewController.h */,
+				4E5D292A1712590600C2AA88 /* BQViewController.m */,
+				4EC136FC1717B6D400867870 /* BQDetailPageViewController.h */,
+				4EC136FD1717B6D400867870 /* BQDetailPageViewController.m */,
+				4EC136FE1717B6D400867870 /* BQDetailPageViewController.xib */,
+				4EC137091717C37400867870 /* BQDetailViewController.h */,
+				4EC1370A1717C37400867870 /* BQDetailViewController.m */,
+				4EC1370B1717C37400867870 /* BQDetailViewController.xib */,
+			);
+			name = ViewContrllers;
+			sourceTree = "<group>";
+		};
+		4EBE7DBB174DFF0F000E609B /* ItemViews */ = {
+			isa = PBXGroup;
+			children = (
+				4EBE7DB7174DFEE8000E609B /* BQItemCountAction.h */,
+				4EBE7DB8174DFEE8000E609B /* BQItemCountAction.m */,
+				4EBE7DB2174DB7E2000E609B /* BQMenuItem.h */,
+				4EBE7DB3174DB7E2000E609B /* BQMenuItem.m */,
+				4EBE7DB5174DB825000E609B /* BQMenuItem.xib */,
+			);
+			name = ItemViews;
 			sourceTree = "<group>";
 		};
 		4EC13660171544DB00867870 /* GMGridView */ = {
@@ -538,6 +580,10 @@
 				4EF2EB031726655F008F0026 /* BQPostOrderViewController.xib in Resources */,
 				4E5640D117276F7E00186FA9 /* InAppSettings.bundle in Resources */,
 				4E5640D61727738000186FA9 /* Localizable.strings in Resources */,
+				4EBE7DB6174DB825000E609B /* BQMenuItem.xib in Resources */,
+				EC8CDA0C174E507C0023F27E /* button.png in Resources */,
+				EC8CDA0F174E526D0023F27E /* b1.png in Resources */,
+				EC8CDA10174E526D0023F27E /* b2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +641,9 @@
 				4EA473A4173B8D8900FBA37D /* Bar_OrderDetail.m in Sources */,
 				4EA473A7173C840F00FBA37D /* BQCoreDataUtil.m in Sources */,
 				4EA473AB173CA37200FBA37D /* Reachability.m in Sources */,
+				4EBE7DB4174DB7E2000E609B /* BQMenuItem.m in Sources */,
+				4EBE7DB9174DFEE9000E609B /* BQItemCountAction.m in Sources */,
+				4E253296174F539400B2DE7A /* BQCommitOrder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,7 +671,6 @@
 		4E5D29261712590600C2AA88 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E5D29271712590600C2AA88 /* en */,
 				4E9F1CCA17460D37003DBEA9 /* zh-Hans */,
 			);
 			name = MainStoryboard.storyboard;

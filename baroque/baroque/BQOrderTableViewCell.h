@@ -15,7 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *dishMount;
 @property (weak, nonatomic) IBOutlet UILabel *dishCookWay;
 @property (weak, nonatomic) IBOutlet UILabel *dishTaste;
+@property (weak, nonatomic) IBOutlet UIImageView *dishImageView;
 - (IBAction)dishCookWayEditButtonTouched:(id)sender;
 - (IBAction)dishTasteEditButtonTouched:(id)sender;
+- (IBAction)dishCountPlusButtonPressed:(id)sender;
+- (IBAction)dishCountMinusButtonPressed:(id)sender;
 
 @end

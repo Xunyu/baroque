@@ -10,6 +10,7 @@
 
 @interface BQViewController ()
 {
+    NSString *selectedCategoryName;
 }
 @end
 
@@ -17,48 +18,51 @@
 @synthesize categoryTableView = _categoryTableView;
 @synthesize dishGridView = _dishGridView;
 @synthesize appSettingsViewController;
-@synthesize menuInfo = _menuInfo,menuFoodType = _menuFoodType;
+@synthesize menuInfo = _menuInfo,menuFoodType = _menuFoodType,categoryMenuInfo = _categoryMenuInfo;
 
+
+//从NSCore获取菜单
 - (NSArray*)menuInfo
 {
-    NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_Menu" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
-    [fetch setEntity:entity];
-    NSError *error = nil;
-    NSArray *menu = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
-    return menu;
+    return [BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu"];
+//    NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_Menu" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
+//    [fetch setEntity:entity];
+//    NSError *error = nil;
+//    _menuInfo = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
+//    return _menuInfo;
 }
+
+//从已有菜单中提取foodType字段add到menuFoodType，之后作为索引(去重)
+
 - (NSArray*)menuFoodType
 {
     NSMutableArray *type = [[NSMutableArray alloc]init];
     if (self.menuInfo != nil){
         for (Bar_Menu *menuItem in self.menuInfo) {
-            if (![menuItem.foodType isEqualToString:@""]&& menuItem.foodType != nil) {
+            if ([menuItem.foodType length] && ![type containsObject:menuItem.foodType]) {
                 [type addObject:menuItem.foodType];
             }
         }
     }
-    NSMutableArray *unRepeatType = [[NSMutableArray alloc]init];
-    if (type !=nil){
-        for (unsigned int i = 0; i < [type count]; i++) {
-            if (![unRepeatType containsObject:[type objectAtIndex:i]]){
-                [unRepeatType addObject:[type objectAtIndex:i]];
-            }
-        }
-    }
-    return unRepeatType;
+    _menuFoodType = type;
+    return _menuFoodType;
 }
-- (void)syncMenuInfoFinished
+- (void)reloadData
 {
     [self.categoryTableView reloadData];
     [self.dishGridView reloadData];
+    if ([self.menuFoodType count]>0){
+        [self tableView:self.categoryTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+    }
 }
 #pragma mark - ViewControllres LiftCycles
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(syncMenuInfoFinished) name:@"syncMenuInfoFinished" object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadData) name:@"syncMenuInfoFinished" object:nil];
+    [self reloadData];
 
 }
 - (void)viewDidLoad
@@ -83,6 +87,17 @@
     [self setCategoryTableView:nil];
     [super viewDidUnload];
 }
+#pragma mark - UITableView Delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.categoryTableView){
+        selectedCategoryName = [self.menuFoodType objectAtIndex:[indexPath row]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"foodType = %@",selectedCategoryName];
+        self.categoryMenuInfo = [BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu" andWithPredicate:predicate];
+    }
+    [self.dishGridView reloadData];
+}
+
 #pragma mark - UITableView Datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -93,21 +108,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"dishCategoryCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];    
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     cell.textLabel.text = [self.menuFoodType objectAtIndex:[indexPath row]];
     cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:40.0f ];
+    cell.textLabel.textAlignment = UITextAlignmentCenter;
     return cell;
 }
 
 #pragma mark - GMGridView DataSource
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
 {
-    return [self.menuInfo count];
+    return [self.categoryMenuInfo count];
 }
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
@@ -135,51 +151,14 @@
         cell.contentView = view;
     }
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    UIView *itemView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 260, 205)];
-    UIImageView *itemImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 260, 205)];
-    NSString *imageURL = [[self.menuInfo objectAtIndex:index] picUrl];
-    [itemImageView setImageWithURL:[NSURL URLWithString:imageURL]];
-    [itemImageView.layer setMasksToBounds:YES];
-    [itemImageView.layer setCornerRadius:8];
-    [itemView addSubview:itemImageView];
-    UIImageView *itemLabelBackImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 120, 260, 85)];
-    [itemLabelBackImageView setBackgroundColor:[UIColor blackColor]];
-    [itemLabelBackImageView setAlpha:0.4];
-    [itemView addSubview:itemLabelBackImageView];
-    UILabel *itemName = [[UILabel alloc]initWithFrame:CGRectMake(20, 130, 210, 21)];
-    itemName.text = [NSString stringWithFormat:@"%@",[[self.menuInfo objectAtIndex:index] foodName]];
-    itemName.textColor = [UIColor whiteColor];
-    itemName.backgroundColor = [UIColor clearColor];
-    [itemView addSubview:itemName];
-    UILabel *itemPrice = [[UILabel alloc]initWithFrame:CGRectMake(20, 165, 80, 21)];
-    itemPrice.text = [NSString stringWithFormat:@"%@￥/份",[[self.menuInfo objectAtIndex:index] price]];
-    itemPrice.textColor = [UIColor whiteColor];
-    itemPrice.backgroundColor = [UIColor clearColor];
-    [itemView addSubview:itemPrice];
-    UILabel *itemCount = [[UILabel alloc]initWithFrame:CGRectMake(160, 165, 30, 21)];
-    itemCount.text = @"0";
-    itemCount.textAlignment = UITextAlignmentCenter;
-    itemCount.textColor = [UIColor whiteColor];
-    itemCount.backgroundColor = [UIColor clearColor];
-    [itemView addSubview:itemCount];
-    UIButton *itemMinusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    itemMinusButton.frame = CGRectMake(110, 155, 44, 44);
-    [itemMinusButton setTitle:@"-" forState:UIControlStateNormal];
-    [itemView addSubview:itemMinusButton];
-    UIButton *itemPlusButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    itemPlusButton.frame = CGRectMake(195, 155, 44, 44);
-    [itemPlusButton setTitle:@"+" forState:UIControlStateNormal];
-    [itemView addSubview:itemPlusButton];
+    BQMenuItem *itemView = [[BQMenuItem alloc]init];
+    [itemView setFoodID:[[self.categoryMenuInfo objectAtIndex:index]foodID]];
+    [[itemView itemCount]setText:[BQItemCountAction getItemCountWithFoodID:[[self.categoryMenuInfo objectAtIndex:index]foodID]]];
+    [[itemView itemPrice]setText:[NSString stringWithFormat:@"%@￥/份",[[self.categoryMenuInfo objectAtIndex:index] price]]];
+    NSString *imageURL = [[self.categoryMenuInfo objectAtIndex:index] picUrl];
+    [[itemView itemImageView]setImageWithURL:[NSURL URLWithString:imageURL]];
+    [[itemView itemName]setText:[[self.categoryMenuInfo objectAtIndex:index]foodName]];
     [cell.contentView addSubview:itemView];
-//    UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.bounds];
-//    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    label.text = [NSString stringWithFormat:@"%@ %d",@"我是菜",index];
-//    label.textAlignment = UITextAlignmentCenter;
-//    label.backgroundColor = [UIColor clearColor];
-//    label.textColor = [UIColor blackColor];
-//    label.highlightedTextColor = [UIColor whiteColor];
-//    label.font = [UIFont boldSystemFontOfSize:20];
-//    [cell.contentView addSubview:label];
     
     return cell;
 }
@@ -187,7 +166,8 @@
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position{
     BQDetailPageViewController *detailPage = [[BQDetailPageViewController alloc]init];
     [detailPage setCurrentDishID:position];
-    [detailPage setMenuInfoCount:[self.menuInfo count]];
+    [detailPage setMenuInfoCount:[self.categoryMenuInfo count]];
+    [detailPage setCategoryName:selectedCategoryName];
     [detailPage setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:detailPage animated:YES];
 }
@@ -233,4 +213,11 @@
         [[BQSyncMenuInfo sharedInstance]beginSync];
     }
 }
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([segue.identifier isEqualToString:@"orderSegue"]){
+//        BQOrderViewController *vc = segue.destinationViewController;
+//        [vc setMenuInfo:self.menuInfo];
+//    }
+//}
 @end
