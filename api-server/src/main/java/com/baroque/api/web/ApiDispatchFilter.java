@@ -1,6 +1,5 @@
 package com.baroque.api.web;
 
-import com.baroque.api.config.ConfigManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.BeansException;
