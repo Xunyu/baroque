@@ -1,27 +1,20 @@
 package com.baroque.api.dao;
 
+import com.baroque.api.TestSupport;
 import com.baroque.api.entity.DishEntity;
 import com.baroque.api.enums.TastyType;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
  * @author elric.wang
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
-        "classpath*:config/spring/appcontext-*.xml"
-})
-public class DaoTest {
+public class DaoTest extends TestSupport {
     @Autowired
     private DishDao dishDao;
 
