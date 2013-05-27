@@ -30,6 +30,7 @@
     for (Bar_OrderDetail *item in orderInfo) {
         [request addPostValue:[item menuID] forKey:@"foodId"];
         [request addPostValue:[item count] forKey:@"count"];
+        [request addPostValue:@"1" forKey:@"tasty"];
     }
     [request startAsynchronous];
 }
