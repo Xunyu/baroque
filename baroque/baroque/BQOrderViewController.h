@@ -18,7 +18,14 @@
     <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *dishTableView;
 @property (nonatomic, strong) NSMutableArray *orderDetailArray;
+@property (weak, nonatomic) IBOutlet UILabel *totalPrice;
+@property (assign, nonatomic) unsigned int totalPriceNum;
+
+
+
 - (IBAction)backButtonTapped:(id)sender;
 - (IBAction)confirmOrderTapped:(id)sender;
+- (IBAction)checkOrderButtonTapped:(id)sender;
+
 
 @end

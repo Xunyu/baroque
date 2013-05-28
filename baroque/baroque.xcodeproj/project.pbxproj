@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1B5E5917549D5F0095F988 /* BQCheckOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B5E5817549D5F0095F988 /* BQCheckOrder.m */; };
+		4E1B5E5C17549EFE0095F988 /* UserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B5E5B17549EFE0095F988 /* UserDefault.m */; };
 		4E253296174F539400B2DE7A /* BQCommitOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E253295174F539300B2DE7A /* BQCommitOrder.m */; };
 		4E25A1AA171FD167005EFAF2 /* BQPostOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E25A1A9171FD167005EFAF2 /* BQPostOrderViewController.m */; };
 		4E3593BE17375CBC00A86424 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3593BD17375CBC00A86424 /* CoreData.framework */; };
@@ -88,6 +90,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E1B5E5717549D5E0095F988 /* BQCheckOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQCheckOrder.h; sourceTree = "<group>"; };
+		4E1B5E5817549D5F0095F988 /* BQCheckOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQCheckOrder.m; sourceTree = "<group>"; };
+		4E1B5E5A17549EFE0095F988 /* UserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefault.h; sourceTree = "<group>"; };
+		4E1B5E5B17549EFE0095F988 /* UserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefault.m; sourceTree = "<group>"; };
 		4E253294174F539300B2DE7A /* BQCommitOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQCommitOrder.h; sourceTree = "<group>"; };
 		4E253295174F539300B2DE7A /* BQCommitOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQCommitOrder.m; sourceTree = "<group>"; };
 		4E25A1A8171FD167005EFAF2 /* BQPostOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQPostOrderViewController.h; sourceTree = "<group>"; };
@@ -328,6 +334,10 @@
 		4EA4728C173A3F2E00FBA37D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4E1B5E5A17549EFE0095F988 /* UserDefault.h */,
+				4E1B5E5B17549EFE0095F988 /* UserDefault.m */,
+				4E1B5E5717549D5E0095F988 /* BQCheckOrder.h */,
+				4E1B5E5817549D5F0095F988 /* BQCheckOrder.m */,
 				4E253294174F539300B2DE7A /* BQCommitOrder.h */,
 				4E253295174F539300B2DE7A /* BQCommitOrder.m */,
 				4EA4726A173A3B8D00FBA37D /* BQSyncMenuInfo.h */,
@@ -644,6 +654,8 @@
 				4EBE7DB4174DB7E2000E609B /* BQMenuItem.m in Sources */,
 				4EBE7DB9174DFEE9000E609B /* BQItemCountAction.m in Sources */,
 				4E253296174F539400B2DE7A /* BQCommitOrder.m in Sources */,
+				4E1B5E5917549D5F0095F988 /* BQCheckOrder.m in Sources */,
+				4E1B5E5C17549EFE0095F988 /* UserDefault.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

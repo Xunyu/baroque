@@ -13,12 +13,8 @@
 {
     Bar_OrderDetail *orderDetail;
     NSManagedObjectContext *context = [BQCoreDataUtil sharedInstance].managedObjectContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"menuID = %@",foodID];
-    [fetchRequest setEntity:[NSEntityDescription entityForName:@"Bar_OrderDetail" inManagedObjectContext:context]];
-    [fetchRequest setPredicate:predicate];
-    NSError *error = nil;
-    NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
+    NSArray *result = [BQCoreDataUtil fetchDataWithEntity:@"Bar_OrderDetail" andWithPredicate:predicate];
     if (result != nil && result.count > 0){
         orderDetail = [result lastObject];
         orderDetail.count = [NSNumber numberWithInt:[orderDetail.count intValue]+1];
@@ -28,6 +24,8 @@
         orderDetail.menuID = foodID;
         orderDetail.addDate = [NSDate date];
         orderDetail.count = [NSNumber numberWithInt:1];
+        predicate = [NSPredicate predicateWithFormat:@"foodID = %@",foodID];
+        orderDetail.menuIDrelationship = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu" andWithPredicate:predicate] lastObject];
     }
     return [orderDetail.count stringValue];
 }

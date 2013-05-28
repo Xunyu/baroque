@@ -16,18 +16,26 @@
 
 @implementation BQOrderViewController
 @synthesize orderDetailArray = _orderDetailArray,dishTableView = _dishTableView;
+@synthesize totalPrice = _totalPrice,totalPriceNum = _totalPriceNum;
 
+- (unsigned int)totalPriceNum
+{
+    _totalPriceNum = 0;
+    if (self.orderDetailArray != nil){
+        for (Bar_OrderDetail *detail in self.orderDetailArray) {
+            _totalPriceNum = _totalPriceNum + [detail.count intValue] * [detail.menuIDrelationship.price intValue];
+        }
+    }
+    return _totalPriceNum;
+}
 - (NSArray*)orderDetailArray
 {
     if (_orderDetailArray == nil){
-        NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_OrderDetail" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
-        [fetch setEntity:entity];
-        NSError *error = nil;
-        _orderDetailArray = [[[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error]mutableCopy];
+        _orderDetailArray = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_OrderDetail"]mutableCopy];
     }
     return _orderDetailArray;
 }
+
 
 #pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,22 +60,15 @@
     if (cell == nil){
         cell = [[BQOrderTableViewCell alloc]init];
     }
-    NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-    [fetch setEntity:[NSEntityDescription entityForName:@"Bar_Menu" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"foodID = %@",[((Bar_OrderDetail*)[self.orderDetailArray objectAtIndex:[indexPath row]])menuID]];
-    [fetch setPredicate:predicate];
-    NSError *error = nil;
-    NSArray *result = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
-    if (result!=nil && result.count > 0 ){
-        Bar_Menu *item = [result lastObject];
-        cell.dishName.text = [item foodName];
-        cell.dishUnitPrice.text = [[item price]stringValue];
-        [cell.dishImageView setImageWithURL:[NSURL URLWithString:[item picUrl]]];
-        [cell.dishImageView.layer setCornerRadius:6.0f];
-        [cell.dishImageView.layer setMasksToBounds:YES];
-        cell.tag = [[item foodID]intValue];
-    }
-    cell.dishMount.text = [[((Bar_OrderDetail*)[self.orderDetailArray objectAtIndex:[indexPath row]])count]stringValue];
+    Bar_Menu *item = [[self.orderDetailArray objectAtIndex:[indexPath row]] menuIDrelationship];
+    cell.dishName.text = [item foodName];
+    cell.dishName.text = [item foodName];
+    cell.dishUnitPrice.text = [[item price]stringValue];
+    [cell.dishImageView setImageWithURL:[NSURL URLWithString:[item picUrl]]];
+    [cell.dishImageView.layer setCornerRadius:6.0f];
+    [cell.dishImageView.layer setMasksToBounds:YES];
+    cell.dishMount.text = [[[item foodIDrelationship]count]stringValue];
+    cell.tag = [[item foodID]intValue];
     return cell;
 
 }
@@ -91,4 +92,21 @@
                                           );
 }
 
+- (IBAction)checkOrderButtonTapped:(id)sender {
+    
+}
+#pragma mark - ViewController
+- (void)refreshTotalPrice
+{
+    self.totalPrice.text = [NSString stringWithFormat:@"总价 %d ￥",self.totalPriceNum];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self refreshTotalPrice];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshTotalPrice) name:@"refreshTotalPrice" object:nil];
+}
+- (void)viewDidUnload {
+    [self setTotalPrice:nil];
+    [super viewDidUnload];
+}
 @end
