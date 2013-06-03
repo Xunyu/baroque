@@ -101,14 +101,12 @@
 		4E3593BD17375CBC00A86424 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E5640D017276F7E00186FA9 /* InAppSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InAppSettings.bundle; sourceTree = "<group>"; };
 		4E5640D3172771BC00186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		4E5640D71727738000186FA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E5640D91727738400186FA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4E5D290B1712590600C2AA88 /* baroque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baroque.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5D290E1712590600C2AA88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E5D29101712590600C2AA88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4E5D29121712590600C2AA88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4E5D29161712590600C2AA88 /* baroque-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "baroque-Info.plist"; sourceTree = "<group>"; };
-		4E5D29181712590600C2AA88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E5D291A1712590600C2AA88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E5D291C1712590600C2AA88 /* baroque-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baroque-Prefix.pch"; sourceTree = "<group>"; };
 		4E5D291D1712590600C2AA88 /* BQAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BQAppDelegate.h; sourceTree = "<group>"; };
@@ -665,7 +663,6 @@
 		4E5640D81727738000186FA9 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E5640D71727738000186FA9 /* en */,
 				4E5640D91727738400186FA9 /* zh-Hans */,
 			);
 			name = Localizable.strings;
@@ -674,7 +671,6 @@
 		4E5D29171712590600C2AA88 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E5D29181712590600C2AA88 /* en */,
 				4E5640D3172771BC00186FA9 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
