@@ -336,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yco-FA-nEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="795" y="-123"/>
+            <point key="canvasLocation" x="1063" y="-116"/>
         </scene>
     </scenes>
     <classes>
@@ -359,6 +359,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BQOrderViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backButtonTapped:"/>
+                <relationship kind="action" name="checkOrderButtonTapped:"/>
                 <relationship kind="action" name="confirmOrderTapped:"/>
                 <relationship kind="outlet" name="dishTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="totalPrice" candidateClass="UILabel"/>
