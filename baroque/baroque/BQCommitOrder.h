@@ -11,6 +11,7 @@
 #import "ASIFormDataRequest.h"
 #import "BQCoreDataUtil.h"
 #import "Bar_OrderDetail.h"
+#import "Bar_Order.h"
 @interface BQCommitOrder : NSObject
     <ASIHTTPRequestDelegate>
 

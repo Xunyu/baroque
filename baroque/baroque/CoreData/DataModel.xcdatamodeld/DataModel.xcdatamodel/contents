@@ -13,7 +13,7 @@
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
         <attribute name="taste" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tastyType" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="foodIDrelationship" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bar_OrderDetail" inverseName="menuIDrelationship" inverseEntity="Bar_OrderDetail" syncable="YES"/>
+        <relationship name="foodIDrelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bar_OrderDetail" inverseName="menuIDrelationship" inverseEntity="Bar_OrderDetail" syncable="YES"/>
     </entity>
     <entity name="Bar_Order" representedClassName="Bar_Order" syncable="YES">
         <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -33,7 +33,7 @@
         <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="backReason" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="menuID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="menuID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="orderDetailID" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="orderID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="statue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -66,7 +66,7 @@
         <relationship name="userIDrelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bar_Order" inverseName="loginIDrelationship" inverseEntity="Bar_Order" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bar_Menu" positionX="342" positionY="-787" width="128" height="240"/>
+        <element name="Bar_Menu" positionX="342" positionY="-787" width="128" height="238"/>
         <element name="Bar_Order" positionX="-63" positionY="-585" width="108" height="223"/>
         <element name="Bar_OrderDetail" positionX="135" positionY="-738" width="128" height="193"/>
         <element name="Bar_Room" positionX="376" positionY="-495" width="128" height="103"/>

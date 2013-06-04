@@ -21,6 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
 @property (assign, nonatomic) unsigned int totalPriceNum;
 
+@property (weak, nonatomic) IBOutlet UILabel *orderNo;
+@property (weak, nonatomic) IBOutlet UILabel *orderTime;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *checkOrderButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmOrderButton;
 
 
 - (IBAction)backButtonTapped:(id)sender;

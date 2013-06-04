@@ -325,12 +325,31 @@
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="订单号:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lex-8h-r3u">
+                                <rect key="frame" x="20" y="641" width="191" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="订单时间:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GlQ-BI-SiK">
+                                <rect key="frame" x="210" y="641" width="305" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="34B-K1-aEC" id="Xa6-F7-r6v"/>
+                        <outlet property="checkOrderButton" destination="3a1-Gk-FeV" id="GbV-M4-lFV"/>
+                        <outlet property="confirmOrderButton" destination="YM3-o8-3hL" id="oDb-2i-EZD"/>
                         <outlet property="dishTableView" destination="EE5-LX-olU" id="PeD-X9-6HK"/>
+                        <outlet property="orderNo" destination="lex-8h-r3u" id="1oJ-kY-rl1"/>
+                        <outlet property="orderTime" destination="GlQ-BI-SiK" id="4M9-Du-hQn"/>
                         <outlet property="totalPrice" destination="d1O-he-bAc" id="crf-B5-ldq"/>
                     </connections>
                 </viewController>
@@ -361,7 +380,11 @@
                 <relationship kind="action" name="backButtonTapped:"/>
                 <relationship kind="action" name="checkOrderButtonTapped:"/>
                 <relationship kind="action" name="confirmOrderTapped:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="checkOrderButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dishTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="orderNo" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="orderTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="totalPrice" candidateClass="UILabel"/>
             </relationships>
         </class>

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BQCoreDataUtil.h"
 #import "Bar_OrderDetail.h"
+#import "Bar_Order.h"
 @interface BQItemCountAction : NSObject
 + (NSString*)itemCountPlusWithFoodID:(NSNumber*)foodID;
 + (NSString*)itemCountMinusWithFoodID:(NSNumber*)foodID;
