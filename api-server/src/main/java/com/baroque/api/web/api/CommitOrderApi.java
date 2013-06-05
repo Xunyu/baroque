@@ -3,6 +3,9 @@ package com.baroque.api.web.api;
 import com.baroque.api.dao.OrderDao;
 import com.baroque.api.web.BaseExecutor;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author elric.wang
  */
@@ -24,8 +27,11 @@ public class CommitOrderApi extends BaseExecutor {
 
         int orderId = orderDao.addOrder(tableId, customerCount);
         orderDao.addOrderItems(orderId, convertBatch(dishIds), convertBatch(dishCount), convertBatch(tastys));
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("orderId", orderId);
         code = 200;
         msg = "success";
+        body = result;
     }
 
     private int[] convertBatch(String[] strings) {

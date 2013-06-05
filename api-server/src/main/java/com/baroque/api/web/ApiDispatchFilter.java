@@ -77,6 +77,8 @@ public class ApiDispatchFilter implements Filter, ApplicationContextAware {
                     jsonColl.add(new JSONObject(o));
                 }
                 result.put("body", new JSONArray(jsonColl));
+            } else if (body instanceof Map) {
+                result.put("body", new JSONObject((Map) body));
             } else {
                 result.put("body", new JSONObject(body));
             }

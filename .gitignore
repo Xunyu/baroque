@@ -13,9 +13,10 @@
 
 *.class
 
-api-server/.settings
+**/.settings
 
-api-server/target
+**/target
+
 *.xcuserstate
 
 *.xcuserstate
