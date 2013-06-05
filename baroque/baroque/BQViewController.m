@@ -24,13 +24,10 @@
 //从NSCore获取菜单
 - (NSArray*)menuInfo
 {
-    return [BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu"];
-//    NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_Menu" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
-//    [fetch setEntity:entity];
-//    NSError *error = nil;
-//    _menuInfo = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
-//    return _menuInfo;
+    NSArray *barMenu = [BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu"];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"foodID" ascending:YES];
+    barMenu = [barMenu sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+    return barMenu;
 }
 
 //从已有菜单中提取foodType字段add到menuFoodType，之后作为索引(去重)

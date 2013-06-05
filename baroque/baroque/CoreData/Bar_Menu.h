@@ -2,7 +2,7 @@
 //  Bar_Menu.h
 //  baroque
 //
-//  Created by Sn Dev on 13-5-9.
+//  Created by Sn Dev on 13-6-4.
 //  Copyright (c) 2013年 Baroque. All rights reserved.
 //
 
@@ -25,6 +25,14 @@
 @property (nonatomic, retain) NSDecimalNumber * price;
 @property (nonatomic, retain) NSString * taste;
 @property (nonatomic, retain) NSString * tastyType;
-@property (nonatomic, retain) Bar_OrderDetail *foodIDrelationship;
+@property (nonatomic, retain) NSSet *foodIDrelationship;
+@end
+
+@interface Bar_Menu (CoreDataGeneratedAccessors)
+
+- (void)addFoodIDrelationshipObject:(Bar_OrderDetail *)value;
+- (void)removeFoodIDrelationshipObject:(Bar_OrderDetail *)value;
+- (void)addFoodIDrelationship:(NSSet *)values;
+- (void)removeFoodIDrelationship:(NSSet *)values;
 
 @end

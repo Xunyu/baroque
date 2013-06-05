@@ -48,6 +48,7 @@
 
 - (IBAction)dishCountPlusButtonPressed:(id)sender {
     self.dishMount.text = [BQItemCountAction itemCountPlusWithFoodID:[NSNumber numberWithInt:self.tag]];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshTotalPrice" object:nil];
 }
 
 - (IBAction)dishCountMinusButtonPressed:(id)sender {
@@ -59,5 +60,6 @@
             [[table dataSource]tableView:table commitEditingStyle:UITableViewCellEditingStyleDelete forRowAtIndexPath:index];
         }
     }
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshTotalPrice" object:nil];
 }
 @end

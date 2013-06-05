@@ -11,23 +11,33 @@
 @interface BQOrderViewController ()
 {
     BQPostOrderViewController *postOrderViewController;
+    int currentOrderNo;
 }
 @end
 
 @implementation BQOrderViewController
 @synthesize orderDetailArray = _orderDetailArray,dishTableView = _dishTableView;
+@synthesize totalPrice = _totalPrice,totalPriceNum = _totalPriceNum;
 
+- (unsigned int)totalPriceNum
+{
+    _totalPriceNum = 0;
+    if (self.orderDetailArray != nil){
+        for (Bar_OrderDetail *detail in self.orderDetailArray) {
+            _totalPriceNum = _totalPriceNum + [detail.count intValue] * [detail.menuIDrelationship.price intValue];
+        }
+    }
+    return _totalPriceNum;
+}
 - (NSArray*)orderDetailArray
 {
     if (_orderDetailArray == nil){
-        NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Bar_OrderDetail" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext];
-        [fetch setEntity:entity];
-        NSError *error = nil;
-        _orderDetailArray = [[[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error]mutableCopy];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"orderID = %d",currentOrderNo];
+        _orderDetailArray = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_OrderDetail" andWithPredicate:predicate]mutableCopy];
     }
     return _orderDetailArray;
 }
+
 
 #pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,43 +62,96 @@
     if (cell == nil){
         cell = [[BQOrderTableViewCell alloc]init];
     }
-    NSFetchRequest *fetch = [[NSFetchRequest alloc]init];
-    [fetch setEntity:[NSEntityDescription entityForName:@"Bar_Menu" inManagedObjectContext:[BQCoreDataUtil sharedInstance].managedObjectContext]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"foodID = %@",[((Bar_OrderDetail*)[self.orderDetailArray objectAtIndex:[indexPath row]])menuID]];
-    [fetch setPredicate:predicate];
-    NSError *error = nil;
-    NSArray *result = [[BQCoreDataUtil sharedInstance].managedObjectContext executeFetchRequest:fetch error:&error];
-    if (result!=nil && result.count > 0 ){
-        Bar_Menu *item = [result lastObject];
-        cell.dishName.text = [item foodName];
-        cell.dishUnitPrice.text = [[item price]stringValue];
-        [cell.dishImageView setImageWithURL:[NSURL URLWithString:[item picUrl]]];
-        [cell.dishImageView.layer setCornerRadius:6.0f];
-        [cell.dishImageView.layer setMasksToBounds:YES];
-        cell.tag = [[item foodID]intValue];
-    }
-    cell.dishMount.text = [[((Bar_OrderDetail*)[self.orderDetailArray objectAtIndex:[indexPath row]])count]stringValue];
+    Bar_Menu *item = [[self.orderDetailArray objectAtIndex:[indexPath row]] menuIDrelationship];
+    cell.dishName.text = [item foodName];
+    cell.dishName.text = [item foodName];
+    cell.dishUnitPrice.text = [[item price]stringValue];
+    [cell.dishImageView setImageWithURL:[NSURL URLWithString:[item picUrl]]];
+    [cell.dishImageView.layer setCornerRadius:6.0f];
+    [cell.dishImageView.layer setMasksToBounds:YES];
+    cell.dishMount.text = [[(Bar_OrderDetail*)[self.orderDetailArray objectAtIndex:[indexPath row]]count]stringValue];
+    cell.tag = [[item foodID]intValue];
     return cell;
 
 }
 - (IBAction)backButtonTapped:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    if ([self.backButton.titleLabel.text isEqualToString:@"返回"]){
+        [self.backButton setTitle:@"继续点菜" forState:UIControlStateNormal];
+        [self.confirmOrderButton setHidden:NO];
+        [self.checkOrderButton setHidden:NO];
+        [self.orderNo setHidden:YES];
+        [self.orderTime setHidden:YES];
+        currentOrderNo = 0;
+        _orderDetailArray = nil;
+        [self.dishTableView reloadData];
+        [self refreshTotalPrice];
+    }
+    else{
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)confirmOrderTapped:(id)sender {
-    postOrderViewController = [[BQPostOrderViewController alloc]init];
-    postOrderViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-    postOrderViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentModalViewController:postOrderViewController animated:YES];
-    postOrderViewController.view.superview.autoresizingMask =
-    UIViewAutoresizingFlexibleTopMargin |
-    UIViewAutoresizingFlexibleBottomMargin;
-    postOrderViewController.view.superview.frame = CGRectMake(
-                                          [UIScreen mainScreen].applicationFrame.size.height/2-150,
-                                          [UIScreen mainScreen].applicationFrame.size.width/2-150,
-                                          300.0f,
-                                          300.0f
-                                          );
+    if ([self.orderDetailArray count]>0){
+        postOrderViewController = [[BQPostOrderViewController alloc]init];
+        postOrderViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+        postOrderViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        [self presentModalViewController:postOrderViewController animated:YES];
+        postOrderViewController.view.superview.autoresizingMask =
+        UIViewAutoresizingFlexibleTopMargin |
+        UIViewAutoresizingFlexibleBottomMargin;
+        postOrderViewController.view.superview.frame = CGRectMake(
+                                                                  [UIScreen mainScreen].applicationFrame.size.height/2-150,
+                                                                  [UIScreen mainScreen].applicationFrame.size.width/2-150,
+                                                                  300.0f,
+                                                                  300.0f
+                                                                  );
+    }
 }
 
+- (IBAction)checkOrderButtonTapped:(id)sender {
+    currentOrderNo = [[UserDefault restoreFromUserDefaults:@"lastOrderId"]intValue];
+    if (currentOrderNo != 0){
+        [self.backButton setTitle:@"返回" forState:UIControlStateNormal];
+        [self.confirmOrderButton setHidden:YES];
+        [self.checkOrderButton setHidden:YES];
+        [self.orderNo setHidden:NO];
+        [self.orderTime setHidden:NO];
+        _orderDetailArray = nil;
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"orderID = %d",currentOrderNo];
+        Bar_Order *checkOrder = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_Order" andWithPredicate:predicate]lastObject];
+        [self.orderNo setText:[NSString stringWithFormat:@"订单号: %d",currentOrderNo]];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *date = [dateFormatter stringFromDate:checkOrder.addDate];
+        [self.orderTime setText:[NSString stringWithFormat:@"订单时间: %@",date]];
+        [self.dishTableView reloadData];
+        [self refreshTotalPrice];
+    }
+}
+#pragma mark - ViewController
+- (void)refreshTotalPrice
+{
+    self.totalPrice.text = [NSString stringWithFormat:@"总价 %d ￥",self.totalPriceNum];
+}
+- (void)refreshOrderDetail
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self refreshTotalPrice];
+    currentOrderNo = 0;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshTotalPrice) name:@"refreshTotalPrice" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshOrderDetail) name:@"refreshOrderDetail" object:nil];
+}
+- (void)viewDidUnload {
+    [self setTotalPrice:nil];
+    [self setOrderNo:nil];
+    [self setOrderTime:nil];
+    [self setBackButton:nil];
+    [self setCheckOrderButton:nil];
+    [self setConfirmOrderButton:nil];
+    [super viewDidUnload];
+}
 @end
