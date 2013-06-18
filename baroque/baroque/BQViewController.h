@@ -24,6 +24,7 @@
 #import "Bar_Menu.h"
 #import "BQMenuItem.h"
 #import "BQItemCountAction.h"
+#import "JWFolders.h"
 @interface BQViewController : UIViewController
     <UITableViewDelegate, UITableViewDataSource,GMGridViewDataSource, GMGridViewActionDelegate,IASKSettingsDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;

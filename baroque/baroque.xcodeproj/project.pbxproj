@@ -49,6 +49,11 @@
 		4EA473B5173CA42500FBA37D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473B4173CA42500FBA37D /* libz.dylib */; };
 		4EA473E517422A3400FBA37D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473E417422A3400FBA37D /* ImageIO.framework */; };
 		4EA473E71742315200FBA37D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA473E61742315200FBA37D /* SDWebImage.framework */; };
+		4EADF0B317704845006931A5 /* JWFolders.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EADF0AC17704845006931A5 /* JWFolders.bundle */; };
+		4EADF0B417704845006931A5 /* JWFolders.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EADF0AE17704845006931A5 /* JWFolders.m */; };
+		4EADF0B517704845006931A5 /* shadow_low_notch.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EADF0AF17704845006931A5 /* shadow_low_notch.png */; };
+		4EADF0B617704845006931A5 /* shadow_low_notch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EADF0B017704845006931A5 /* shadow_low_notch@2x.png */; };
+		4EADF0B717704845006931A5 /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EADF0B217704845006931A5 /* UIView+Screenshot.m */; };
 		4EBE7DB4174DB7E2000E609B /* BQMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBE7DB3174DB7E2000E609B /* BQMenuItem.m */; };
 		4EBE7DB6174DB825000E609B /* BQMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBE7DB5174DB825000E609B /* BQMenuItem.xib */; };
 		4EBE7DB9174DFEE9000E609B /* BQItemCountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBE7DB8174DFEE8000E609B /* BQItemCountAction.m */; };
@@ -162,6 +167,13 @@
 		4EA473B4173CA42500FBA37D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4EA473E417422A3400FBA37D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4EA473E61742315200FBA37D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		4EADF0AC17704845006931A5 /* JWFolders.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JWFolders.bundle; sourceTree = "<group>"; };
+		4EADF0AD17704845006931A5 /* JWFolders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWFolders.h; sourceTree = "<group>"; };
+		4EADF0AE17704845006931A5 /* JWFolders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWFolders.m; sourceTree = "<group>"; };
+		4EADF0AF17704845006931A5 /* shadow_low_notch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_low_notch.png; sourceTree = "<group>"; };
+		4EADF0B017704845006931A5 /* shadow_low_notch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow_low_notch@2x.png"; sourceTree = "<group>"; };
+		4EADF0B117704845006931A5 /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
+		4EADF0B217704845006931A5 /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
 		4EBE7DB2174DB7E2000E609B /* BQMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BQMenuItem.h; sourceTree = "<group>"; };
 		4EBE7DB3174DB7E2000E609B /* BQMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BQMenuItem.m; sourceTree = "<group>"; };
 		4EBE7DB5174DB825000E609B /* BQMenuItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BQMenuItem.xib; sourceTree = "<group>"; };
@@ -310,6 +322,7 @@
 		4E5D29151712590600C2AA88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4EADF0AB17704845006931A5 /* JWFolders */,
 				4EA473A8173CA37200FBA37D /* Reachability */,
 				4E5640D81727738000186FA9 /* Localizable.strings */,
 				4E5640D017276F7E00186FA9 /* InAppSettings.bundle */,
@@ -401,6 +414,20 @@
 				4EA473AA173CA37200FBA37D /* Reachability.m */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		4EADF0AB17704845006931A5 /* JWFolders */ = {
+			isa = PBXGroup;
+			children = (
+				4EADF0AC17704845006931A5 /* JWFolders.bundle */,
+				4EADF0AD17704845006931A5 /* JWFolders.h */,
+				4EADF0AE17704845006931A5 /* JWFolders.m */,
+				4EADF0AF17704845006931A5 /* shadow_low_notch.png */,
+				4EADF0B017704845006931A5 /* shadow_low_notch@2x.png */,
+				4EADF0B117704845006931A5 /* UIView+Screenshot.h */,
+				4EADF0B217704845006931A5 /* UIView+Screenshot.m */,
+			);
+			path = JWFolders;
 			sourceTree = "<group>";
 		};
 		4EBE7DBA174DFEED000E609B /* ViewContrllers */ = {
@@ -592,6 +619,9 @@
 				EC8CDA0C174E507C0023F27E /* button.png in Resources */,
 				EC8CDA0F174E526D0023F27E /* b1.png in Resources */,
 				EC8CDA10174E526D0023F27E /* b2.png in Resources */,
+				4EADF0B317704845006931A5 /* JWFolders.bundle in Resources */,
+				4EADF0B517704845006931A5 /* shadow_low_notch.png in Resources */,
+				4EADF0B617704845006931A5 /* shadow_low_notch@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +684,8 @@
 				4E77D62F175DC788005C3FCD /* Bar_Table.m in Sources */,
 				4E77D632175DC788005C3FCD /* Bar_Room.m in Sources */,
 				4E77D635175DC788005C3FCD /* Bar_User.m in Sources */,
+				4EADF0B417704845006931A5 /* JWFolders.m in Sources */,
+				4EADF0B717704845006931A5 /* UIView+Screenshot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

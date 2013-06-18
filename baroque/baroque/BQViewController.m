@@ -67,9 +67,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.dishGridView.backgroundColor = [UIColor clearColor];
-    self.dishGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontalPagedLTR];
+    self.dishGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutVertical];
     self.dishGridView.minEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
     self.dishGridView.clipsToBounds = YES;
+    self.dishGridView.dataSource = self;
 
 }
 
@@ -161,12 +162,27 @@
 }
 #pragma mark - GMGridView Delegate
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position{
-    BQDetailPageViewController *detailPage = [[BQDetailPageViewController alloc]init];
-    [detailPage setCurrentDishID:position];
-    [detailPage setMenuInfoCount:[self.categoryMenuInfo count]];
-    [detailPage setCategoryName:selectedCategoryName];
-    [detailPage setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    [self presentModalViewController:detailPage animated:YES];
+    [gridView scrollToObjectAtIndex:position atScrollPosition:GMGridViewScrollPositionMiddle animated:NO];
+//    GMGridViewCell *cell = [gridView cellForItemAtIndex:position];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1024, 300)];
+    [view setBackgroundColor:[UIColor blackColor]];
+    JWFolders *folder = [JWFolders folder];
+    folder.contentView = view;
+    folder.containerView = self.view;
+    
+    folder.position = CGPointMake(318, 235);
+    folder.direction = JWFoldersOpenDirectionDown;
+    folder.contentBackgroundColor = [UIColor whiteColor];
+    folder.shadowsEnabled = YES;
+    folder.darkensBackground = YES;
+    folder.showsNotch = YES;
+    [folder open];
+//    BQDetailPageViewController *detailPage = [[BQDetailPageViewController alloc]init];
+//    [detailPage setCurrentDishID:position];
+//    [detailPage setMenuInfoCount:[self.categoryMenuInfo count]];
+//    [detailPage setCategoryName:selectedCategoryName];
+//    [detailPage setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    [self presentModalViewController:detailPage animated:YES];
 }
 #pragma mark - ViewControllers Actions
 - (IBAction)settingButtonTapped:(id)sender {
