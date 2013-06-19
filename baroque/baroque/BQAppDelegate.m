@@ -8,10 +8,24 @@
 
 #import "BQAppDelegate.h"
 #import <CoreData/CoreData.h>
+#import "BQViewController.h"
 @implementation BQAppDelegate
+@synthesize window = _window,stackController = _stackController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor blackColor]; // really should be default
+
+    BQViewController *vc = [[BQViewController alloc]init];
+    self.stackController = [[PSStackedViewController alloc]initWithRootViewController:vc];
+    self.stackController.leftInset = self.stackController.largeLeftInset = 192;
+    [self.stackController setEnableShadows:NO];
+    [self.stackController setEnableBounces:NO];
+    [self.stackController setEnableDraggingPastInsets:NO];
+    [self.stackController setReduceAnimations:YES];
+    self.window.rootViewController = self.stackController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

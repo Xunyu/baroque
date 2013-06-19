@@ -16,7 +16,6 @@
 
 @implementation BQViewController
 @synthesize categoryTableView = _categoryTableView;
-@synthesize dishGridView = _dishGridView;
 @synthesize appSettingsViewController;
 @synthesize menuInfo = _menuInfo,menuFoodType = _menuFoodType,categoryMenuInfo = _categoryMenuInfo;
 
@@ -48,7 +47,7 @@
 - (void)reloadData
 {
     [self.categoryTableView reloadData];
-    [self.dishGridView reloadData];
+//    [self.dishGridView reloadData];
     if ([self.menuFoodType count]>0){
         [self tableView:self.categoryTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
@@ -66,11 +65,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.dishGridView.backgroundColor = [UIColor clearColor];
-    self.dishGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutVertical];
-    self.dishGridView.minEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-    self.dishGridView.clipsToBounds = YES;
-    self.dishGridView.dataSource = self;
+
 
 }
 
@@ -81,7 +76,6 @@
 }
 
 - (void)viewDidUnload {
-    [self setDishGridView:nil];
     [self setCategoryTableView:nil];
     [super viewDidUnload];
 }
@@ -92,8 +86,17 @@
         selectedCategoryName = [self.menuFoodType objectAtIndex:[indexPath row]];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"foodType = %@",selectedCategoryName];
         self.categoryMenuInfo = [BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu" andWithPredicate:predicate];
+        PSStackedViewController *stackController = XAppDelegate.stackController;
+
+        BQMenuGridViewController *menuGridVC = [[BQMenuGridViewController alloc]init];
+        [menuGridVC setCategoryMenuInfo:self.categoryMenuInfo];
+        [menuGridVC setSelectedCategoryName:selectedCategoryName];
+        [[self stackController] pushViewController:menuGridVC fromViewController:self animated:YES];
+        [stackController popToRootViewControllerAnimated:YES];
+        [stackController pushViewController:menuGridVC animated:YES];
     }
-    [self.dishGridView reloadData];
+//    [self.dishGridView reloadData];
+//    [self.dishGridView scrollToObjectAtIndex:0 atScrollPosition:GMGridViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - UITableView Datasource
@@ -118,90 +121,26 @@
     return cell;
 }
 
-#pragma mark - GMGridView DataSource
-- (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
-{
-    return [self.categoryMenuInfo count];
-}
-- (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
-{
-    return CGSizeMake(260 , 205);
-}
-- (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
-{
-    CGSize size = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
-    
-    GMGridViewCell *cell = [gridView dequeueReusableCell];
-    
-    if (!cell)
-    {
-        cell = [[GMGridViewCell alloc] init];
-        
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-        view.backgroundColor = [UIColor lightGrayColor];
-        [view.layer setMasksToBounds:YES];
-        view.layer.cornerRadius = 8;
-        view.layer.shadowColor = [UIColor blackColor].CGColor;
-        view.layer.shadowOffset = CGSizeMake(5, 5);
-        view.layer.shadowPath = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;
-        view.layer.shadowRadius = 8;
-        
-        cell.contentView = view;
-    }
-    [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    BQMenuItem *itemView = [[BQMenuItem alloc]init];
-    [itemView setFoodID:[[self.categoryMenuInfo objectAtIndex:index]foodID]];
-    [[itemView itemCount]setText:[BQItemCountAction getItemCountWithFoodID:[[self.categoryMenuInfo objectAtIndex:index]foodID]]];
-    [[itemView itemPrice]setText:[NSString stringWithFormat:@"%@￥/份",[[self.categoryMenuInfo objectAtIndex:index] price]]];
-    NSString *imageURL = [[self.categoryMenuInfo objectAtIndex:index] picUrl];
-    [[itemView itemImageView]setImageWithURL:[NSURL URLWithString:imageURL]];
-    [[itemView itemName]setText:[[self.categoryMenuInfo objectAtIndex:index]foodName]];
-    [cell.contentView addSubview:itemView];
-    
-    return cell;
-}
-#pragma mark - GMGridView Delegate
-- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position{
-    [gridView scrollToObjectAtIndex:position atScrollPosition:GMGridViewScrollPositionMiddle animated:NO];
-//    GMGridViewCell *cell = [gridView cellForItemAtIndex:position];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1024, 300)];
-    [view setBackgroundColor:[UIColor blackColor]];
-    JWFolders *folder = [JWFolders folder];
-    folder.contentView = view;
-    folder.containerView = self.view;
-    
-    folder.position = CGPointMake(318, 235);
-    folder.direction = JWFoldersOpenDirectionDown;
-    folder.contentBackgroundColor = [UIColor whiteColor];
-    folder.shadowsEnabled = YES;
-    folder.darkensBackground = YES;
-    folder.showsNotch = YES;
-    [folder open];
-//    BQDetailPageViewController *detailPage = [[BQDetailPageViewController alloc]init];
-//    [detailPage setCurrentDishID:position];
-//    [detailPage setMenuInfoCount:[self.categoryMenuInfo count]];
-//    [detailPage setCategoryName:selectedCategoryName];
-//    [detailPage setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-//    [self presentModalViewController:detailPage animated:YES];
-}
 #pragma mark - ViewControllers Actions
 - (IBAction)settingButtonTapped:(id)sender {
     self.appSettingsViewController.showCreditsFooter = FALSE;
-    self.appSettingsViewController.showDoneButton = YES;
+//    self.appSettingsViewController.showDoneButton = YES;
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self.appSettingsViewController];
     [nav setModalPresentationStyle:UIModalPresentationFormSheet];
     [nav setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     nav.navigationBar.barStyle = UIBarStyleBlack;
-    [self presentModalViewController:nav animated:YES];
-    nav.view.superview.autoresizingMask =
-    UIViewAutoresizingFlexibleTopMargin |
-    UIViewAutoresizingFlexibleBottomMargin;
-    nav.view.superview.frame = CGRectMake(
-                                          [UIScreen mainScreen].applicationFrame.size.height/2-150,
-                                          [UIScreen mainScreen].applicationFrame.size.width/2-200,
-                                          300.0f,
-                                          400.0f
-                                          );
+    [XAppDelegate.stackController popToRootViewControllerAnimated:NO];
+    [XAppDelegate.stackController pushViewController:nav animated:YES];
+//    [self presentModalViewController:nav animated:YES];
+//    nav.view.superview.autoresizingMask =
+//    UIViewAutoresizingFlexibleTopMargin |
+//    UIViewAutoresizingFlexibleBottomMargin;
+//    nav.view.superview.frame = CGRectMake(
+//                                          [UIScreen mainScreen].applicationFrame.size.height/2-150,
+//                                          [UIScreen mainScreen].applicationFrame.size.width/2-200,
+//                                          300.0f,
+//                                          400.0f
+//                                          );
 }
 #pragma makr - InAppSettingKit Delegate
 - (IASKAppSettingsViewController*)appSettingsViewController

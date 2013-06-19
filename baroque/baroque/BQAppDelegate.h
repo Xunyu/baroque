@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSStackedView.h"
+#define XAppDelegate ((BQAppDelegate *)[[UIApplication sharedApplication] delegate])
 
 @interface BQAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) PSStackedViewController *stackController;
 
 @end
