@@ -9,13 +9,21 @@
 #import "BQItemCountAction.h"
 
 @implementation BQItemCountAction
+
++(bool)arrayIsNotEmpty:(NSArray *)array
+{
+    if (array != nil && array.count > 0)
+        return false;
+    else return true;
+}
+
 + (NSString*)itemCountPlusWithFoodID:(NSNumber*)foodID
 {
     Bar_OrderDetail *orderDetail;
     NSManagedObjectContext *context = [BQCoreDataUtil sharedInstance].managedObjectContext;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"menuID = %@ && orderID = 0",foodID];
     NSArray *result = [BQCoreDataUtil fetchDataWithEntity:@"Bar_OrderDetail" andWithPredicate:predicate];
-    if (result != nil && result.count > 0){
+    if ([self arrayIsNotEmpty:result]){
         orderDetail = [result lastObject];
         orderDetail.count = [NSNumber numberWithInt:[orderDetail.count intValue]+1];
     }
@@ -51,7 +59,7 @@
     [fetchRequest setPredicate:predicate];
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
-    if (result != nil && result.count > 0 ){
+    if ([self arrayIsNotEmpty:result]){
         orderDetail = [result lastObject];
         int count = [orderDetail.count intValue];
         if (count == 1){
@@ -78,7 +86,7 @@
     [fetchRequest setPredicate:predicate];
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
-    if (result != nil && result.count>0){
+    if ([self arrayIsNotEmpty:result]){
         orderDetail = [result lastObject];
         return [orderDetail.count stringValue];
     }
