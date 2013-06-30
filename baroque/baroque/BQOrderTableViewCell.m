@@ -13,13 +13,14 @@
 {
     UIPopoverController *popover;
 }
-
+@synthesize array=_array;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+       
     }
+
     return self;
 }
 
@@ -33,17 +34,13 @@
 
 - (IBAction)popOverButtonTouched:(id)sender {
     NSLog(@"sender: %@, tag = %d", sender, [sender tag]);
-    UIViewController *vc;
-    switch ([sender tag]) {
-        case 1:  //cookWayViewController
-            vc =[[BQOrderCookWayViewController alloc]initWithStyle:UITableViewStylePlain];
-            break;
-        case 2:  //tasteViewController
-            vc =[[BQOrderTasteViewController alloc]initWithStyle:UITableViewStylePlain];
-            break;
-        default:
-            break;
+    if (!self.array)
+    {
+        self.array = [[NSArray alloc] initWithObjects:
+                      [[BQOrderCookWayViewController alloc]initWithStyle:UITableViewStylePlain],
+                      [[BQOrderTasteViewController alloc]initWithStyle:UITableViewStylePlain],nil];
     }
+    UIViewController *vc = [self.array objectAtIndex:[sender tag]];
     popover = [[UIPopoverController alloc]initWithContentViewController:vc];
     popover.popoverContentSize = CGSizeMake(200, 300);
     [popover presentPopoverFromRect:[sender frame] inView:self.contentView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
