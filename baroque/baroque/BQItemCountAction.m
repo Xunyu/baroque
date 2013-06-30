@@ -12,9 +12,27 @@
 
 +(bool)arrayIsNotEmpty:(NSArray *)array
 {
-    if (array != nil && array.count > 0)
-        return false;
-    else return true;
+    return (array != nil && array.count > 0);
+}
+
++ (Bar_OrderDetail *)createOrderDetail:(NSManagedObjectContext *)context foodID:(NSNumber *)foodID
+{
+    NSPredicate *predicate;
+    Bar_OrderDetail *orderDetail;
+    orderDetail = [NSEntityDescription insertNewObjectForEntityForName:@"Bar_OrderDetail" inManagedObjectContext:context];
+    orderDetail.menuID = foodID;
+    orderDetail.addDate = [NSDate date];
+    orderDetail.count = [NSNumber numberWithInt:1];
+    predicate = [NSPredicate predicateWithFormat:@"foodID = %@",foodID];
+    orderDetail.menuIDrelationship = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu" andWithPredicate:predicate] lastObject];
+    predicate = [NSPredicate predicateWithFormat:@"orderID = 0"];
+    Bar_Order *orderResult = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_Order" andWithPredicate:predicate]lastObject];
+    if (!orderResult ){
+        orderResult = [NSEntityDescription insertNewObjectForEntityForName:@"Bar_Order" inManagedObjectContext:context];
+        orderResult.orderID = [NSNumber numberWithInt:0];        
+    }
+    orderDetail.orderIDrelationship = orderResult;
+    return orderDetail;
 }
 
 + (NSString*)itemCountPlusWithFoodID:(NSNumber*)foodID
@@ -23,27 +41,12 @@
     NSManagedObjectContext *context = [BQCoreDataUtil sharedInstance].managedObjectContext;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"menuID = %@ && orderID = 0",foodID];
     NSArray *result = [BQCoreDataUtil fetchDataWithEntity:@"Bar_OrderDetail" andWithPredicate:predicate];
-    if ([self arrayIsNotEmpty:result]){
-        orderDetail = [result lastObject];
+    orderDetail = [result lastObject];
+    if (orderDetail){
         orderDetail.count = [NSNumber numberWithInt:[orderDetail.count intValue]+1];
     }
     else{
-        orderDetail = [NSEntityDescription insertNewObjectForEntityForName:@"Bar_OrderDetail" inManagedObjectContext:context];
-        orderDetail.menuID = foodID;
-        orderDetail.addDate = [NSDate date];
-        orderDetail.count = [NSNumber numberWithInt:1];
-        predicate = [NSPredicate predicateWithFormat:@"foodID = %@",foodID];
-        orderDetail.menuIDrelationship = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_Menu" andWithPredicate:predicate] lastObject];
-        predicate = [NSPredicate predicateWithFormat:@"orderID = 0"];
-        Bar_Order *orderResult = [[BQCoreDataUtil fetchDataWithEntity:@"Bar_Order" andWithPredicate:predicate]lastObject];
-        if (orderResult != nil){
-            orderDetail.orderIDrelationship = orderResult;
-        }
-        else{
-            orderResult = [NSEntityDescription insertNewObjectForEntityForName:@"Bar_Order" inManagedObjectContext:context];
-            orderResult.orderID = [NSNumber numberWithInt:0];
-            orderDetail.orderIDrelationship = orderResult;
-        }
+        orderDetail = [self createOrderDetail:context foodID:foodID];
     }
     NSError *error = nil;
     [context save:&error];
@@ -59,22 +62,18 @@
     [fetchRequest setPredicate:predicate];
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
-    if ([self arrayIsNotEmpty:result]){
-        orderDetail = [result lastObject];
-        int count = [orderDetail.count intValue];
-        if (count == 1){
+    NSString *returnValue =@"0";
+    orderDetail = [result lastObject];
+    if (orderDetail){        
+        orderDetail.count = [NSNumber numberWithInt:[orderDetail.count intValue]-1];
+        if ([orderDetail.count intValue]==0)
+        {
             [context deleteObject:orderDetail];
-            [context save:&error];
-            return @"0";
         }
-        else{
-            orderDetail.count = [NSNumber numberWithInt:[orderDetail.count intValue]-1];
-            [context save:&error];
-            return [orderDetail.count stringValue];
-        }
+        returnValue= [orderDetail.count stringValue];        
     }
     [context save:&error];
-    return @"0";
+    return returnValue;
 }
 + (NSString*)getItemCountWithFoodID:(NSNumber*)foodID
 {
@@ -86,8 +85,8 @@
     [fetchRequest setPredicate:predicate];
     NSError *error = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
-    if ([self arrayIsNotEmpty:result]){
-        orderDetail = [result lastObject];
+    orderDetail = [result lastObject];
+    if (orderDetail){
         return [orderDetail.count stringValue];
     }
     else{
