@@ -27,13 +27,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *dishTaste;
 @property (weak, nonatomic) IBOutlet UIButton *dishCookWayButton;
 @property (weak, nonatomic) IBOutlet UIButton *dishTasteButton;
+@property (strong,nonatomic) NSArray *vcArray;
 
-- (IBAction)dishTasteEditButtonTouched:(id)sender;
-- (IBAction)dishCookWayEditButtonTouched:(id)sender;
 - (IBAction)backButtonTouched:(id)sender;
 - (IBAction)dishMountPlus:(id)sender;
 - (IBAction)dishMountMinus:(id)sender;
-
+- (IBAction)popOverButtonTouched:(id)sender;
 
 + (BQDetailViewController *)detailViewControllerForPageIndex:(NSUInteger)pageIndex withPageCount:(NSUInteger)pageCount withCategoryName:(NSString*)categoryName;
 - (NSInteger)pageIndex;

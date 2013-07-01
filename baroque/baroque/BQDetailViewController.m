@@ -17,7 +17,7 @@
 @end
 
 @implementation BQDetailViewController
-@synthesize dishName = _dishName,menuInfo = _menuInfo,categoryName = _categoryName;
+@synthesize dishName = _dishName,menuInfo = _menuInfo,categoryName = _categoryName,vcArray = _vcArray;
 - (NSArray*)menuInfo
 {
     if (_menuInfo == nil){
@@ -91,19 +91,18 @@
     [self setDishTasteButton:nil];
     [super viewDidUnload];
 }
-- (IBAction)dishTasteEditButtonTouched:(id)sender {
-    BQOrderTasteViewController *vc = [[BQOrderTasteViewController alloc]initWithStyle:UITableViewStylePlain];
-    [vc setTasteInfo:tasteInfo];
+- (IBAction)popOverButtonTouched:(id)sender {
+    NSLog(@"sender: %@, tag = %d", sender, [sender tag]);
+    if (!self.vcArray)
+    {
+        self.vcArray = [[NSArray alloc] initWithObjects:
+                      [[BQOrderCookWayViewController alloc]initWithStyle:UITableViewStylePlain],
+                      [[BQOrderTasteViewController alloc]initWithStyle:UITableViewStylePlain],nil];
+    }
+    UIViewController *vc = [self.vcArray objectAtIndex:[sender tag]];
     popover = [[UIPopoverController alloc]initWithContentViewController:vc];
     popover.popoverContentSize = CGSizeMake(200, 300);
-    [popover presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
-}
-
-- (IBAction)dishCookWayEditButtonTouched:(id)sender {
-    BQOrderCookWayViewController *vc = [[BQOrderCookWayViewController alloc]initWithStyle:UITableViewStylePlain];
-    popover = [[UIPopoverController alloc]initWithContentViewController:vc];
-    popover.popoverContentSize = CGSizeMake(200, 300);
-    [popover presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    [popover presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
 }
 
 - (IBAction)backButtonTouched:(id)sender {
