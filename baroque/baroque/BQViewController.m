@@ -58,6 +58,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadData) name:@"syncMenuInfoFinished" object:nil];
     [self reloadData];
 
@@ -65,7 +67,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(settingButtonTapped:)];
+    [swipeGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+    [swipeGestureRecognizer setNumberOfTouchesRequired:2];
+    [self.view addGestureRecognizer:swipeGestureRecognizer];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
     self.dishGridView.backgroundColor = [UIColor clearColor];
     self.dishGridView.layoutStrategy = [GMGridViewLayoutStrategyFactory strategyFromType:GMGridViewLayoutHorizontalPagedLTR];
     self.dishGridView.minEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -109,10 +117,10 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     cell.textLabel.text = [self.menuFoodType objectAtIndex:[indexPath row]];
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:40.0f ];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:30.0f ];
     cell.textLabel.textAlignment = UITextAlignmentCenter;
     return cell;
 }
