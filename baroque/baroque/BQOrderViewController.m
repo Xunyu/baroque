@@ -145,6 +145,10 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshTotalPrice) name:@"refreshTotalPrice" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshOrderDetail) name:@"refreshOrderDetail" object:nil];
 }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
+}
 - (void)viewDidUnload {
     [self setTotalPrice:nil];
     [self setOrderNo:nil];
