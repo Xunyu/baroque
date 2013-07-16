@@ -154,6 +154,7 @@
         view.layer.shadowRadius = 8;
         
         cell.contentView = view;
+
     }
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     BQMenuItem *itemView = [[BQMenuItem alloc]init];
@@ -164,6 +165,8 @@
     [[itemView itemImageView]setImageWithURL:[NSURL URLWithString:imageURL]];
     [[itemView itemName]setText:[[self.categoryMenuInfo objectAtIndex:index]foodName]];
     [cell.contentView addSubview:itemView];
+    UIImageView *maskImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"item_pre.png"]];
+    [cell.contentView addSubview:maskImageView];
     
     return cell;
 }
