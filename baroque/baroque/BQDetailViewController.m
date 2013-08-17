@@ -91,6 +91,18 @@
     [self setDishTasteButton:nil];
     [super viewDidUnload];
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+- (BOOL)shouldAutorotate{
+    return YES;
+}
 - (IBAction)popOverButtonTouched:(id)sender {
     NSLog(@"sender: %@, tag = %d", sender, [sender tag]);
     if (!self.vcArray)

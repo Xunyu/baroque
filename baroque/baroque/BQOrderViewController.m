@@ -158,4 +158,16 @@
     [self setConfirmOrderButton:nil];
     [super viewDidUnload];
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+- (BOOL)shouldAutorotate{
+    return YES;
+}
 @end

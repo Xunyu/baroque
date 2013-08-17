@@ -25,6 +25,9 @@
         self.dataSource = self;
         [self setViewControllers:@[pageCurrent] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
     }
+    for (UITapGestureRecognizer *gesture in self.view.gestureRecognizers) {
+        [gesture setCancelsTouchesInView:NO];
+    }
 }
 - (void)viewDidLoad
 {
@@ -50,5 +53,16 @@
 }
 - (void)viewDidUnload {
     [super viewDidUnload];
+}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+- (BOOL)shouldAutorotate{
+    return YES;
 }
 @end
